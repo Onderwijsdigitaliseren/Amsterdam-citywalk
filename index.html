@@ -755,32 +755,108 @@ const SPOT=[
  {id:'stolper',nl:[`Een Stolperstein`,`Een messing steentje in de stoep, voor de deur van iemand die in de oorlog is weggevoerd en vermoord. Naam, geboortejaar, plaats van overlijden. Je moet bukken om het te lezen. Dat is de bedoeling.`],en:[`A Stolperstein`,`A small brass plate in the pavement, at the door of someone deported and murdered in the war. Name, year of birth, place of death. You have to bow to read it. That is the idea.`]}
 ];
 </script>
+<script>/* Losse weetjes: geen foto, geen verhaal, gewoon iets om te weten. Blauwe i-rondjes op de kaart. */
+const WEETJES=[
+{id:'trompet',lat:52.3735,lng:4.8969,
+ nl:{n:`De smalste straat`,t:`De Trompettersteeg is ongeveer een meter breed. Tegemoetkomers passen er net langs, als iedereen zijn buik inhoudt. De ramen in de steeg zijn dicht; nu hangt er geregeld street art.`},
+ en:{n:`The narrowest street`,t:`Trompettersteeg is about a metre wide. People coming the other way just fit, if everyone breathes in. The windows in the alley have closed; these days there is often street art.`}},
+{id:'beurs',lat:52.3746,lng:4.8963,
+ nl:{n:`Beidt uw tijd`,t:`Op de klokken van de toren van de Beurs van Berlage staat 'Beidt uw tijd' en 'Duur uw uur'. Berlage was socialist en dacht dat de handel in aandelen niet lang zou duren. Hij zag zijn beurs al als volkspaleis.`},
+ en:{n:`Bide your time`,t:`The clocks on the tower of the Beurs van Berlage read 'Beidt uw tijd' (bide your time) and 'Duur uw uur' (last your hour). Berlage was a socialist who expected share trading not to last. He already pictured his exchange as a people's palace.`}},
+{id:'mandje',lat:52.3745,lng:4.9006,
+ nl:{n:`Stropdassen aan het plafond`,t:`Café 't Mandje op de Zeedijk was vanaf 1927 van Bet van Beeren: openlijk lesbisch, motorrijder, en niet bang. Had een gast een grote mond, dan knipte ze zijn stropdas af en hing die aan het plafond. Er hingen er honderden.`},
+ en:{n:`Ties on the ceiling`,t:`From 1927 Café 't Mandje on the Zeedijk belonged to Bet van Beeren: openly lesbian, a motorcyclist, and fearless. If a customer got mouthy, she cut off his tie and hung it from the ceiling. Hundreds hung there.`}},
+{id:'hooy',lat:52.3722,lng:4.8996,
+ nl:{n:`Kruiden sinds 1743`,t:`Jacob Hooy begon in 1743 met een kruidenkraam op de Nieuwmarkt. De winkel aan de Kloveniersburgwal heeft nog zijn achttiende-eeuwse interieur, met rijen laatjes en houten tonnen vol drop.`},
+ en:{n:`Herbs since 1743`,t:`Jacob Hooy started out in 1743 with a herb stall on the Nieuwmarkt. The shop on Kloveniersburgwal still has its eighteenth-century interior, with rows of little drawers and wooden barrels of liquorice.`}},
+{id:'bartolotti',lat:52.3741,lng:4.8870,
+ nl:{n:`Een nieuwe naam voor een erfenis`,t:`Herengracht 170 werd gebouwd voor Willem van den Heuvel. Hij erfde een fortuin van een Italiaanse oom en noemde zichzelf voortaan Guillelmo Bartolotti. Kijk naar de gevel: die buigt mee met de bocht van de gracht.`},
+ en:{n:`A new name for an inheritance`,t:`Herengracht 170 was built for Willem van den Heuvel. He inherited a fortune from an Italian uncle and from then on called himself Guillelmo Bartolotti. Look at the front: it curves along with the bend of the canal.`}},
+{id:'montel',lat:52.3721,lng:4.9057,
+ nl:{n:`Een kasteel dat er nooit kwam`,t:`De Montelbaanstoren was in 1516 een verdedigingstoren. De Spaanse hertog van Alva wilde er een kasteel omheen bouwen, Monte Albano. Dat kasteel kwam er nooit, de naam bleef: verbasterd tot Montelbaan.`},
+ en:{n:`A castle that never came`,t:`The Montelbaanstoren was built in 1516 as a defence tower. The Spanish Duke of Alba wanted to build a castle round it, Monte Albano. The castle never happened; the name stuck, garbled into Montelbaan.`}},
+{id:'schreier',lat:52.3767,lng:4.9024,
+ nl:{n:`De huilende vrouwen`,t:`Volgens de legende namen vrouwen bij de Schreierstoren huilend afscheid van hun zeemannen. Waarschijnlijker komt de naam van 'schreye', een scherpe hoek in de stadsmuur. Een gedenksteen meldt dat Henry Hudson hier in 1609 vertrok, op de reis die hem naar Manhattan bracht.`},
+ en:{n:`The weeping women`,t:`Legend says women wept farewell to their sailors at the Schreierstoren. More likely the name comes from 'schreye', a sharp corner in the city wall. A plaque records that Henry Hudson left from here in 1609, on the voyage that took him to Manhattan.`}},
+{id:'waag',lat:52.3727,lng:4.9003,
+ nl:{n:`Snijden onder het dak`,t:`De Waag op de Nieuwmarkt was eerst een stadspoort, daarna de plek waar goederen werden gewogen. Boven zat het chirurgijnsgilde, met een snijzaal: lichamen van geëxecuteerde misdadigers werden er in het openbaar ontleed, voor publiek dat entree betaalde.`},
+ en:{n:`Dissection upstairs`,t:`The Waag on Nieuwmarkt began as a city gate, then became the place where goods were weighed. Upstairs was the surgeons' guild, with a dissection theatre: bodies of executed criminals were dissected in public, for an audience that paid to watch.`}},
+{id:'kalver',lat:52.3710,lng:4.8917,
+ nl:{n:`Kalveren in de Kalverstraat`,t:`De drukste winkelstraat van het land dankt zijn naam aan de veemarkt die hier vroeger werd gehouden. Waar nu de sneakers liggen, stonden toen de kalveren.`},
+ en:{n:`Calves on Kalverstraat`,t:`The country's busiest shopping street is named after the cattle market once held here. Where the trainers are on display now, the calves once stood.`}},
+{id:'dansend',lat:52.3755,lng:4.8968,
+ nl:{n:`De dansende huizen`,t:`Kijk vanaf het Damrak naar de huizen aan het water. Ze hangen voorover, opzij en tegen elkaar aan, omdat hun houten palen in de slappe grond zijn gaan zakken. Amsterdammers noemen ze de dansende huizen.`},
+ en:{n:`The dancing houses`,t:`From Damrak, look at the houses along the water. They lean forward, sideways and against each other because their wooden piles have sunk into the soft ground. Locals call them the dancing houses.`}},
+{id:'hendricken',lat:52.3749,lng:4.8817,
+ nl:{n:`Drie Hendricken`,t:`Op de Bloemgracht staan drie huizen met elk een gevelsteen: een stedeling, een boer en een zeeman. Ze heten de Drie Hendricken. De Bloemgracht werd vanwege de mooie gevels ook wel de Herengracht van de Jordaan genoemd.`},
+ en:{n:`The Three Hendricks`,t:`On Bloemgracht three houses each carry a gable stone: a townsman, a farmer and a sailor. They are known as the Three Hendricks. For its fine fronts, Bloemgracht was nicknamed the Herengracht of the Jordaan.`}},
+{id:'solder',lat:52.3752,lng:4.8994,
+ nl:{n:`Een kerk op zolder`,t:`Achter de gevel van Oudezijds Voorburgwal 38–40 zit op de zolder een complete katholieke kerk, uit de tijd dat katholieken hun geloof niet openlijk mochten belijden. Met orgel, galerijen en een preekstoel die je kunt wegklappen. Nu is het museum Ons' Lieve Heer op Solder.`},
+ en:{n:`A church in the attic`,t:`Behind the front of Oudezijds Voorburgwal 38–40, the attic holds a complete Catholic church, from the time when Catholics could not worship openly. With an organ, galleries and a pulpit that folds away. It is now the museum Our Lord in the Attic.`}},
+{id:'munt',lat:52.3673,lng:4.8930,
+ nl:{n:`Geld uit een toren`,t:`De Munttoren was eerst een stadspoort. In het rampjaar 1672, toen het land in oorlog was, werd hier tijdelijk geld geslagen. Vandaar de naam.`},
+ en:{n:`Money from a tower`,t:`The Munttoren began as a city gate. In the disaster year 1672, with the country at war, coins were minted here for a while. Hence the name: mint tower.`}},
+{id:'blauw',lat:52.3670,lng:4.9005,
+ nl:{n:`Een blauwe brug die niet blauw is`,t:`De Blauwbrug over de Amstel is van steen en niet blauw. Hij dankt zijn naam aan de houten brug die hier eerder lag, en die wel blauw geverfd was.`},
+ en:{n:`A blue bridge that isn't blue`,t:`The Blauwbrug over the Amstel is made of stone and is not blue. It is named after the wooden bridge that stood here earlier, which was painted blue.`}},
+{id:'snoge',lat:52.3675,lng:4.9055,
+ nl:{n:`Kaarsen en zand`,t:`De Portugese Synagoge uit 1675 heeft nooit elektrisch licht gekregen. Bij diensten branden honderden kaarsen. Op de houten vloer ligt zand, dat vocht en vuil opneemt en het geluid van voetstappen dempt.`},
+ en:{n:`Candles and sand`,t:`The Portuguese Synagogue of 1675 never got electric light. Services are lit by hundreds of candles. Sand covers the wooden floor, soaking up damp and dirt and muffling footsteps.`}},
+{id:'rembrandt',lat:52.3694,lng:4.9013,
+ nl:{n:`Rembrandt kon de hypotheek niet betalen`,t:`Rembrandt kocht dit huis aan de Jodenbreestraat in 1639, op afbetaling. Hij betaalde het nooit af. Hij ging failliet en zijn huis en spullen werden geveild. Dankzij de lijst van de veiling weten we precies wat er in welke kamer stond.`},
+ en:{n:`Rembrandt couldn't pay the mortgage`,t:`Rembrandt bought this house on Jodenbreestraat in 1639, on credit. He never paid it off. He went bankrupt and his house and belongings were auctioned. Thanks to the auction list we know exactly what stood in which room.`}},
+{id:'kroning',lat:52.3742,lng:4.8913,
+ nl:{n:`Een koning zonder kroon op`,t:`In de Nieuwe Kerk worden Nederlandse koningen ingehuldigd, niet gekroond. De kroon ligt naast de koning op een kussen en gaat nooit op zijn hoofd.`},
+ en:{n:`A king who never wears the crown`,t:`Dutch monarchs are inaugurated in the Nieuwe Kerk, not crowned. The crown lies beside the king on a cushion and never goes on his head.`}},
+{id:'monument',lat:52.3728,lng:4.8936,
+ nl:{n:`Aarde uit het hele land`,t:`In de muur achter het Nationaal Monument op de Dam zitten urnen met aarde uit alle provincies en uit het voormalige Nederlands-Indië. Op 4 mei is dit de plek van de Nationale Herdenking.`},
+ en:{n:`Soil from the whole country`,t:`The wall behind the National Monument on Dam Square holds urns with soil from every province and from the former Dutch East Indies. On 4 May this is where the national remembrance takes place.`}},
+{id:'kolommen',lat:52.3650,lng:4.8939,
+ nl:{n:`Waar de burgemeester woont`,t:`Herengracht 502, het Huis met de Kolommen, is de ambtswoning van de burgemeester van Amsterdam. Wie hier woont, heeft een van de mooiste adressen van de stad, voor zolang het ambt duurt.`},
+ en:{n:`Where the mayor lives`,t:`Herengracht 502, the House with the Columns, is the official residence of the mayor of Amsterdam. Whoever lives here has one of the finest addresses in town, for as long as the job lasts.`}},
+{id:'spiegel',lat:52.3628,lng:4.8868,
+ nl:{n:`Antiek met uitzicht`,t:`De Spiegelstraat en Spiegelgracht zitten vol antiekwinkels en galeries. Loop richting het zuiden: de straat kijkt recht op het Rijksmuseum uit, als een etalage voor de echte schatkamer.`},
+ en:{n:`Antiques with a view`,t:`Spiegelstraat and Spiegelgracht are full of antique shops and galleries. Walk south: the street looks straight at the Rijksmuseum, like a shop window for the real treasure house.`}},
+{id:'tempel',lat:52.3737,lng:4.9005,
+ nl:{n:`Een tempel op de Zeedijk`,t:`Midden op de Zeedijk staat een boeddhistische tempel in de stijl van een Chinees paleis, geopend in 2000. Je mag naar binnen. Op een paar meter van de rosse buurt is het er opvallend stil.`},
+ en:{n:`A temple on the Zeedijk`,t:`In the middle of the Zeedijk stands a Buddhist temple in the style of a Chinese palace, opened in 2000. Visitors may go in. A few metres from the red-light district, it is remarkably quiet.`}},
+{id:'metro',lat:52.3725,lng:4.9010,
+ nl:{n:`Gevochten om een metro`,t:`Voor de aanleg van de metro werden rond de Nieuwmarkt hele huizenblokken gesloopt. In 1975 kwam het tot zware rellen tussen bewoners en de ME. In het metrostation herinneren kunstwerken aan die strijd. De bewoners verloren de metro, maar wonnen de buurt: er kwam geen snelweg.`},
+ en:{n:`A fight over a metro`,t:`To build the metro, whole blocks round Nieuwmarkt were torn down. In 1975 it came to heavy riots between residents and riot police. Artworks in the metro station recall the struggle. Residents lost the metro fight but won the neighbourhood: the planned motorway never came.`}},
+{id:'dam',lat:52.3730,lng:4.8925,
+ nl:{n:`Een dam in de Amstel`,t:`Rond 1270 legden bewoners hier een dam in de Amstel, tegen het water van het IJ. De nederzetting heette Amstelredam. Je staat dus letterlijk op het ding waar de stad naar heet.`},
+ en:{n:`A dam in the Amstel`,t:`Around 1270 locals built a dam across the Amstel here, to keep out the water of the IJ. The settlement was called Amstelredam. So you are standing on the very thing the city is named after.`}},
+{id:'hoppe',lat:52.3688,lng:4.8898,
+ nl:{n:`Een van de oudste cafés`,t:`Café Hoppe op het Spui schenkt al sinds 1670. Binnen is het donker, bruin en klein, en buiten staat op mooie dagen half het Spui met een biertje in de hand.`},
+ en:{n:`One of the oldest bars`,t:`Café Hoppe on Spui has been pouring since 1670. Inside it is dark, brown and small, and on fine days half of Spui stands outside with a beer in hand.`}}
+];
+</script>
 <script>
 "use strict";
 /* ---------- teksten ---------- */
 const T={
 nl:{sub:'Amsterdam via de achterdeur',all:'Alles',mine:'Mijn lijstje',tabMap:'Kaart',tabList:'Plekken',tabTips:'Lijstjes',seenOf:(a,b)=>a+' van '+b+' gezien',
- introH:n=>'Geen route. Wel '+n+' redenen om af te slaan.',introP:'Tik op een punt op de kaart. Bij elke plek hoort een verhaal van een minuut. Loop wat je wilt, sla over wat je wilt.',surprise:'Verras me',pickList:'Kies een lijstje',
+ introH:n=>'Geen route. Wel '+n+' redenen om af te slaan.',introP:'Tik op een punt op de kaart. Bij elke plek hoort een verhaal van een minuut, en de i-tjes zijn losse weetjes onderweg. Loop wat je wilt, sla over wat je wilt.',surprise:'Verras me',pickList:'Kies een lijstje',
  read:'Lees het verhaal',add:'Op mijn lijstje',added:'Op mijn lijstje ✓',been:'Hier geweest',beenOn:'Hier geweest ✓',maps:'Open in Maps',onMap:'Toon op kaart',back:'← Terug',busy:'Druk hier',tip:'Tip',near:'In de buurt',
  away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1).replace('.',',')+' km',
  sortNear:'Dichtstbij eerst',sortZone:'Per buurt',mineEmpty:'Je lijstje is nog leeg. Kies er hieronder een, of zet zelf plekken op je lijstje.',mineSum:(n,km,min)=>n+' plekken, ongeveer '+km+' km lopen en '+min+' aan tijd, hemelsbreed geschat.',showMine:'Toon op de kaart',clear:'Lijstje leegmaken',
  take:'Neem dit lijstje',taken:'Dit lijstje staat op de kaart.',setMeta:(n,km)=>n+' plekken · ± '+km+' km',ready:'Kant-en-klaar',ownH:'Zelf samenstellen',ownP:'Open een plek en tik op ‘Op mijn lijstje’. De kaart zet ze in een handige volgorde.',
  spotH:'Onderweg spotten',spotP:'Tien dingen die je overal tegenkomt als je weet waar je op moet letten. Vink af wat je ziet.',spotN:(a,b)=>a+' van '+b,
  aboutH:'Over deze wandeling',aboutP:'De verhalen zijn nagezocht, de legendes staan erbij als legendes. Cafés, winkels en musea veranderen: kijk voor openingstijden even op hun eigen site. Hofjes en kerken zijn van de bewoners; wees een goede gast.',
- photo:'Foto',illus:'Illustratie, geen foto',credH:'Beeldverantwoording',credP:'Foto\'s van Wikimedia Commons, bijgesneden. Tik op de naam voor de bron.',reset:'Voortgang wissen',reset2:'Zeker weten? Tik nog eens',resetDone:'Alles gewist.',hours:h=>h<1?Math.round(h*60/5)*5+' minuten':(Math.round(h*2)/2).toString().replace('.',',')+' uur',
+ weetjes:'Weetjes',weetje:'Weetje',nextW:'Volgend weetje',areaH:'Gebied',areaP:'Het blijft een wandeling. Standaard zie je alleen de binnenstad, binnen de Singelgracht. Wil je verder, zet dan ook de plekken daarbuiten aan: Museumplein, Vondelpark, De Pijp, Oost en Noord. Pak daarvoor gerust de fiets of de tram.',areaIn:'Alleen binnenstad',areaAll:'Ook daarbuiten',areaSetAll:'Plekken buiten de grachten staan aan.',areaSetIn:'Alleen de binnenstad.',photo:'Foto',illus:'Illustratie, geen foto',credH:'Beeldverantwoording',credP:'Foto\'s van Wikimedia Commons, bijgesneden. Tik op de naam voor de bron.',reset:'Voortgang wissen',reset2:'Zeker weten? Tik nog eens',resetDone:'Alles gewist.',hours:h=>h<1?Math.round(h*60/5)*5+' minuten':(Math.round(h*2)/2).toString().replace('.',',')+' uur',
  gpsOff:'Geen locatie beschikbaar. Alles werkt ook zonder.',gpsSeek:'Locatie zoeken…',gpsFar:km=>'Je bent ongeveer '+km+' km van de binnenstad. Je stip valt buiten de kaart.',youAt:n=>'Je staat bij: '+n,
  drawn:'Getekende plattegrond',loading:'Kaart laden…',z:{west:'Haarlemmerbuurt',jordaan:'Jordaan',gordel:'Westelijke grachten',midden:'Rond Dam en Spui',oud:'Oude Zijde',zuid:'Amstel en zuidelijke grachten',museum:'Museumkwartier en Vondelpark',pijp:'De Pijp',oost:'Plantage en Oost',noord:'Westerpark en Noord'},
  cat:{verhaal:'Verhalen',bouw:'Gebouwd',grap:'Raar en grappig',eten:'Eten en drinken',shop:'Shoppen',rust:'Stil en verborgen'},
  testOn:'Testhulp aan. Open een plek om de speld te verplaatsen.',testOff:'Testhulp uit.',move:'Test: speld verplaatsen',moveGo:'Tik nu op de goede plek op de kaart.',moved:'Speld verplaatst.',pins:'Verplaatste spelden (overnemen in PLACES)',noSurprise:'Je hebt alles al gezien. Petje af.'},
 en:{sub:'Amsterdam by the back door',all:'All',mine:'My list',tabMap:'Map',tabList:'Places',tabTips:'Lists',seenOf:(a,b)=>a+' of '+b+' seen',
- introH:n=>'No route. Just '+n+' reasons to turn off.',introP:'Tap a point on the map. Each place comes with a one-minute story. Walk what you like, skip what you like.',surprise:'Surprise me',pickList:'Pick a list',
+ introH:n=>'No route. Just '+n+' reasons to turn off.',introP:'Tap a point on the map. Each place comes with a one-minute story, and the little i’s are quick facts along the way. Walk what you like, skip what you like.',surprise:'Surprise me',pickList:'Pick a list',
  read:'Read the story',add:'Add to my list',added:'On my list ✓',been:'Been here',beenOn:'Been here ✓',maps:'Open in Maps',onMap:'Show on map',back:'← Back',busy:'Busy spot',tip:'Tip',near:'Nearby',
  away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1)+' km',
  sortNear:'Nearest first',sortZone:'By area',mineEmpty:'Your list is empty. Pick one below, or add places yourself.',mineSum:(n,km,min)=>n+' places, about '+km+' km on foot and '+min+' in total, estimated as the crow flies.',showMine:'Show on the map',clear:'Empty my list',
  take:'Use this list',taken:'This list is now on the map.',setMeta:(n,km)=>n+' places · ± '+km+' km',ready:'Ready-made',ownH:'Build your own',ownP:'Open a place and tap ‘Add to my list’. The map puts them in a sensible order.',
  spotH:'Spot along the way',spotP:'Ten things you see everywhere once you know what to look for. Tick what you find.',spotN:(a,b)=>a+' of '+b,
  aboutH:'About this walk',aboutP:'The stories have been checked, and legends are told as legends. Cafés, shops and museums change: check opening hours on their own sites. Courtyards and churches belong to the people who live there; be a good guest.',
- photo:'Photo',illus:'Illustration, not a photo',credH:'Image credits',credP:'Photos from Wikimedia Commons, cropped. Tap the name for the source.',reset:'Erase my progress',reset2:'Sure? Tap again',resetDone:'All erased.',hours:h=>h<1?Math.round(h*60/5)*5+' minutes':(Math.round(h*2)/2)+' hours',
+ weetjes:'Quick facts',weetje:'Quick fact',nextW:'Next fact',areaH:'Area',areaP:'It is still a walk. By default you only see the city centre, inside the Singelgracht. Want to go further? Switch on the places beyond it as well: Museumplein, Vondelpark, De Pijp, the east and the north. A bike or tram helps.',areaIn:'City centre only',areaAll:'Beyond it too',areaSetAll:'Places beyond the canals are on.',areaSetIn:'City centre only.',photo:'Photo',illus:'Illustration, not a photo',credH:'Image credits',credP:'Photos from Wikimedia Commons, cropped. Tap the name for the source.',reset:'Erase my progress',reset2:'Sure? Tap again',resetDone:'All erased.',hours:h=>h<1?Math.round(h*60/5)*5+' minutes':(Math.round(h*2)/2)+' hours',
  gpsOff:'No location available. Everything works without it.',gpsSeek:'Finding your location…',gpsFar:km=>'You are about '+km+' km from the city centre. Your dot is off the map.',youAt:n=>'You are at: '+n,
  drawn:'Hand-drawn map',loading:'Loading map…',z:{west:'Haarlemmer quarter',jordaan:'Jordaan',gordel:'Western canals',midden:'Around Dam and Spui',oud:'Old Side',zuid:'Amstel and southern canals',museum:'Museum Quarter and Vondelpark',pijp:'De Pijp',oost:'Plantage and East',noord:'Westerpark and North'},
  cat:{verhaal:'Stories',bouw:'Buildings',grap:'Odd and funny',eten:'Food and drink',shop:'Shopping',rust:'Quiet and hidden'},
@@ -861,7 +937,7 @@ const CREDITS=[
 const ILLUS={chris:1,vleminckx:1,singel7:1,papegaai:1}, ART=1, SETART={raar:1,jordaan:1,borrel:1,bouw:1,shop:1,stil:1};
 Object.assign(IMG,ILLUS);
 const KEY='achterom.v1', PINKEY='achterom.pins';
-let S={lang:null,seen:{},mine:[],spot:{},intro:1}, view='map', filter='all', sel=null, sortNear=false, test=false, moveId=null;
+let S={lang:null,seen:{},mine:[],spot:{},intro:1,area:'in'}, view='map', filter='all', sel=null, sortNear=false, test=false, moveId=null;
 try{ const o=JSON.parse(localStorage.getItem(KEY)); if(o&&typeof o==='object') S=Object.assign(S,o); }catch(e){}
 try{ const p=JSON.parse(localStorage.getItem(PINKEY))||{}; PLACES.forEach(x=>{ if(p[x.id]){ x.lat=p[x.id][0]; x.lng=p[x.id][1]; } }); }catch(e){}
 if(S.lang!=='nl'&&S.lang!=='en') S.lang=(navigator.language||'nl').slice(0,2)==='nl'?'nl':'en';
@@ -885,7 +961,9 @@ function ordered(ids){ if(ids.length<2) return ids.slice();
   return P2.map(p=>p.id); }
 function walkKm(ids){ let d=0; for(let i=1;i<ids.length;i++) d+=dist(P(ids[i-1]),P(ids[i])); return d*1.3/1000; }
 const kmTxt=km=>{ const v=(Math.round(km*2)/2).toFixed(1); return S.lang==='nl'?v.replace('.',','):v; };
-const visible=()=>PLACES.filter(p=>filter==='all'||(filter==='mine'?S.mine.includes(p.id):p.c===filter));
+const inArea=p=>S.area==='all'||INNER.includes(p.z), areaPlaces=()=>PLACES.filter(inArea);
+const visible=()=>filter==='mine'?PLACES.filter(p=>S.mine.includes(p.id)):filter==='weetje'?[]:PLACES.filter(p=>inArea(p)&&(filter==='all'||p.c===filter));
+const visW=()=>(filter==='all'||filter==='weetje')?WEETJES:[], W_=id=>WEETJES.find(w=>'w:'+w.id===id);
 
 /* ---------- kaart ---------- */
 const cv=$('#cv'), cx=cv.getContext('2d'), box=$('#mapbox');
@@ -937,7 +1015,8 @@ DR.labels=DR.canals.concat(DR.streets).filter(r=>r.n);
 let WORLD=null, worldState='idle';
 function loadWorld(){ if(worldState!=='idle') return;
   if(!window.MW||!MW.Tiles||!window.fetch){ worldState='fail'; return; } worldState='loading';
-  MW.Tiles.world({lat:52.3665,lon:4.8885,R:3300,ms:20000,max:36}).then(w=>{ if(!w||!w.ways||w.ways.length<50) throw new Error('leeg');
+  const big=S.area==='all';
+  MW.Tiles.world(big?{lat:52.3665,lon:4.8885,R:3300,ms:20000,max:36}:{lat:ORG.lat,lon:ORG.lon,R:1500,ms:12000,max:16}).then(w=>{ if(!w||!w.ways||w.ways.length<50) throw new Error('leeg');
     const water=w.ways.filter(x=>x.w==='water'), park=w.ways.filter(x=>x.w==='park'), roads=w.ways.filter(x=>typeof x.w==='number');
     roads.forEach(r=>{ let l=0; for(let k=0;k+3<r.p.length;k+=2) l+=Math.hypot(r.p[k+2]-r.p[k],r.p[k+3]-r.p[k+1]); r.len=l; });
     WORLD={water:pathOf(water.map(x=>x.p),true),park:pathOf(park.map(x=>x.p),true),rw:[1,2,3].map(k=>({w:k,path:pathOf(roads.filter(r=>r.w===k).map(r=>r.p))})),
@@ -980,8 +1059,11 @@ function draw(){ raf=0; if(!cw) size(); if(!cw) return; if(!fitted){ fit(PLACES.
   if(filter==='mine'&&S.mine.length>1){ const ids=ordered(S.mine); cx.beginPath(); ids.forEach((id,i)=>{ const p=P(id),X=sx(mX(p.lng)),Y=sy(mY(p.lat)); i?cx.lineTo(X,Y):cx.moveTo(X,Y); });
     cx.strokeStyle=COL.accent; cx.globalAlpha=.7; cx.lineWidth=2; cx.setLineDash([2,7]); cx.stroke(); cx.setLineDash([]); cx.globalAlpha=1; }
   const r=Math.max(9,Math.min(14,9+V.s*14));
+  visW().forEach(w=>{ const X=sx(mX(w.lng)),Y=sy(mY(w.lat)); if(X<-20||Y<-20||X>cw+20||Y>ch+20) return; const on='w:'+w.id===sel, rr=on?10:7.5;
+    cx.beginPath(); cx.arc(X,Y,rr,0,7); cx.fillStyle=on?COL.accent:COL.card; cx.fill(); cx.strokeStyle=COL.accent; cx.lineWidth=1.8; cx.stroke();
+    cx.font='italic 700 '+(on?13:11)+'px Georgia,serif'; cx.textAlign='center'; cx.fillStyle=on?'#fff':COL.accent; cx.fillText('i',X,Y+(on?4.5:4)); });
   vis.filter(p=>p.id!==sel).sort((a,b)=>a.lat<b.lat?1:-1).forEach(p=>pin(p,r));
-  if(sel){ const p=P(sel); pin(p,r+4,true); const X=sx(mX(p.lng)),Y=sy(mY(p.lat)); cx.font='600 13px '+FONT; cx.textAlign='center'; cx.fillStyle=COL.ink; const hw=cx.measureText(tx(p).n).width/2+6; halo(tx(p).n,Math.max(hw,Math.min(cw-hw,X)),Y+r+19); }
+  if(sel&&!W_(sel)){ const p=P(sel); pin(p,r+4,true); const X=sx(mX(p.lng)),Y=sy(mY(p.lat)); cx.font='600 13px '+FONT; cx.textAlign='center'; cx.fillStyle=COL.ink; const hw=cx.measureText(tx(p).n).width/2+6; halo(tx(p).n,Math.max(hw,Math.min(cw-hw,X)),Y+r+19); }
   if(pos){ const X=sx(mX(pos.lng)),Y=sy(mY(pos.lat)); if(pos.acc>12){ cx.beginPath(); cx.arc(X,Y,Math.min(160,pos.acc*V.s),0,7); cx.fillStyle='rgba(30,110,220,.14)'; cx.fill(); }
     cx.beginPath(); cx.arc(X,Y,7,0,7); cx.fillStyle='#1e6edc'; cx.fill(); cx.strokeStyle='#fff'; cx.lineWidth=2.5; cx.stroke(); }
   cx.font='10px '+FONT; cx.textAlign='right'; cx.fillStyle=COL.muted; cx.fillText(WORLD?MW.Tiles.attr:worldState==='loading'?L().loading:L().drawn,cw-8,ch-6); }
@@ -1000,10 +1082,11 @@ function centerOn(p,minS){ V.x=mX(p.lng); V.y=mY(p.lat); if(minS&&V.s<minS) V.s=
 function tap(x,y){
   if(moveId){ const p=P(moveId); p.lng=+(ORG.lon+((x-cw/2)/V.s+V.x)/KX).toFixed(5); p.lat=+(ORG.lat-((y-ch/2)/V.s+V.y)/KY).toFixed(5);
     try{ const o=JSON.parse(localStorage.getItem(PINKEY))||{}; o[p.id]=[p.lat,p.lng]; localStorage.setItem(PINKEY,JSON.stringify(o)); }catch(e){} moveId=null; toast(L().moved); redraw(); return; }
-  let best=null,bd=26; visible().forEach(p=>{ const d=Math.hypot(sx(mX(p.lng))-x,sy(mY(p.lat))-y); if(d<bd){bd=d;best=p;} });
-  sel=best?best.id:null; if(S.intro){ S.intro=0; save(); } renderCard(); redraw(); }
+  let best=null,bd=26; visible().forEach(p=>{ const d=Math.hypot(sx(mX(p.lng))-x,sy(mY(p.lat))-y); if(d<bd){bd=d;best=p.id;} });
+  visW().forEach(w=>{ const d=Math.hypot(sx(mX(w.lng))-x,sy(mY(w.lat))-y)+4; if(d<bd){bd=d;best='w:'+w.id;} });
+  sel=best; if(S.intro){ S.intro=0; save(); } renderCard(); redraw(); }
 box.querySelector('.mapbtns').addEventListener('click',e=>{ const z=e.target.dataset.z; if(!z) return;
-  if(z==='in') zoomAt(1.4,cw/2,ch/2); else if(z==='out') zoomAt(1/1.4,cw/2,ch/2); else if(z==='fit'){ fit(visible().length?visible():PLACES,34); redraw(); } else gps(); });
+  if(z==='in') zoomAt(1.4,cw/2,ch/2); else if(z==='out') zoomAt(1/1.4,cw/2,ch/2); else if(z==='fit'){ const pts=visible().concat(visW()); fit(pts.length?pts:areaPlaces(),34); redraw(); } else gps(); });
 new ResizeObserver(()=>{ size(); redraw(); }).observe(box);
 
 /* ---------- locatie ---------- */
@@ -1015,32 +1098,38 @@ function gps(){ const b=box.querySelector('[data-z=me]');
       if(inTown()){ mapMsg(''); if(first) centerOn(pos,.9); } else mapMsg(L().gpsFar(Math.round(dist(pos,{lat:ORG.lat,lng:ORG.lon})/1000))); first=false; arrive(); redraw(); if(view==='list') renderList(); else renderCard(); },
     err=>{ if(err.code===1||!pos){ gpsOn=false; b.classList.remove('act'); try{navigator.geolocation.clearWatch(gpsId);}catch(_){ } mapMsg(L().gpsOff); setTimeout(()=>mapMsg(''),5000); } },
     {enableHighAccuracy:true,maximumAge:5000,timeout:20000}); }catch(e){ gpsOn=false; b.classList.remove('act'); mapMsg(L().gpsOff); } }
-function arrive(){ if(!pos||pos.acc>80||$('#sheet').classList.contains('on')) return; let best=null,bd=40; PLACES.forEach(p=>{ const d=dist(pos,p); if(d<bd&&!said[p.id]&&!S.seen[p.id]){bd=d;best=p;} });
+function arrive(){ if(!pos||pos.acc>80||$('#sheet').classList.contains('on')) return; let best=null,bd=40; areaPlaces().forEach(p=>{ const d=dist(pos,p); if(d<bd&&!said[p.id]&&!S.seen[p.id]){bd=d;best=p;} });
   if(best){ said[best.id]=1; sel=best.id; try{ navigator.vibrate&&navigator.vibrate(120); }catch(e){} toast(L().youAt(tx(best).n)); renderCard(); } }
 
 /* ---------- schermen ---------- */
 function renderHead(){ document.documentElement.lang=S.lang; $('#sub').textContent=L().sub; $('#lang').textContent=S.lang==='nl'?'English':'Nederlands';
-  $('#count').textContent=L().seenOf(Object.keys(S.seen).length,PLACES.length); $('#sheetBack').textContent=L().back;
+  $('#count').textContent=L().seenOf(areaPlaces().filter(p=>S.seen[p.id]).length,areaPlaces().length); $('#sheetBack').textContent=L().back;
   $('#chips').innerHTML='<button class="chip txt" data-f="all" aria-pressed="'+(filter==='all')+'">'+L().all+'</button>'+
     '<button class="chip txt" data-f="mine" aria-pressed="'+(filter==='mine')+'">'+L().mine+' · '+S.mine.length+'</button>'+
+    '<button class="chip" data-f="weetje" aria-pressed="'+(filter==='weetje')+'"><span class="dot" style="background:var(--card);border:1.8px solid var(--accent);color:var(--accent);font:italic 700 12px Georgia,serif">i</span>'+L().weetjes+' · '+WEETJES.length+'</button>'+
     CATS.map(c=>'<button class="chip" data-f="'+c+'" aria-pressed="'+(filter===c)+'">'+dotHTML(c)+L().cat[c]+'</button>').join('');
   $('#tabs').innerHTML=[['map',L().tabMap],['list',L().tabList],['tips',L().tabTips]].map(t=>'<button role="tab" data-v="'+t[0]+'" aria-selected="'+(view===t[0])+'">'+t[1]+'</button>').join('');
   [['in','Zoom in'],['out','Zoom out'],['fit',S.lang==='nl'?'Alles tonen':'Show all'],['me',S.lang==='nl'?'Mijn locatie':'My location']].forEach(a=>box.querySelector('[data-z='+a[0]+']').setAttribute('aria-label',a[1])); }
 function dTxt(p){ return inTown()?L().away(dist(pos,p)):''; }
 function renderCard(){ const c=$('#card');
-  if(!sel){ c.innerHTML=S.intro?(ART?'<img class="hero" src="img/hero.webp" alt="">':'')+'<h2>'+L().introH(PLACES.length)+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
+  if(!sel){ c.innerHTML=S.intro?(ART?'<img class="hero" src="img/hero.webp" alt="">':'')+'<h2>'+L().introH(areaPlaces().length)+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
       :'<div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button><span class="dist">'+visible().length+' '+L().tabList.toLowerCase()+'</span></div>'; return; }
+  const w=W_(sel); if(w){ const near=WEETJES.filter(x=>x!==w).sort((a,b)=>dist(w,a)-dist(w,b))[0];
+    c.innerHTML='<div class="kick"><span class="dot" style="background:var(--accent);color:#fff;font:italic 700 12px Georgia,serif">i</span>'+L().weetje+'<span class="dist">'+dTxt(w)+'</span></div><h2>'+esc(w[S.lang].n)+'</h2><p>'+esc(w[S.lang].t)+'</p>'+
+      '<div class="row"><button class="btn" data-w="'+near.id+'">'+L().nextW+' →</button><a class="btn quiet" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+w.lat+','+w.lng+'">'+L().maps+' ↗</a></div>'; return; }
   const p=P(sel), t=tx(p), mine=S.mine.includes(p.id);
   c.innerHTML='<div class="kick">'+dotHTML(p.c)+L().cat[p.c]+(p.t?'<span class="tag">'+L().busy+'</span>':'')+'<span class="dist">'+dTxt(p)+'</span></div><h2>'+esc(t.n)+'</h2><p>'+esc(t.k)+'</p>'+
     '<div class="row"><button class="btn pri" data-a="read">'+L().read+'</button><button class="btn'+(mine?' on':'')+'" data-a="mine">'+(mine?L().added:L().add)+'</button></div>'; }
 function renderList(){ const vis=visible(), row=p=>'<button class="item'+(S.seen[p.id]?' seen':'')+'" data-id="'+p.id+'">'+dotHTML(p.c)+'<span><b>'+esc(tx(p).n)+'</b><span class="k">'+esc(tx(p).k)+'</span></span><span class="meta">'+dTxt(p)+(p.t?'<br>'+L().busy:'')+'</span></button>';
   let h=''; if(inTown()) h+='<div class="row" style="margin:6px 0 4px"><button class="pill" data-a="sort">'+(sortNear?L().sortZone:L().sortNear)+'</button></div>';
+  if(filter==='weetje'){ $('#list').innerHTML='<h3>'+L().weetjes+'</h3>'+WEETJES.slice().sort((a,b)=>inTown()?dist(pos,a)-dist(pos,b):0).map(w=>'<button class="item" data-w="'+w.id+'"><span class="dot" style="background:var(--card);border:1.8px solid var(--accent);color:var(--accent);font:italic 700 14px Georgia,serif">i</span><span><b>'+esc(w[S.lang].n)+'</b><span class="k">'+esc(w[S.lang].t)+'</span></span><span class="meta">'+dTxt(w)+'</span></button>').join(''); return; }
   if(filter==='mine'&&!vis.length) h+='<p class="small" style="margin-top:14px">'+L().mineEmpty+'</p>';
   if(sortNear&&inTown()) h+='<h3>'+L().sortNear+'</h3>'+vis.slice().sort((a,b)=>dist(pos,a)-dist(pos,b)).map(row).join('');
   else if(filter==='mine') h+='<h3>'+L().mine+'</h3>'+ordered(S.mine).map(id=>row(P(id))).join('');
   else ZONES.forEach(z=>{ const a=vis.filter(p=>p.z===z); if(a.length) h+='<h3>'+L().z[z]+'</h3>'+a.map(row).join(''); });
   $('#list').innerHTML=h; }
-function renderTips(){ const m=ordered(S.mine); let h='<h3>'+L().mine+'</h3><div class="box">';
+function renderTips(){ const m=ordered(S.mine); let h='<h3>'+L().areaH+'</h3><div class="box"><p>'+L().areaP+'</p><div class="row"><button class="btn'+(S.area!=='all'?' on':'')+'" data-area="in">'+L().areaIn+'</button><button class="btn'+(S.area==='all'?' on':'')+'" data-area="all">'+L().areaAll+'</button></div></div>';
+  h+='<h3>'+L().mine+'</h3><div class="box">';
   if(m.length){ const km=walkKm(m); h+='<p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+'</p><div class="row"><button class="btn pri" data-a="showmine">'+L().showMine+'</button><button class="btn quiet" data-a="clear">'+L().clear+'</button></div>'; }
   else h+='<h4>'+L().ownH+'</h4><p style="margin:0">'+L().ownP+'</p>';
   h+='</div><h3>'+L().ready+'</h3>'+SETS.map(s=>{ const ids=ordered(s.ids); return '<div class="box">'+(ART&&SETART[s.id]?'<img class="set" src="img/set-'+s.id+'.webp" alt="" loading="lazy">':'')+'<h4>'+esc(s[S.lang].n)+'</h4><p>'+esc(s[S.lang].d)+'<br><span class="small">'+L().setMeta(ids.length,kmTxt(walkKm(ids)))+'</span></p><button class="btn" data-set="'+s.id+'">'+L().take+'</button></div>'; }).join('');
@@ -1063,8 +1152,9 @@ function openStory(id){ const p=P(id), t=tx(p), mine=S.mine.includes(id), seen=S
 function closeStory(){ $('#sheet').classList.remove('on'); renderAll(); }
 function setView(v){ view=v; ['Map','List','Tips'].forEach(n=>$('#v'+n).classList.toggle('on',n.toLowerCase()===v)); renderAll(); if(v==='map'){ size(); redraw(); } }
 function renderAll(){ renderHead(); renderCard(); if(view==='list') renderList(); if(view==='tips') renderTips(); redraw(); }
+function setArea(a){ if(S.area===a) return; S.area=a; save(); WORLD=null; worldState='idle'; loadWorld(); if(sel&&!W_(sel)&&!inArea(P(sel))) sel=null; fit(areaPlaces(),34); renderAll(); }
 function toggleMine(id){ const i=S.mine.indexOf(id); i<0?S.mine.push(id):S.mine.splice(i,1); save(); }
-function surprise(){ const pool=PLACES.filter(p=>!S.seen[p.id]&&p.id!==sel); if(!pool.length){ toast(L().noSurprise); return; }
+function surprise(){ const pool=areaPlaces().filter(p=>!S.seen[p.id]&&p.id!==sel); if(!pool.length){ toast(L().noSurprise); return; }
   const near=inTown()?pool.slice().sort((a,b)=>dist(pos,a)-dist(pos,b)).slice(0,8):pool; const p=near[Math.floor(Math.random()*near.length)];
   filter='all'; sel=p.id; S.intro=0; save(); renderAll(); centerOn(p,.7); }
 
@@ -1072,12 +1162,14 @@ function surprise(){ const pool=PLACES.filter(p=>!S.seen[p.id]&&p.id!==sel); if(
 let brandTaps=0, brandT=0;
 $('#brand').onclick=()=>{ clearTimeout(brandT); brandT=setTimeout(()=>brandTaps=0,1500); if(++brandTaps>=5){ brandTaps=0; test=!test; toast(test?L().testOn:L().testOff); renderAll(); } };
 $('#lang').onclick=()=>{ S.lang=S.lang==='nl'?'en':'nl'; save(); renderAll(); if($('#sheet').classList.contains('on')) openStory(sel); };
-$('#chips').onclick=e=>{ const b=e.target.closest('[data-f]'); if(!b) return; filter=b.dataset.f; if(sel&&!visible().some(p=>p.id===sel)) sel=null; renderAll(); if(view==='map'&&visible().length){ fit(visible(),40); redraw(); } };
+$('#chips').onclick=e=>{ const b=e.target.closest('[data-f]'); if(!b) return; filter=b.dataset.f; if(sel&&!visible().some(p=>p.id===sel)) sel=null; renderAll(); const pts=visible().concat(visW()); if(view==='map'&&pts.length){ fit(pts,40); redraw(); } };
 $('#tabs').onclick=e=>{ const b=e.target.closest('[data-v]'); if(b) setView(b.dataset.v); };
 $('#sheetBack').onclick=closeStory;
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('#sheet').classList.contains('on')) closeStory(); });
 document.addEventListener('click',e=>{ const it=e.target.closest('.item[data-id]'); if(it){ openStory(it.dataset.id); return; }
-  const st=e.target.closest('[data-set]'); if(st){ S.mine=SETS.find(s=>s.id===st.dataset.set).ids.slice(); S.intro=0; save(); filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); toast(L().taken); return; }
+  const ar=e.target.closest('[data-area]'); if(ar){ setArea(ar.dataset.area); renderTips(); toast(S.area==='all'?L().areaSetAll:L().areaSetIn); return; }
+  const wb=e.target.closest('[data-w]'); if(wb){ sel='w:'+wb.dataset.w; S.intro=0; save(); if(view!=='map') setView('map'); else renderAll(); centerOn(W_(sel),.7); return; }
+  const st=e.target.closest('[data-set]'); if(st){ if(st.dataset.set==='buiten'&&S.area!=='all') setArea('all'); S.mine=SETS.find(s=>s.id===st.dataset.set).ids.slice(); S.intro=0; save(); filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); toast(L().taken); return; }
   const b=e.target.closest('[data-a]'); if(!b) return; const a=b.dataset.a;
   if(a==='surprise') surprise(); else if(a==='tips') setView('tips'); else if(a==='read') openStory(sel);
   else if(a==='mine'){ toggleMine(sel); if($('#sheet').classList.contains('on')) openStory(sel); else renderAll(); }
