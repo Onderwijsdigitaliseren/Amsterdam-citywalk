@@ -1,6 +1,6 @@
 # Amsterdam Achterom
 
-Vrije stadswandeling door de binnenstad van Amsterdam, van Enigma Mystery. Geen route: 47 punten op de kaart, elk met een kort verhaal. Nederlands en Engels in één bestand (knop rechtsboven). Statische site voor GitHub Pages.
+Vrije stadswandeling door de binnenstad van Amsterdam, van Enigma Mystery. Geen route: 59 punten op de kaart, ook buiten de grachten (Museumplein, Vondelpark, De Pijp, Oost, Westerpark en Noord), elk met een kort verhaal. Nederlands en Engels in één bestand (knop rechtsboven). Statische site voor GitHub Pages.
 
 ```
 /index.html        de hele wandeling; NIET met de hand aanpassen, wordt gemaakt door _tools/build.py
@@ -11,7 +11,7 @@ Vrije stadswandeling door de binnenstad van Amsterdam, van Enigma Mystery. Geen 
 /img/              artwork, zie img/ARTWORK.md en img/BRONNEN.md; alles optioneel
 ```
 
-- De kaart haalt straten, water en groen op rond 52.3715, 4.8915 (R 1500 m, maximaal 16 tegels). Lukt dat niet, dan tekent de pagina een eenvoudige plattegrond.
+- De kaart haalt straten, water en groen op rond 52.3665, 4.8885 (R 3300 m, maximaal 36 tegels, tot aan het Olympisch Stadion). Lukt dat niet, dan tekent de pagina een eenvoudige plattegrond.
 - Spelden staan op geschatte coördinaten. Testhulp: vijf keer op de titel "Achterom" tikken, een plek openen, "Test: speld verplaatsen", de goede plek op de kaart aantikken. De lijst staat daarna onderaan Lijstjes; neem die over in `PLACES`.
 - Locatie: binnen 40 m van een plek die je nog niet zag komt de melding "Je staat bij …".
 - Foto's: `img/<id>.webp`, aanzetten in `IMG`, bron in `CREDITS` (beide bovenaan het script in `_src/app.html`).

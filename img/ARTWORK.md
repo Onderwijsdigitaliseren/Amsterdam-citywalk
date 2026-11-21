@@ -15,11 +15,12 @@ Alles is optioneel: zonder plaatjes werkt de wandeling ook. Een foto verschijnt 
 | `set-bouw.webp` | 1200 × 500 | Mooi gebouwd | staat erin |
 | `set-shop.webp` | 1200 × 500 | Shoppen zonder ketens | staat erin |
 | `set-stil.webp` | 1200 × 500 | Even stil (hofje) | staat erin |
+| `set-buiten.webp` | 1200 × 500 | Buiten de grachten (nieuw lijstje, 21 nov): bijv. Vondelpark of De Gooyer | **nog maken**; aanzetten in `SETART` |
 | `spot-hijs.webp` … `spot-stolper.webp` | 400 × 400 | Tien kleine tekeningen bij Onderweg spotten: hijsbalk, drie kruisen, Amsterdammertje, krul, gevelsteen, drie gevels, scheef huis, woonboot, reiger, Stolperstein | staat erin |
 
 Alles aangeleverd op 21 november. `hero` staat op het startkaartje, de lijstjeskoppen boven elk lijstje, de spot-tekeningen naast Onderweg spotten, `og.jpg` als deelplaatje. `cover` is voor de site en Ko-fi en wordt in de wandeling zelf niet getoond.
 
-## Foto per plek (47)
+## Foto per plek (59)
 
 Maat: 1200 × 800 (liggend, 3:2), webp, liefst onder 150 kB. Bestandsnaam = id van de plek.
 Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders zelf" betekent: er is vast iets, maar een eigen foto is hier waarschijnlijk leuker of duidelijker.
@@ -73,3 +74,15 @@ Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders 
 | `amstelveld.webp` | Amstelveld en de noodkerk | De plek zelf, herkenbaar | staat erin (Commons) |
 | `concerto.webp` | Concerto | Gevel of bakken met platen | staat erin (Commons) |
 | `zagertje.webp` | Het Boomzagertje | De plek zelf, herkenbaar | staat erin (Commons) |
+| `rijks.webp` | Fietsen door het Rijksmuseum | De plek zelf, herkenbaar | staat erin (Commons) |
+| `magere.webp` | De Magere Brug | De plek zelf, herkenbaar | staat erin (Commons) |
+| `hortus.webp` | De Hortus | De plek zelf, herkenbaar | staat erin (Commons) |
+| `adam.webp` | Schommelen boven het IJ (A'DAM) | De plek zelf, herkenbaar | staat erin (Commons) |
+| `westergas.webp` | De Westergasfabriek | De plek zelf, herkenbaar | staat erin (Commons) |
+| `albertcuyp.webp` | De Albert Cuyp | De plek zelf, herkenbaar | staat erin (Commons) |
+| `badkuip.webp` | De Badkuip (Stedelijk) | De plek zelf, herkenbaar | staat erin (Commons) |
+| `gooyer.webp` | Molen De Gooyer en Brouwerij 't IJ | De plek zelf, herkenbaar | staat erin (Commons) |
+| `schip.webp` | Het Schip | De plek zelf, herkenbaar | staat erin (Commons) |
+| `picasso.webp` | De vis van Picasso | De plek zelf, herkenbaar | staat erin (Commons) |
+| `stadion.webp` | Het Olympisch Stadion | De plek zelf, herkenbaar | staat erin (Commons) |
+| `theehuis.webp` | Het Blauwe Theehuis | De plek zelf, herkenbaar | staat erin (Commons) |

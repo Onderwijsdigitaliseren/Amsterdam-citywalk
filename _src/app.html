@@ -133,7 +133,7 @@ pre{white-space:pre-wrap;word-break:break-all;font-size:12px;background:var(--ca
 /* ---------- teksten ---------- */
 const T={
 nl:{sub:'Amsterdam via de achterdeur',all:'Alles',mine:'Mijn lijstje',tabMap:'Kaart',tabList:'Plekken',tabTips:'Lijstjes',seenOf:(a,b)=>a+' van '+b+' gezien',
- introH:'Geen route. Wel 47 redenen om af te slaan.',introP:'Tik op een punt op de kaart. Bij elke plek hoort een verhaal van een minuut. Loop wat je wilt, sla over wat je wilt.',surprise:'Verras me',pickList:'Kies een lijstje',
+ introH:n=>'Geen route. Wel '+n+' redenen om af te slaan.',introP:'Tik op een punt op de kaart. Bij elke plek hoort een verhaal van een minuut. Loop wat je wilt, sla over wat je wilt.',surprise:'Verras me',pickList:'Kies een lijstje',
  read:'Lees het verhaal',add:'Op mijn lijstje',added:'Op mijn lijstje ✓',been:'Hier geweest',beenOn:'Hier geweest ✓',maps:'Open in Maps',onMap:'Toon op kaart',back:'← Terug',busy:'Druk hier',tip:'Tip',near:'In de buurt',
  away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1).replace('.',',')+' km',
  sortNear:'Dichtstbij eerst',sortZone:'Per buurt',mineEmpty:'Je lijstje is nog leeg. Kies er hieronder een, of zet zelf plekken op je lijstje.',mineSum:(n,km,min)=>n+' plekken, ongeveer '+km+' km lopen en '+min+' aan tijd, hemelsbreed geschat.',showMine:'Toon op de kaart',clear:'Lijstje leegmaken',
@@ -142,11 +142,11 @@ nl:{sub:'Amsterdam via de achterdeur',all:'Alles',mine:'Mijn lijstje',tabMap:'Ka
  aboutH:'Over deze wandeling',aboutP:'De verhalen zijn nagezocht, de legendes staan erbij als legendes. Cafés, winkels en musea veranderen: kijk voor openingstijden even op hun eigen site. Hofjes en kerken zijn van de bewoners; wees een goede gast.',
  photo:'Foto',illus:'Illustratie, geen foto',credH:'Beeldverantwoording',credP:'Foto\'s van Wikimedia Commons, bijgesneden. Tik op de naam voor de bron.',reset:'Voortgang wissen',reset2:'Zeker weten? Tik nog eens',resetDone:'Alles gewist.',hours:h=>h<1?Math.round(h*60/5)*5+' minuten':(Math.round(h*2)/2).toString().replace('.',',')+' uur',
  gpsOff:'Geen locatie beschikbaar. Alles werkt ook zonder.',gpsSeek:'Locatie zoeken…',gpsFar:km=>'Je bent ongeveer '+km+' km van de binnenstad. Je stip valt buiten de kaart.',youAt:n=>'Je staat bij: '+n,
- drawn:'Getekende plattegrond',loading:'Kaart laden…',z:{west:'Haarlemmerbuurt',jordaan:'Jordaan',gordel:'Westelijke grachten',midden:'Rond Dam en Spui',oud:'Oude Zijde',zuid:'Amstel en zuidelijke grachten'},
+ drawn:'Getekende plattegrond',loading:'Kaart laden…',z:{west:'Haarlemmerbuurt',jordaan:'Jordaan',gordel:'Westelijke grachten',midden:'Rond Dam en Spui',oud:'Oude Zijde',zuid:'Amstel en zuidelijke grachten',museum:'Museumkwartier en Vondelpark',pijp:'De Pijp',oost:'Plantage en Oost',noord:'Westerpark en Noord'},
  cat:{verhaal:'Verhalen',bouw:'Gebouwd',grap:'Raar en grappig',eten:'Eten en drinken',shop:'Shoppen',rust:'Stil en verborgen'},
  testOn:'Testhulp aan. Open een plek om de speld te verplaatsen.',testOff:'Testhulp uit.',move:'Test: speld verplaatsen',moveGo:'Tik nu op de goede plek op de kaart.',moved:'Speld verplaatst.',pins:'Verplaatste spelden (overnemen in PLACES)',noSurprise:'Je hebt alles al gezien. Petje af.'},
 en:{sub:'Amsterdam by the back door',all:'All',mine:'My list',tabMap:'Map',tabList:'Places',tabTips:'Lists',seenOf:(a,b)=>a+' of '+b+' seen',
- introH:'No route. Just 47 reasons to turn off.',introP:'Tap a point on the map. Each place comes with a one-minute story. Walk what you like, skip what you like.',surprise:'Surprise me',pickList:'Pick a list',
+ introH:n=>'No route. Just '+n+' reasons to turn off.',introP:'Tap a point on the map. Each place comes with a one-minute story. Walk what you like, skip what you like.',surprise:'Surprise me',pickList:'Pick a list',
  read:'Read the story',add:'Add to my list',added:'On my list ✓',been:'Been here',beenOn:'Been here ✓',maps:'Open in Maps',onMap:'Show on map',back:'← Back',busy:'Busy spot',tip:'Tip',near:'Nearby',
  away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1)+' km',
  sortNear:'Nearest first',sortZone:'By area',mineEmpty:'Your list is empty. Pick one below, or add places yourself.',mineSum:(n,km,min)=>n+' places, about '+km+' km on foot and '+min+' in total, estimated as the crow flies.',showMine:'Show on the map',clear:'Empty my list',
@@ -155,10 +155,10 @@ en:{sub:'Amsterdam by the back door',all:'All',mine:'My list',tabMap:'Map',tabLi
  aboutH:'About this walk',aboutP:'The stories have been checked, and legends are told as legends. Cafés, shops and museums change: check opening hours on their own sites. Courtyards and churches belong to the people who live there; be a good guest.',
  photo:'Photo',illus:'Illustration, not a photo',credH:'Image credits',credP:'Photos from Wikimedia Commons, cropped. Tap the name for the source.',reset:'Erase my progress',reset2:'Sure? Tap again',resetDone:'All erased.',hours:h=>h<1?Math.round(h*60/5)*5+' minutes':(Math.round(h*2)/2)+' hours',
  gpsOff:'No location available. Everything works without it.',gpsSeek:'Finding your location…',gpsFar:km=>'You are about '+km+' km from the city centre. Your dot is off the map.',youAt:n=>'You are at: '+n,
- drawn:'Hand-drawn map',loading:'Loading map…',z:{west:'Haarlemmer quarter',jordaan:'Jordaan',gordel:'Western canals',midden:'Around Dam and Spui',oud:'Old Side',zuid:'Amstel and southern canals'},
+ drawn:'Hand-drawn map',loading:'Loading map…',z:{west:'Haarlemmer quarter',jordaan:'Jordaan',gordel:'Western canals',midden:'Around Dam and Spui',oud:'Old Side',zuid:'Amstel and southern canals',museum:'Museum Quarter and Vondelpark',pijp:'De Pijp',oost:'Plantage and East',noord:'Westerpark and North'},
  cat:{verhaal:'Stories',bouw:'Buildings',grap:'Odd and funny',eten:'Food and drink',shop:'Shopping',rust:'Quiet and hidden'},
  testOn:'Test mode on. Open a place to move its pin.',testOff:'Test mode off.',move:'Test: move pin',moveGo:'Now tap the right spot on the map.',moved:'Pin moved.',pins:'Moved pins (copy into PLACES)',noSurprise:'You have seen everything. Hats off.'}};
-const CATS=['verhaal','bouw','grap','eten','shop','rust'], ZONES=['west','jordaan','gordel','midden','oud','zuid'];
+const CATS=['verhaal','bouw','grap','eten','shop','rust'], ZONES=['west','jordaan','gordel','midden','oud','zuid','museum','pijp','oost','noord'], INNER=['west','jordaan','gordel','midden','oud','zuid'];
 const GLYPH={
  verhaal:'M4.5 6h6.2c.5 0 1 .2 1.3.5.3-.3.8-.5 1.3-.5h6.2v12h-6.2c-.5 0-1 .2-1.3.5-.3-.3-.8-.5-1.3-.5H4.5z',
  bouw:'M5.5 19.5v-8h2v-2h2v-2h1.6V5h1.8v2.5h1.6v2h2v2h2v8z',
@@ -171,7 +171,7 @@ const dotHTML=c=>'<span class="dot" style="background:var(--c-'+c+')"><svg viewB
 
 /* ---------- toestand ---------- */
 /* Foto's: zet het id hier op 1 zodra img/<id>.webp in de repo staat. CREDITS: {id,maker,lic,url} voor de beeldverantwoording. */
-const IMG={johnny:1,bazel:1,fockink:1,poes:1,oudemanhuis:1,scheepvaart:1,negen:1,violist:1,dokter:1,bloemenmarkt:1,rokin:1,electric:1,tuschinski:1,amstelveld:1,wester:1,homo:1,rasphuis:1,aepjen:1,kattenkabinet:1,torensluis:1,trippen:1,concerto:1,hoofden:1,staalmeesters:1,lieverdje:1,fiets:1,papeneiland:1,condomerie:1,haarlemmer:1,felix:1,zagertje:1,papegaai:1,paleis:1,brouwers:1,linden:1,bloed:1,borst:1,smalle:1,oostindisch:1,westindisch:1,noordermarkt:1,karthuizer:1,zevenbruggen:1,begijnhof:1};
+const IMG={johnny:1,bazel:1,fockink:1,poes:1,oudemanhuis:1,scheepvaart:1,negen:1,violist:1,dokter:1,bloemenmarkt:1,rokin:1,electric:1,tuschinski:1,amstelveld:1,wester:1,homo:1,rasphuis:1,aepjen:1,kattenkabinet:1,torensluis:1,trippen:1,concerto:1,hoofden:1,staalmeesters:1,lieverdje:1,fiets:1,papeneiland:1,condomerie:1,haarlemmer:1,felix:1,zagertje:1,papegaai:1,paleis:1,brouwers:1,linden:1,bloed:1,borst:1,smalle:1,oostindisch:1,westindisch:1,noordermarkt:1,karthuizer:1,zevenbruggen:1,begijnhof:1,rijks:1,magere:1,hortus:1,adam:1,westergas:1,albertcuyp:1,badkuip:1,gooyer:1,schip:1,picasso:1,stadion:1,theehuis:1};
 const CREDITS=[
  {"id": "johnny", "maker": "HJ Mitchell", "lic": "CC BY 4.0", "url": "https://commons.wikimedia.org/wiki/File:Statues_in_Johnny_Jordaanplein_01.jpg"},
  {"id": "bazel", "maker": "Jane023", "lic": "CC BY 3.0", "url": "https://commons.wikimedia.org/wiki/File:De_Bazel_Vijzelstraat_32.jpg"},
@@ -216,10 +216,22 @@ const CREDITS=[
  {"id": "noordermarkt", "maker": "Marcelmulder68", "lic": "CC BY-SA 3.0 nl", "url": "https://commons.wikimedia.org/wiki/File:Noorderkerk,_Noordermarkt_44.JPG"},
  {"id": "karthuizer", "maker": "Eibert Draisma", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Karthuizerhof.jpg"},
  {"id": "zevenbruggen", "maker": "Marco Ober", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Reguliersgracht,_Amsterdam.jpg"},
- {"id": "begijnhof", "maker": "Sergé Technau", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Aanzicht_houten_puntgevel_-_Amsterdam_-_20408851_-_RCE.jpg"}
+ {"id": "begijnhof", "maker": "Sergé Technau", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Aanzicht_houten_puntgevel_-_Amsterdam_-_20408851_-_RCE.jpg"},
+ {"id": "rijks", "maker": "Steven Lek", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Rijksmuseum_Amsterdam_2017_2.jpg"},
+ {"id": "magere", "maker": "Jorge Royan", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Magere_Brug_-_0823.jpg"},
+ {"id": "hortus", "maker": "Ceescamel", "lic": "CC0", "url": "https://commons.wikimedia.org/wiki/File:2024_Drieklimatenkas,_Hortus_Asd.jpg"},
+ {"id": "adam", "maker": "Muck", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:A%27DAM_Lookout-04-Swing.jpg"},
+ {"id": "westergas", "maker": "arch", "lic": "publiek domein", "url": "https://commons.wikimedia.org/wiki/File:Westerpark_amsterdam_gf_028.JPG"},
+ {"id": "albertcuyp", "maker": "Steven Lek", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Albert_Cuyp_markt_Amsterdam_2018_3.jpg"},
+ {"id": "badkuip", "maker": "Alf van Beem", "lic": "publiek domein", "url": "https://commons.wikimedia.org/wiki/File:Stedelijk_museum,_badkuip,_foto_1.JPG"},
+ {"id": "gooyer", "maker": "FaceMePLS", "lic": "CC BY 2.0", "url": "https://commons.wikimedia.org/wiki/File:%27Molen_De_Gooyer%27_Funenkade_Amsterdam_(21058163523)_(2).jpg"},
+ {"id": "schip", "maker": "Guilhem Vellut", "lic": "CC BY 2.0", "url": "https://commons.wikimedia.org/wiki/File:Het_Schip_@_Spaarndammerbuurt_@_Amsterdam_(20678363328).jpg"},
+ {"id": "picasso", "maker": "Trougnouf (Benoit Brummer)", "lic": "CC BY 4.0", "url": "https://commons.wikimedia.org/wiki/File:Figure_d%C3%A9coup%C3%A9e_(DSCF3006).jpg"},
+ {"id": "stadion", "maker": "Vincent Steenberg", "lic": "CC BY-SA 2.5", "url": "https://commons.wikimedia.org/wiki/File:Olympisch_stadion_Amsterdam_achterzijde.jpg"},
+ {"id": "theehuis", "maker": "Dguendel", "lic": "CC BY 4.0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam,_Vondelpark,_the_blue_teahouse.jpg"}
 ];
 /* Illustraties van Kellie (geen foto): krijgen het bijschrift 'Illustratie'. ART=1: hero, lijstjeskoppen en spot-tekeningen staan in img/. */
-const ILLUS={chris:1,vleminckx:1,singel7:1,papegaai:1}, ART=1;
+const ILLUS={chris:1,vleminckx:1,singel7:1,papegaai:1}, ART=1, SETART={raar:1,jordaan:1,borrel:1,bouw:1,shop:1,stil:1};
 Object.assign(IMG,ILLUS);
 const KEY='achterom.v1', PINKEY='achterom.pins';
 let S={lang:null,seen:{},mine:[],spot:{},intro:1}, view='map', filter='all', sel=null, sortNear=false, test=false, moveId=null;
@@ -240,7 +252,10 @@ const inTown=()=>pos&&dist(pos,{lat:ORG.lat,lng:ORG.lon})<4000;
 function ordered(ids){ if(ids.length<2) return ids.slice();
   const start=inTown()?pos:{lat:52.3791,lng:4.9003}; let left=ids.map(P), cur=start, out=[];
   while(left.length){ let bi=0,bd=1e9; left.forEach((p,i)=>{ const d=dist(cur,p); if(d<bd){bd=d;bi=i;} }); cur=left.splice(bi,1)[0]; out.push(cur.id); }
-  return out; }
+  const D=(p,q)=>dist(p,q); let better=true, n=out.length, P2=out.map(P);
+  while(better){ better=false; for(let i=0;i<n-2;i++) for(let k=i+1;k<n-1;k++){ const a=i?P2[i-1]:start, b=P2[i], c=P2[k], e=P2[k+1];
+      if(D(a,c)+D(b,e)<D(a,b)+D(c,e)-1){ P2.splice(i,k-i+1,...P2.slice(i,k+1).reverse()); better=true; } } }
+  return P2.map(p=>p.id); }
 function walkKm(ids){ let d=0; for(let i=1;i<ids.length;i++) d+=dist(P(ids[i-1]),P(ids[i])); return d*1.3/1000; }
 const kmTxt=km=>{ const v=(Math.round(km*2)/2).toFixed(1); return S.lang==='nl'?v.replace('.',','):v; };
 const visible=()=>PLACES.filter(p=>filter==='all'||(filter==='mine'?S.mine.includes(p.id):p.c===filter));
@@ -258,10 +273,10 @@ const CANALS=[
  ['Herengracht',26,[52.3806,4.8893,52.3788,4.8890,52.3752,4.8877,52.3737,4.8870,52.3715,4.8862,52.3695,4.8862,52.3680,4.8865,52.3668,4.8880,52.3655,4.8905,52.3652,4.8930,52.3651,4.8962,52.3655,4.8985,52.3661,4.9005]],
  ['Keizersgracht',28,[52.3809,4.8878,52.3780,4.8876,52.3750,4.8862,52.3738,4.8856,52.3715,4.8847,52.3698,4.8846,52.3678,4.8850,52.3660,4.8865,52.3646,4.8893,52.3642,4.8925,52.3639,4.8965,52.3642,4.8988,52.3650,4.9012]],
  ['Prinsengracht',26,[52.3812,4.8862,52.3797,4.8858,52.3767,4.8845,52.3745,4.8835,52.3738,4.8832,52.3715,4.8825,52.3697,4.8822,52.3672,4.8828,52.3652,4.8845,52.3636,4.8870,52.3628,4.8920,52.3622,4.8972,52.3620,4.8995,52.3622,4.9037]],
- ['Amstel',62,[52.3585,4.9078,52.3622,4.9037,52.3636,4.9024,52.3650,4.9012,52.3662,4.9006,52.3675,4.9003,52.3680,4.8985,52.3673,4.8960,52.3668,4.8935]],
+ ['Amstel',62,[52.3500,4.9050,52.3540,4.9065,52.3585,4.9078,52.3622,4.9037,52.3636,4.9024,52.3650,4.9012,52.3662,4.9006,52.3675,4.9003,52.3680,4.8985,52.3673,4.8960,52.3668,4.8935]],
  ['Rokin',24,[52.3668,4.8933,52.3690,4.8927,52.3702,4.8926]],
  ['Brouwersgracht',22,[52.3802,4.8930,52.3806,4.8893,52.3809,4.8878,52.3812,4.8862,52.3822,4.8835,52.3830,4.8815]],
- ['Singelgracht',34,[52.3852,4.8808,52.3830,4.8790,52.3800,4.8772,52.3760,4.8762,52.3720,4.8765,52.3680,4.8775,52.3640,4.8800,52.3618,4.8835,52.3608,4.8860,52.3596,4.8915,52.3592,4.8975,52.3598,4.9060]],
+ ['Singelgracht',34,[52.3870,4.8830,52.3852,4.8808,52.3830,4.8790,52.3800,4.8772,52.3760,4.8762,52.3720,4.8765,52.3680,4.8775,52.3640,4.8800,52.3618,4.8835,52.3608,4.8860,52.3596,4.8915,52.3592,4.8975,52.3598,4.9060]],
  ['Egelantiersgracht',16,[52.3767,4.8845,52.3757,4.8805]],['Bloemgracht',16,[52.3750,4.8837,52.3742,4.8800]],['Leliegracht',14,[52.3752,4.8877,52.3748,4.8838]],
  ['Looiersgracht',14,[52.3685,4.8822,52.3680,4.8790]],['Leidsegracht',18,[52.3680,4.8865,52.3672,4.8828,52.3668,4.8795]],
  ['Reguliersgracht',18,[52.3651,4.8962,52.3622,4.8972,52.3598,4.8978]],['Spiegelgracht',16,[52.3636,4.8870,52.3613,4.8858]],
@@ -269,8 +284,9 @@ const CANALS=[
  ['O.Z. Voorburgwal',16,[52.3765,4.8998,52.3740,4.8975,52.3700,4.8950,52.3690,4.8945]],['O.Z. Achterburgwal',16,[52.3756,4.9001,52.3735,4.8986,52.3700,4.8962,52.3690,4.8956]],
  ['Oudeschans',34,[52.3752,4.9068,52.3712,4.9042,52.3692,4.9040]],['',20,[52.3700,4.9016,52.3680,4.9001]],['Damrak',40,[52.3777,4.8978,52.3757,4.8962]],
  ['',40,[52.3803,4.8925,52.3790,4.8975,52.3778,4.9020,52.3766,4.9062,52.3752,4.9068]],
- ['',24,[52.3661,4.9005,52.3672,4.9062]],['',24,[52.3650,4.9012,52.3661,4.9068]],['',24,[52.3636,4.9024,52.3646,4.9078]],['Lijnbaansgracht',14,[52.3830,4.8815,52.3795,4.8795,52.3740,4.8787,52.3690,4.8792,52.3655,4.8815]]];
-const IJ=[52.3875,4.8790,52.3850,4.8870,52.3828,4.8940,52.3812,4.9000,52.3798,4.9060,52.3780,4.9140,52.3920,4.9140,52.3920,4.8790];
+ ['',24,[52.3661,4.9005,52.3672,4.9062]],['',24,[52.3650,4.9012,52.3661,4.9068]],['',24,[52.3636,4.9024,52.3646,4.9078]],['Nieuwe Vaart',30,[52.3700,4.9080,52.3680,4.9200,52.3667,4.9265]],['Noordzeekanaal',60,[52.3920,4.8700,52.3895,4.8790]],['Lijnbaansgracht',14,[52.3830,4.8815,52.3795,4.8795,52.3740,4.8787,52.3690,4.8792,52.3655,4.8815]]];
+const IJ=[52.3875,4.8790,52.3850,4.8870,52.3828,4.8940,52.3812,4.9000,52.3798,4.9060,52.3780,4.9140,52.3815,4.9140,52.3828,4.9060,52.3834,4.9000,52.3848,4.8940,52.3870,4.8870,52.3895,4.8790];
+const PARKS=[[52.3610,4.8780,52.3585,4.8730,52.3570,4.8680,52.3555,4.8610,52.3540,4.8560,52.3530,4.8580,52.3548,4.8650,52.3565,4.8720,52.3595,4.8790],[52.3590,4.8790,52.3570,4.8840,52.3550,4.8810,52.3570,4.8770],[52.3870,4.8690,52.3880,4.8780,52.3850,4.8790,52.3838,4.8700],[52.3540,4.8955,52.3545,4.8985,52.3530,4.8990,52.3525,4.8960],[52.3610,4.9180,52.3610,4.9230,52.3585,4.9230,52.3585,4.9180],[52.3672,4.9070,52.3672,4.9092,52.3660,4.9092,52.3660,4.9070]];
 const RAIL=[52.3862,4.8800,52.3838,4.8880,52.3812,4.8950,52.3795,4.9005,52.3780,4.9070,52.3765,4.9130];
 const STREETS=[
  ['Damrak',2,[52.3775,4.8968,52.3735,4.8930]],['Rokin',2,[52.3728,4.8922,52.3702,4.8922]],['Kalverstraat',1,[52.3725,4.8917,52.3695,4.8915,52.3670,4.8925]],
@@ -282,19 +298,19 @@ const STREETS=[
  ['Nieuwendijk',1,[52.3780,4.8950,52.3735,4.8922]],['Reguliersbreestraat',1,[52.3667,4.8933,52.3660,4.8963]],['',1,[52.3724,4.8830,52.3722,4.8885]],['',1,[52.3706,4.8825,52.3704,4.8882]],
  ['',1,[52.3690,4.8824,52.3690,4.8882]],['Spuistraat',1,[52.3775,4.8925,52.3735,4.8895,52.3695,4.8890]],['Kerkstraat',1,[52.3655,4.8850,52.3638,4.8885,52.3633,4.8960,52.3636,4.9020]],
  ['Stadhouderskade',2,[52.3632,4.8798,52.3610,4.8835,52.3600,4.8862,52.3588,4.8915,52.3585,4.8975]],['Prins Hendrikkade',2,[52.3797,4.8930,52.3784,4.8975,52.3772,4.9018,52.3745,4.9050]],
- ['Marnixstraat',2,[52.3838,4.8805,52.3800,4.8782,52.3740,4.8776,52.3690,4.8782,52.3645,4.8808]]];
-const AREAS=[['Centraal Station',52.3791,4.9003],['Dam',52.3731,4.8926],['Jordaan',52.3772,4.8812],['Leidseplein',52.3641,4.8822],['Rembrandtplein',52.3660,4.8968],['Nieuwmarkt',52.3728,4.9005],['IJ',52.3850,4.9000],['Waterlooplein',52.3684,4.9022]];
+ ['Ferdinand Bolstraat',2,[52.3590,4.8905,52.3520,4.8925]],['Van Baerlestraat',2,[52.3640,4.8780,52.3560,4.8830]],['Plantage Middenlaan',2,[52.3672,4.9030,52.3655,4.9160]],['Spaarndammerstraat',1,[52.3870,4.8800,52.3920,4.8730]],['Marnixstraat',2,[52.3838,4.8805,52.3800,4.8782,52.3740,4.8776,52.3690,4.8782,52.3645,4.8808]]];
+const AREAS=[['Vondelpark',52.3575,4.8700],['Museumplein',52.3578,4.8820],['De Pijp',52.3540,4.8940],['Westerpark',52.3862,4.8730],['Noord',52.3880,4.9060],['Plantage',52.3670,4.9110],['Oosterpark',52.3600,4.9205],['Olympisch Stadion',52.3434,4.8542],['Centraal Station',52.3791,4.9003],['Dam',52.3731,4.8926],['Jordaan',52.3772,4.8812],['Leidseplein',52.3641,4.8822],['Rembrandtplein',52.3660,4.8968],['Nieuwmarkt',52.3728,4.9005],['IJ',52.3850,4.9000],['Waterlooplein',52.3684,4.9022]];
 const flat=a=>{ const o=[]; for(let i=0;i<a.length;i+=2) o.push(mX(a[i+1]),mY(a[i])); return o; };
 function pathOf(lines,close){ const p=new Path2D(); lines.forEach(l=>{ for(let k=0;k<l.length;k+=2) k?p.lineTo(l[k],l[k+1]):p.moveTo(l[k],l[k+1]); if(close) p.closePath(); }); return p; }
 const DR={ canals:CANALS.map(c=>({n:c[0],w:c[1],p:flat(c[2])})), streets:STREETS.map(s=>({n:s[0],w:s[1],p:flat(s[2])})) };
 DR.cw=[...new Set(DR.canals.map(c=>c.w))].map(w=>({w,path:pathOf(DR.canals.filter(c=>c.w===w).map(c=>c.p))}));
 DR.sw=[1,2].map(w=>({w,path:pathOf(DR.streets.filter(s=>s.w===w).map(s=>s.p))}));
-DR.ij=pathOf([flat(IJ)],true); DR.rail=pathOf([flat(RAIL)]);
+DR.ij=pathOf([flat(IJ)],true); DR.park=pathOf(PARKS.map(flat),true); DR.rail=pathOf([flat(RAIL)]);
 DR.labels=DR.canals.concat(DR.streets).filter(r=>r.n);
 let WORLD=null, worldState='idle';
 function loadWorld(){ if(worldState!=='idle') return;
   if(!window.MW||!MW.Tiles||!window.fetch){ worldState='fail'; return; } worldState='loading';
-  MW.Tiles.world({lat:ORG.lat,lon:ORG.lon,R:1500,ms:12000,max:16}).then(w=>{ if(!w||!w.ways||w.ways.length<50) throw new Error('leeg');
+  MW.Tiles.world({lat:52.3665,lon:4.8885,R:3300,ms:20000,max:36}).then(w=>{ if(!w||!w.ways||w.ways.length<50) throw new Error('leeg');
     const water=w.ways.filter(x=>x.w==='water'), park=w.ways.filter(x=>x.w==='park'), roads=w.ways.filter(x=>typeof x.w==='number');
     roads.forEach(r=>{ let l=0; for(let k=0;k+3<r.p.length;k+=2) l+=Math.hypot(r.p[k+2]-r.p[k],r.p[k+3]-r.p[k+1]); r.len=l; });
     WORLD={water:pathOf(water.map(x=>x.p),true),park:pathOf(park.map(x=>x.p),true),rw:[1,2,3].map(k=>({w:k,path:pathOf(roads.filter(r=>r.w===k).map(r=>r.p))})),
@@ -321,12 +337,12 @@ function pin(p,r,hot){ const X=sx(mX(p.lng)),Y=sy(mY(p.lat)); if(X<-30||Y<-30||X
   cx.beginPath(); cx.arc(X,Y,r,0,7); cx.globalAlpha=seen&&!hot?.55:1; cx.fillStyle=COL[p.c]; cx.fill(); cx.globalAlpha=1; cx.strokeStyle=COL.card; cx.lineWidth=2; cx.stroke();
   const k=r*1.25/24; cx.save(); cx.translate(X-12*k,Y-12*k); cx.scale(k,k); cx.fillStyle='#fff'; cx.fill(GP[p.c]); cx.restore();
   if(seen){ cx.beginPath(); cx.arc(X+r*.75,Y-r*.75,6,0,7); cx.fillStyle=COL.card; cx.fill(); cx.strokeStyle=COL.rust||'#23805a'; cx.lineWidth=1.8; cx.beginPath(); cx.moveTo(X+r*.75-3,Y-r*.75); cx.lineTo(X+r*.75-.8,Y-r*.75+2.4); cx.lineTo(X+r*.75+3,Y-r*.75-2.4); cx.stroke(); } }
-function draw(){ raf=0; if(!cw) size(); if(!cw) return; if(!fitted){ fit(PLACES,34); fitted=true; }
+function draw(){ raf=0; if(!cw) size(); if(!cw) return; if(!fitted){ fit(PLACES.filter(p=>INNER.includes(p.z)),34); fitted=true; }
   const k=dpr*V.s; cx.setTransform(dpr,0,0,dpr,0,0); cx.fillStyle=COL.land; cx.fillRect(0,0,cw,ch); cx.lineCap='round'; cx.lineJoin='round';
   cx.setTransform(k,0,0,k,dpr*(cw/2-V.x*V.s),dpr*(ch/2-V.y*V.s));
   if(WORLD){ cx.fillStyle=COL.park; cx.fill(WORLD.park); cx.fillStyle=COL.water; cx.fill(WORLD.water,'evenodd');
     WORLD.rw.forEach(g=>{ if(g.w===1&&V.s<.35) return; cx.strokeStyle=g.w===1?COL.rail:COL.street; cx.globalAlpha=g.w===1?.5:1; cx.lineWidth=Math.max((g.w===1?1:1.6)/V.s,[0,2.4,7,11][g.w]); cx.stroke(g.path); cx.globalAlpha=1; });
-  } else { cx.fillStyle=COL.water; cx.fill(DR.ij); DR.cw.forEach(g=>{ cx.strokeStyle=COL.water; cx.lineWidth=Math.max(2.5/V.s,g.w); cx.stroke(g.path); });
+  } else { cx.fillStyle=COL.park; cx.fill(DR.park); cx.fillStyle=COL.water; cx.fill(DR.ij); DR.cw.forEach(g=>{ cx.strokeStyle=COL.water; cx.lineWidth=Math.max(2.5/V.s,g.w); cx.stroke(g.path); });
     cx.strokeStyle=COL.rail; cx.lineWidth=Math.max(2/V.s,14); cx.stroke(DR.rail);
     DR.sw.forEach(g=>{ if(g.w===1&&V.s<.2) return; cx.strokeStyle=COL.street; cx.lineWidth=Math.max(1.2/V.s,g.w===2?10:6); cx.stroke(g.path); }); }
   cx.setTransform(dpr,0,0,dpr,0,0);
@@ -385,7 +401,7 @@ function renderHead(){ document.documentElement.lang=S.lang; $('#sub').textConte
   [['in','Zoom in'],['out','Zoom out'],['fit',S.lang==='nl'?'Alles tonen':'Show all'],['me',S.lang==='nl'?'Mijn locatie':'My location']].forEach(a=>box.querySelector('[data-z='+a[0]+']').setAttribute('aria-label',a[1])); }
 function dTxt(p){ return inTown()?L().away(dist(pos,p)):''; }
 function renderCard(){ const c=$('#card');
-  if(!sel){ c.innerHTML=S.intro?(ART?'<img class="hero" src="img/hero.webp" alt="">':'')+'<h2>'+L().introH+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
+  if(!sel){ c.innerHTML=S.intro?(ART?'<img class="hero" src="img/hero.webp" alt="">':'')+'<h2>'+L().introH(PLACES.length)+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
       :'<div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button><span class="dist">'+visible().length+' '+L().tabList.toLowerCase()+'</span></div>'; return; }
   const p=P(sel), t=tx(p), mine=S.mine.includes(p.id);
   c.innerHTML='<div class="kick">'+dotHTML(p.c)+L().cat[p.c]+(p.t?'<span class="tag">'+L().busy+'</span>':'')+'<span class="dist">'+dTxt(p)+'</span></div><h2>'+esc(t.n)+'</h2><p>'+esc(t.k)+'</p>'+
@@ -400,7 +416,7 @@ function renderList(){ const vis=visible(), row=p=>'<button class="item'+(S.seen
 function renderTips(){ const m=ordered(S.mine); let h='<h3>'+L().mine+'</h3><div class="box">';
   if(m.length){ const km=walkKm(m); h+='<p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+'</p><div class="row"><button class="btn pri" data-a="showmine">'+L().showMine+'</button><button class="btn quiet" data-a="clear">'+L().clear+'</button></div>'; }
   else h+='<h4>'+L().ownH+'</h4><p style="margin:0">'+L().ownP+'</p>';
-  h+='</div><h3>'+L().ready+'</h3>'+SETS.map(s=>{ const ids=ordered(s.ids); return '<div class="box">'+(ART?'<img class="set" src="img/set-'+s.id+'.webp" alt="" loading="lazy">':'')+'<h4>'+esc(s[S.lang].n)+'</h4><p>'+esc(s[S.lang].d)+'<br><span class="small">'+L().setMeta(ids.length,kmTxt(walkKm(ids)))+'</span></p><button class="btn" data-set="'+s.id+'">'+L().take+'</button></div>'; }).join('');
+  h+='</div><h3>'+L().ready+'</h3>'+SETS.map(s=>{ const ids=ordered(s.ids); return '<div class="box">'+(ART&&SETART[s.id]?'<img class="set" src="img/set-'+s.id+'.webp" alt="" loading="lazy">':'')+'<h4>'+esc(s[S.lang].n)+'</h4><p>'+esc(s[S.lang].d)+'<br><span class="small">'+L().setMeta(ids.length,kmTxt(walkKm(ids)))+'</span></p><button class="btn" data-set="'+s.id+'">'+L().take+'</button></div>'; }).join('');
   const n=SPOT.filter(s=>S.spot[s.id]).length;
   h+='<h3>'+L().spotH+' · '+L().spotN(n,SPOT.length)+'</h3><div class="box"><p>'+L().spotP+'</p>'+SPOT.map(s=>'<div class="spot"><input type="checkbox" id="sp-'+s.id+'" data-spot="'+s.id+'"'+(S.spot[s.id]?' checked':'')+'>'+(ART?'<img src="img/spot-'+s.id+'.webp" alt="" loading="lazy">':'')+'<label for="sp-'+s.id+'"><b>'+esc(s[S.lang][0])+'</b><span>'+esc(s[S.lang][1])+'</span></label></div>').join('')+'</div>';
   h+='<h3>'+L().aboutH+'</h3><div class="box"><p>'+L().aboutP+'</p><button class="btn quiet" data-a="reset">'+L().reset+'</button></div>';

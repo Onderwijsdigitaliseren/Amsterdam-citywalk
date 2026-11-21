@@ -375,7 +375,103 @@ const PLACES=[
   tip:`Kijk omhoog in de platanen aan de kant van de Stadhouderskade. Wie hem als eerste ziet, hoeft niet te trakteren.`},
  en:{n:`The Little Woodcutter`,k:`High in a tree, a small bronze man is sawing off his own branch. Since 1989.`,
   s:[`He is twenty centimetres tall and was put there in a single night by the Unknown Sculptor. The tree has meanwhile grown round his feet.`,`In 2020 he suddenly vanished, branch and all. Alarm across the city. It turned out the maker had collected him for a polish. He is back.`],
-  tip:`Look up into the plane trees on the Stadhouderskade side. Whoever spots him first does not buy the drinks.`}}
+  tip:`Look up into the plane trees on the Stadhouderskade side. Whoever spots him first does not buy the drinks.`}},
+
+{id:'rijks',lat:52.3600,lng:4.8852,c:'verhaal',z:'museum',t:1,a:'Onderdoorgang Rijksmuseum',
+ nl:{n:`Fietsen door het Rijksmuseum`,k:`Dwars door het Rijksmuseum loopt een fietspad. Daar is meer dan een eeuw ruzie over geweest.`,
+  s:[`Pierre Cuypers won in 1875 de prijsvraag voor het museum, mede dankzij de onderdoorgang: het gebouw moest ook een stadspoort zijn naar het nieuwe Zuid. Bijna elke directeur wilde de tunnel daarna dicht. Bij de grote verbouwing, die in 2013 klaar was, won de Fietsersbond. Het pad bleef.`,`Koning Willem III kwam niet naar de opening. Hij zou het gebouw te veel op een kerk vinden gelijken; Cuypers was een overtuigd katholiek. Binnen hangt de Nachtwacht, die in 1715 aan alle kanten werd ingekort om op het stadhuis tussen twee deuren te passen. Dat stadhuis is het Paleis op de Dam. De afgesneden stukken zijn nooit teruggevonden.`],
+  tip:`Fiets er zelf doorheen, of blijf even staan: er speelt vaak een straatmuzikant en de akoestiek krijg je er gratis bij.`},
+ en:{n:`Cycling through the Rijksmuseum`,k:`A cycle path runs straight through the Rijksmuseum. People have fought about it for over a century.`,
+  s:[`Pierre Cuypers won the design competition in 1875 partly thanks to the passage: the building also had to be a city gate to the new south. Almost every director since wanted the tunnel closed. In the big renovation, finished in 2013, the cyclists' union won. The path stayed.`,`King William III skipped the opening. He reportedly found the building too much like a church; Cuypers was a devout Catholic. Inside hangs the Night Watch, which in 1715 was trimmed on all sides to fit between two doors at the town hall. That town hall is the Royal Palace on Dam Square. The missing strips were never found.`],
+  tip:`Cycle through yourself, or stop and listen: there is often a busker, and the acoustics come free.`}},
+
+{id:'badkuip',lat:52.3580,lng:4.8797,c:'bouw',z:'museum',a:'Museumplein 10',
+ nl:{n:`De Badkuip`,k:`Amsterdam zette een gigantische witte badkuip tegen een museum uit 1895. De naam bleef meteen plakken.`,
+  s:[`Het Stedelijk Museum kreeg in 2012 een nieuwe vleugel: een glad wit volume dat over het plein hangt. Binnen een dag heette het in de hele stad de Badkuip. De buitenkant is gemaakt van een kunststof die versterkt is met vezels zoals ze ook in kogelwerende vesten zitten.`,`Op het Museumplein zelf stond in 1883 een wereldtentoonstelling, met paviljoens uit alle koloniën. Daarna was het lang een rommelig terrein waar een weg dwars doorheen liep. Het grasveld zoals je het nu ziet is pas van de jaren negentig.`],
+  tip:`Kijk van onderen tegen de overhang aan. Het is groter dan je denkt.`},
+ en:{n:`The Bathtub`,k:`Amsterdam put a giant white bathtub against an 1895 museum. The nickname stuck at once.`,
+  s:[`The Stedelijk Museum got a new wing in 2012: a smooth white volume hovering over the square. Within a day the whole city called it the Bathtub. Its skin is a composite reinforced with the kind of fibres used in bulletproof vests.`,`Museumplein itself hosted a world fair in 1883, with pavilions from all the colonies. After that it was long a scruffy site with a road running straight through. The lawn you see now only dates from the 1990s.`],
+  tip:`Stand underneath the overhang and look up. It is bigger than you think.`}},
+
+{id:'picasso',lat:52.3570,lng:4.8683,c:'grap',z:'museum',a:'Vondelpark, zuidkant',
+ nl:{n:`De vis van Picasso`,k:`Picasso gaf Amsterdam een vogel. Amsterdam noemt hem de vis.`,
+  s:[`Toen het Vondelpark in 1965 honderd jaar bestond, kwam er een grote beeldententoonstelling. Picasso schonk de stad dit werk, uit vriendschap met Willem Sandberg, de directeur van het Stedelijk. Picasso ontwierp het; de Noorse kunstenaar Carl Nesjar maakte het in beton vol zwarte steentjes en zandstraalde de lijnen erin.`,`Het heet officieel Figure découpée, een uitgeknipte figuur, en het stelt een vogel voor. Iedereen zegt de vis. In 2013 ging het even op reis naar de beeldenroute ArtZuid; daarna kwam het terug naar het park.`],
+  tip:`Hij staat aan de zuidkant, ongeveer halverwege het park. Bekijk hem van opzij: hij is zo plat als een pannenkoek.`},
+ en:{n:`Picasso's fish`,k:`Picasso gave Amsterdam a bird. Amsterdam calls it the fish.`,
+  s:[`When the Vondelpark turned a hundred in 1965, there was a big sculpture show. Picasso gave the city this piece, out of friendship with Willem Sandberg, director of the Stedelijk. Picasso designed it; Norwegian artist Carl Nesjar cast it in concrete packed with black pebbles and sandblasted the lines in.`,`Its official name is Figure découpée, a cut-out figure, and it shows a bird. Everyone says the fish. In 2013 it went briefly on tour to the ArtZuid sculpture route, then came back to the park.`],
+  tip:`It is on the south side, about halfway along the park. Look at it side-on: it is as flat as a pancake.`}},
+
+{id:'theehuis',lat:52.3579,lng:4.8711,c:'eten',z:'museum',a:'Vondelpark 5',
+ nl:{n:`Het Blauwe Theehuis`,k:`In 1937 landde er een vliegende schotel in het Vondelpark. Hij schenkt nu bier.`,
+  s:[`In de zomer van 1936 brandde het oude theehuis op deze plek af. Architect Baanders zette er een jaar later iets heel anders neer: ringen van beton, staal en glas, rond als een ufo. Voor een negentiende-eeuws park was dat behoorlijk gedurfd. Nu is het een rijksmonument.`,`Tegenwoordig is het een proeflokaal van Brouwerij 't IJ. Dat is dezelfde brouwerij die naast de hoogste houten molen van Nederland zit, verderop in deze wandeling.`],
+  tip:`Groot terras onder de bomen, met tafeltennis en jeu de boules.`},
+ en:{n:`The Blue Tea House`,k:`In 1937 a flying saucer landed in the Vondelpark. It serves beer now.`,
+  s:[`In the summer of 1936 the old tea house on this spot burned down. A year later architect Baanders built something completely different: rings of concrete, steel and glass, round as a UFO. For a nineteenth-century park that was quite daring. It is now a listed monument.`,`These days it is a taproom of Brouwerij 't IJ, the same brewery that sits beside the tallest wooden windmill in the country, elsewhere on this walk.`],
+  tip:`A big terrace under the trees, with table tennis and pétanque.`}},
+
+{id:'stadion',lat:52.3434,lng:4.8542,c:'verhaal',z:'museum',a:'Olympisch Stadion 2',
+ nl:{n:`Het Olympisch Stadion`,k:`Het olympisch vuur is een Nederlandse uitvinding. Hier brandde het voor het eerst.`,
+  s:[`Architect Jan Wils bedacht het voor de Spelen van 1928. Boven op de smalle Marathontoren naast het stadion stond een schaal: overdag kringelde er rook uit, 's avonds vuur, omdat je dat in het donker beter zag. Elke vlam bij elke Spelen sindsdien gaat terug op dit idee.`,`Twee jaar eerder stonden hier nog koeien in de wei. En de Spelen gingen bijna niet door: in 1925 weigerde de Tweede Kamer geld te geven. Een landelijke inzameling onder sportliefhebbers redde de zaak.`],
+  tip:`Een flink stuk buiten de rest: pak de fiets of de tram. Zoek de Marathontoren aan de voorkant.`},
+ en:{n:`The Olympic Stadium`,k:`The Olympic flame is a Dutch invention. It burned here for the first time.`,
+  s:[`Architect Jan Wils came up with it for the 1928 Games. On top of the slender Marathon Tower beside the stadium sat a bowl: smoke curled from it by day and fire by night, because fire shows up better in the dark. Every Olympic flame since goes back to this idea.`,`Two years earlier there were cows grazing here. And the Games almost did not happen: in 1925 parliament refused to pay. A nationwide collection among sports fans saved the day.`],
+  tip:`Well away from the rest: take a bike or tram. Look for the Marathon Tower at the front.`}},
+
+{id:'albertcuyp',lat:52.3557,lng:4.8930,c:'shop',z:'pijp',a:'Albert Cuypstraat',
+ nl:{n:`De Albert Cuyp en een plein met een trucje`,k:`De drukste markt van het land is genoemd naar een schilder uit Dordrecht.`,
+  s:[`Aelbert Cuyp werd geboren in Dordrecht, stierf in Dordrecht en schilderde vooral koeien bij de rivier. De straten in De Pijp kregen namen van schilders uit de Gouden Eeuw, waar ze ook vandaan kwamen. Deze straat is breder dan de rest, omdat hier vroeger een sloot liep.`,`Om de hoek ligt het Marie Heinekenplein. Het moest naar een schilder heten en een straatnaam mag niet naar een bedrijf verwijzen. De oplossing: Marie Heineken, schilder van bloemstillevens en nicht van de oprichter van de brouwerij. Zo kreeg Heineken toch een plein.`],
+  tip:`Zes dagen per week markt, niet op zondag. Neem een verse stroopwafel.`},
+ en:{n:`The Albert Cuyp and a square with a trick`,k:`The busiest street market in the country is named after a painter from Dordrecht.`,
+  s:[`Aelbert Cuyp was born in Dordrecht, died in Dordrecht and mostly painted cows by the river. The streets of De Pijp were named after Golden Age painters, wherever they came from. This street is wider than the rest because a ditch once ran here.`,`Round the corner is Marie Heinekenplein. It had to be named after a painter, and a street name may not refer to a company. The solution: Marie Heineken, painter of flower still lifes and niece of the brewery's founder. So Heineken got its square after all.`],
+  tip:`Market six days a week, not on Sundays. Get a fresh stroopwafel.`}},
+
+{id:'gooyer',lat:52.3667,lng:4.9261,c:'eten',z:'oost',a:'Funenkade 7',
+ nl:{n:`Molen De Gooyer en Brouwerij 't IJ`,k:`De hoogste houten molen van Nederland, met een brouwerij aan zijn voeten.`,
+  s:[`De Gooyer is 26,6 meter hoog. Hij is de laatste van een rij korenmolens die eeuwenlang op de bolwerken langs de stadsrand stonden. Hij is een paar keer verhuisd; hier staat hij sinds 1814.`,`Ernaast, in het oude gemeentelijke badhuis uit 1911, brouwt Brouwerij 't IJ sinds 1985. Waar Amsterdammers vroeger kwamen om zich te wassen, komen ze nu voor een biertje. De molen doet niets voor de brouwerij, behalve poseren op het etiket.`],
+  tip:`De molen zelf kun je niet in. Het terras wel.`},
+ en:{n:`De Gooyer windmill and Brouwerij 't IJ`,k:`The tallest wooden windmill in the Netherlands, with a brewery at its feet.`,
+  s:[`De Gooyer is 26.6 metres tall. It is the last of a row of corn mills that stood for centuries on the bastions along the edge of town. It has moved a few times; it has stood here since 1814.`,`Next door, in the old municipal bathhouse from 1911, Brouwerij 't IJ has brewed since 1985. Where Amsterdammers once came to wash, they now come for a beer. The mill does nothing for the brewery except pose on the label.`],
+  tip:`You cannot go inside the mill. The terrace, yes.`}},
+
+{id:'hortus',lat:52.3667,lng:4.9081,c:'rust',z:'oost',a:'Plantage Middenlaan 2a',
+ nl:{n:`De Hortus en de koffie van de Franse koning`,k:`Een koffieplant uit deze tuin ging als relatiegeschenk naar Lodewijk XIV.`,
+  s:[`De Hortus begon in 1638 als kruidentuin voor artsen en apothekers, want medicijnen kwamen toen uit planten. Hij hoort bij de oudste botanische tuinen ter wereld. In 1987 ging hij bijna failliet; een groep liefhebbers hield hem open.`,`In 1706 kwamen hier koffieplanten aan uit Java. Een paar jaar later nam burgemeester Pancras er een mee naar Frankrijk, als cadeau voor Lodewijk XIV. Volgens de koffiegeschiedenis ging de koffie vanuit de Franse kassen naar de Caraïben en Zuid-Amerika.`],
+  tip:`De koffieplanten staan in de Drieklimatenkas. Het oranjerie-café is een fijne plek om te zitten.`},
+ en:{n:`The Hortus and the French king's coffee`,k:`A coffee plant from this garden went to Louis XIV as a diplomatic gift.`,
+  s:[`The Hortus started in 1638 as a herb garden for doctors and apothecaries, since medicine then came from plants. It is among the oldest botanical gardens in the world. In 1987 it almost went bankrupt; a group of enthusiasts kept it open.`,`In 1706 coffee plants arrived here from Java. A few years later mayor Pancras took one to France as a present for Louis XIV. According to coffee history, coffee travelled from the French hothouses to the Caribbean and South America.`],
+  tip:`The coffee plants are in the Three Climates Greenhouse. The orangery café is a lovely place to sit.`}},
+
+{id:'magere',lat:52.3634,lng:4.9023,c:'verhaal',z:'zuid',a:'Amstel, bij de Kerkstraat',
+ nl:{n:`De Magere Brug`,k:`Twee zussen woonden aan weerskanten van de Amstel en wilden elkaar elke dag zien. Tenminste, dat zegt de legende.`,
+  s:[`Het verhaal: de gezusters Mager lieten een brug bouwen zodat ze niet steeds om hoefden te lopen. Waarschijnlijker is dat de brug zo heet omdat hij gewoon smal was, mager dus. De brug is sindsdien een paar keer vervangen en breder geworden; de bijnaam bleef.`,`Het is een dubbele ophaalbrug, zoals je ze op schilderijen ziet, en hij gaat nog steeds open voor boten. In het donker branden er honderden lampjes langs de balken.`],
+  tip:`Kom na zonsondergang. Ga aan de overkant op de kade staan voor de foto.`},
+ en:{n:`The Skinny Bridge`,k:`Two sisters lived on opposite banks of the Amstel and wanted to see each other daily. So the legend goes.`,
+  s:[`The story: the Mager sisters had a bridge built so they did not have to walk round. More likely the bridge got its name simply because it was narrow: mager means skinny. It has been replaced a few times since and grown wider; the nickname stayed.`,`It is a double drawbridge like the ones in paintings, and it still opens for boats. After dark hundreds of little lights glow along its beams.`],
+  tip:`Come after sunset. Stand on the opposite quay for the photo.`}},
+
+{id:'schip',lat:52.3903,lng:4.8735,c:'bouw',z:'noord',a:'Oostzaanstraat 45',
+ nl:{n:`Het Schip`,k:`Een paleis voor arbeiders, met een eigen postkantoor in de boeg.`,
+  s:[`Michel de Klerk bouwde dit blok tussen 1917 en 1921 voor woningbouwvereniging Eigen Haard: ruim honderd arbeiderswoningen en een postkantoor, om een bestaande school heen. Door de vorm heette het al snel Het Schip. Zijn motto: niets is mooi genoeg voor de arbeider. Kijk naar de ronde hoeken, de verticaal gemetselde stenen en de ladderramen.`,`Wie hier introk, kwam vaak uit een kelderwoning zonder ramen en zonder wc. In het postkantoor haalden de bewoners hun loon op. De Klerk stierf in 1923, op zijn negenendertigste.`],
+  tip:`Loop er helemaal omheen: elke kant is anders. Het museum laat ook een ingerichte arbeiderswoning zien.`},
+ en:{n:`Het Schip (The Ship)`,k:`A palace for workers, with its own post office in the bow.`,
+  s:[`Michel de Klerk built this block between 1917 and 1921 for the Eigen Haard housing association: about a hundred workers' homes and a post office, wrapped round an existing school. Its shape soon earned it the name The Ship. His motto: nothing is too beautiful for the worker. Look at the rounded corners, the vertically laid bricks and the ladder windows.`,`Many who moved in came from cellar homes with no windows and no toilet. Residents collected their wages at the post office. De Klerk died in 1923, aged thirty-nine.`],
+  tip:`Walk all the way round: every side is different. The museum also shows a furnished worker's flat.`}},
+
+{id:'adam',lat:52.3842,lng:4.9020,c:'grap',z:'noord',a:'Overhoeksplein 5',
+ nl:{n:`Schommelen boven het IJ`,k:`Op honderd meter hoogte schommel je over de rand van een toren.`,
+  s:[`Boven op de A'DAM Toren, recht tegenover het Centraal Station, hangt Over The Edge. De schommel ging in 2016 open en heet de hoogste van Europa. Je zwaait heen en weer over de rand, met Amsterdam onder je voeten.`,`De toren was vroeger een kantoor van Shell. Nu zitten er een hotel, een draaiend restaurant en clubs in. Ook zonder schommel is het uitzicht over de stad en het IJ de oversteek waard.`],
+  tip:`De pont achter het Centraal Station is gratis en vaart om de paar minuten. Schommelen kost extra.`},
+ en:{n:`Swinging above the IJ`,k:`A hundred metres up, you swing out over the edge of a tower.`,
+  s:[`On top of the A'DAM Tower, right across from Central Station, hangs Over The Edge. The swing opened in 2016 and is billed as the highest in Europe. You sway back and forth over the edge with Amsterdam beneath your feet.`,`The tower used to be an office of Shell. Today it holds a hotel, a revolving restaurant and clubs. Even without the swing, the view over the city and the IJ is worth the crossing.`],
+  tip:`The ferry behind Central Station is free and leaves every few minutes. The swing costs extra.`}},
+
+{id:'westergas',lat:52.3858,lng:4.8752,c:'rust',z:'noord',a:'Klönneplein',
+ nl:{n:`De Westergasfabriek`,k:`Hier werd het gas gemaakt voor de lantaarns van de stad. Nu zit je er op een terras.`,
+  s:[`Eind negentiende eeuw kookte deze fabriek steenkool tot lichtgas, dat via buizen naar de straatlantaarns en huizen ging. Toen aardgas kwam, was het voorbij. Wat achterbleef was een terrein met een flink vervuilde bodem.`,`Na een grote schoonmaak werd het een park met evenementen. In de oude gashouder, de ketelhuizen en de zuiveringshal zitten nu bioscoopjes, restaurants en zalen. De gebouwen zelf zijn gebleven, in rode baksteen met torentjes.`],
+  tip:`Het Westerpark ligt er direct naast. Op zondag is er geregeld een markt.`},
+ en:{n:`The Westergasfabriek`,k:`This is where gas was made for the city's street lamps. Now you sit here on a terrace.`,
+  s:[`In the late nineteenth century this factory baked coal into town gas, which ran through pipes to street lamps and homes. When natural gas came, it was over. What remained was a site with badly polluted soil.`,`After a big clean-up it became a park with events. The old gasholder, boiler houses and purification hall now hold small cinemas, restaurants and venues. The buildings themselves stayed, in red brick with little towers.`],
+  tip:`Westerpark is right next door. There is often a market on Sundays.`}}
 ];
 
 /* Kant-en-klare lijstjes */
@@ -391,7 +487,9 @@ const SETS=[
  {id:'shop',nl:{n:`Shoppen zonder ketens`,d:`Platen, boeken, kaas, markt en één heel bijzondere speciaalzaak.`},en:{n:`Shopping without chains`,d:`Records, books, cheese, markets and one very special specialist.`},
   ids:['haarlemmer','noordermarkt','negen','oudemanhuis','condomerie','concerto','staalmeesters']},
  {id:'stil',nl:{n:`Even stil`,d:`Plekken waar de stad zijn mond houdt.`},en:{n:`A quiet moment`,d:`Places where the city holds its tongue.`},
-  ids:['karthuizer','papegaai','begijnhof','oudemanhuis','staalmeesters','bazel','zevenbruggen','amstelveld']}
+  ids:['karthuizer','papegaai','begijnhof','oudemanhuis','staalmeesters','bazel','zevenbruggen','amstelveld']},
+ {id:'buiten',nl:{n:`Buiten de grachten`,d:`Museumplein, Vondelpark, De Pijp, Oost en over het IJ. Neem de fiets.`},en:{n:`Beyond the canals`,d:`Museumplein, Vondelpark, De Pijp, the east and across the IJ. Take a bike.`},
+  ids:['rijks','badkuip','picasso','theehuis','albertcuyp','magere','hortus','gooyer','schip','adam']}
 ];
 
 /* Onderweg spotten: geen vaste plek */
