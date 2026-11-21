@@ -20,3 +20,9 @@ Vrije stadswandeling door de binnenstad van Amsterdam, van Enigma Mystery. Geen 
 - Opslag in de browser: `achterom.v1` (taal, gezien, lijstje, spotlijst), `achterom.pins` (verplaatste spelden).
 - Kleuren zoals De Gloeidraad (eindhovenwalk): crème, witte kaarten, amber. Eén licht thema.
 - Nog niet: toegangscode/ticket, koppeling met enigmamystery.com. De pagina staat op `noindex`.
+
+## Handig onderweg, offline en delen
+- `_src/handig.js`: openbare wc's, koffie, kroegen (met terrasvlag) en bankjes uit OpenStreetMap (ODbL), eenmalig opgehaald op 21-11-2026 en vast in de app gezet. Geen API, geen sleutel, geen kosten. Bijwerken: opnieuw ophalen via een gratis Overpass-server en `handig.js` vervangen.
+- Offline: `sw.js` (door `build.py` gemaakt uit `_src/sw.js`) en `manifest.webmanifest`. Werkt alleen op de GitHub Pages-site. Knop "Alles downloaden" onder Lijstjes.
+- Weetjes geven een melding als je met locatie aan binnen ~35 m komt.
+- "Route in Google Maps" en "Deel deze wandeling" staan klein onder Jouw wandeling. Een gedeelde link ziet eruit als `…/#w=id,id,id`.

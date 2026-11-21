@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#e8891c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <meta property="og:title" content="Amsterdam Achterom">
 <meta property="og:description" content="Amsterdam via de achterdeur: 47 plekken, geen route, bij elke plek een verhaal.">
 <meta property="og:image" content="https://onderwijsdigitaliseren.github.io/Amsterdam-citywalk/img/og.jpg">
@@ -49,6 +53,10 @@ main{flex:1;min-height:0;position:relative}
 #mapbox canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
 .mapbtns{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px}
 .mapbtns button{width:40px;height:40px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);font-size:20px;font-weight:600;line-height:1;display:grid;place-items:center}
+.mapbtns .hb{font-size:18px}
+.hchips{display:flex;gap:6px;flex-wrap:wrap}
+.hchips .chip{padding-left:9px}
+.lnk{background:none;border:0;padding:4px 0;font-size:13px;color:var(--muted);text-decoration:underline;text-underline-offset:2px;font-family:inherit}
 .mapbtns button.act{background:var(--accent2);color:#fff;border-color:var(--accent2)}
 #mapmsg{position:absolute;left:8px;top:8px;right:60px;font-size:12px;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:6px 10px;display:none}
 #card{margin:10px 16px 10px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 1px 3px rgba(80,60,20,.06);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
@@ -124,7 +132,7 @@ pre{white-space:pre-wrap;word-break:break-all;font-size:12px;background:var(--ca
     <section class="view on" id="vMap">
       <div id="mapbox"><canvas id="cv"></canvas>
         <div id="mapmsg"></div>
-        <div class="mapbtns"><button data-z="in">+</button><button data-z="out">−</button><button data-z="fit">⤢</button><button data-z="me">◎</button></div>
+        <div class="mapbtns"><button data-z="in">+</button><button data-z="out">−</button><button data-z="fit">⤢</button><button data-z="me">◎</button><button data-z="handy" class="hb">☕</button></div>
       </div>
       <div id="card"></div>
     </section>
@@ -139,6 +147,7 @@ pre{white-space:pre-wrap;word-break:break-all;font-size:12px;background:var(--ca
 <script>/*TILES*/</script>
 <script>/*PLACES*/</script>
 <script>/*WEETJES*/</script>
+<script>/*HANDIG*/</script>
 <script>
 "use strict";
 /* ---------- teksten ---------- */
@@ -148,7 +157,7 @@ nl:{sub:'Amsterdam via de achterdeur',all:'Alles',mine:'Mijn lijstje',tabMap:'Ka
  read:'Lees het verhaal',add:'Op mijn lijstje',added:'Op mijn lijstje ✓',been:'Hier geweest',beenOn:'Hier geweest ✓',maps:'Open in Maps',onMap:'Toon op kaart',back:'← Terug',busy:'Druk hier',tip:'Tip',near:'In de buurt',
  away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1).replace('.',',')+' km',
  sortNear:'Dichtstbij eerst',sortZone:'Per buurt',mineEmpty:'Je lijstje is nog leeg. Kies er hieronder een, of zet zelf plekken op je lijstje.',mineSum:(n,km,min)=>n+' plekken, ongeveer '+km+' km lopen en '+min+' aan tijd, hemelsbreed geschat.',showMine:'Toon op de kaart',clear:'Lijstje leegmaken',
- take:'Neem dit lijstje',taken:'Dit lijstje staat op de kaart.',setMeta:(n,km)=>n+' plekken · ± '+km+' km',ready:'Kant-en-klaar',ownH:'Zelf samenstellen',ownP:'Kies zelf welke plekken je wilt zien. De app zet ze daarna in een handige loopvolgorde.',pickGo:'Kies zelf plekken',pickMore:'Plekken toevoegen of weghalen',pickH:'Tik op + bij de plekken die je wilt zien',pickN:(n,km)=>n?n+' gekozen · ± '+km+' km':'Nog niets gekozen',pickDone:'Klaar, naar de kaart',pickStop:'Stoppen',pickOwn:'Zelf kiezen',mineTitle:'Jouw wandeling',mineTap:'Tik op een punt voor het verhaal; de stippellijn is een handige volgorde.',showAll:'Alle plekken tonen',
+ take:'Neem dit lijstje',taken:'Dit lijstje staat op de kaart.',setMeta:(n,km)=>n+' plekken · ± '+km+' km',ready:'Kant-en-klaar',ownH:'Zelf samenstellen',ownP:'Kies zelf welke plekken je wilt zien. De app zet ze daarna in een handige loopvolgorde.',pickGo:'Kies zelf plekken',pickMore:'Plekken toevoegen of weghalen',pickH:'Tik op + bij de plekken die je wilt zien',pickN:(n,km)=>n?n+' gekozen · ± '+km+' km':'Nog niets gekozen',pickDone:'Klaar, naar de kaart',pickStop:'Stoppen',pickOwn:'Zelf kiezen',mineTitle:'Jouw wandeling',handyH:'Handig onderweg',handyP:'Zet aan wat je op de kaart wilt zien. Bankjes zie je pas als je inzoomt.',hk:{wc:'Openbare wc',koffie:'Koffie',kroeg:'Kroeg en terras',bank:'Bankjes'},hk1:{wc:'Openbare wc',koffie:'Koffie',kroeg:'Kroeg',terras:'Terras',bank:'Bankje'},nearWc:'Dichtstbijzijnde wc',nearWcNo:'Zet eerst je locatie aan (◎), dan zoek ik de dichtstbijzijnde wc.',walkTo:'Loop erheen ↗',hFee:'Betaald',hFree:'Gratis',hWheel:'Rolstoeltoegankelijk',hUrinal:'Alleen een urinoir (krul)',hOsm:'Uit OpenStreetMap. Kan verouderd zijn.',hTerras:'met terras',close:'Sluiten',wNear:n=>'Weetje: '+n,routeMaps:'Route in Google Maps',share:'Deel deze wandeling',shared:'Link gekopieerd. Stuur hem door.',gotShared:n=>'Gedeelde wandeling geopend: '+n+' plekken.',offH:'Zonder internet',offP:'De app onthoudt wat je bekijkt. Wil je zeker weten dat alles werkt bij slecht bereik, download dan vooraf alle foto\'s (± 12 MB, liefst via wifi). Zet de app daarna op je beginscherm via het deelmenu van je browser.',offGo:'Alles downloaden',offBusy:(a,b)=>'Bezig… '+a+' van '+b,offDone:'Klaar. Alles staat op je telefoon.',offNo:'Dit werkt alleen op de echte website, niet in deze voorvertoning.',mineTap:'Tik op een punt voor het verhaal; de stippellijn is een handige volgorde.',showAll:'Alle plekken tonen',
  spotH:'Onderweg spotten',spotP:'Tien dingen die je overal tegenkomt als je weet waar je op moet letten. Vink af wat je ziet.',spotN:(a,b)=>a+' van '+b,
  aboutH:'Over deze wandeling',aboutP:'De verhalen zijn nagezocht, de legendes staan erbij als legendes. Cafés, winkels en musea veranderen: kijk voor openingstijden even op hun eigen site. Hofjes en kerken zijn van de bewoners; wees een goede gast.',
  weetjes:'Weetjes',weetje:'Weetje',nextW:'Volgend weetje',areaH:'Gebied',areaP:'Het blijft een wandeling. Standaard zie je alleen de binnenstad, binnen de Singelgracht. Wil je verder, zet dan ook de plekken daarbuiten aan: Museumplein, Vondelpark, De Pijp, Oost en Noord. Pak daarvoor gerust de fiets of de tram.',areaIn:'Alleen binnenstad',areaAll:'Ook daarbuiten',areaSetAll:'Plekken buiten de grachten staan aan.',areaSetIn:'Alleen de binnenstad.',photo:'Foto',illus:'Illustratie, geen foto',credH:'Beeldverantwoording',credP:'Foto\'s van Wikimedia Commons, bijgesneden. Tik op de naam voor de bron.',reset:'Voortgang wissen',reset2:'Zeker weten? Tik nog eens',resetDone:'Alles gewist.',hours:h=>h<1?Math.round(h*60/5)*5+' minuten':(Math.round(h*2)/2).toString().replace('.',',')+' uur',
@@ -161,7 +170,7 @@ en:{sub:'Amsterdam by the back door',all:'All',mine:'My list',tabMap:'Map',tabLi
  read:'Read the story',add:'Add to my list',added:'On my list ✓',been:'Been here',beenOn:'Been here ✓',maps:'Open in Maps',onMap:'Show on map',back:'← Back',busy:'Busy spot',tip:'Tip',near:'Nearby',
  away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1)+' km',
  sortNear:'Nearest first',sortZone:'By area',mineEmpty:'Your list is empty. Pick one below, or add places yourself.',mineSum:(n,km,min)=>n+' places, about '+km+' km on foot and '+min+' in total, estimated as the crow flies.',showMine:'Show on the map',clear:'Empty my list',
- take:'Use this list',taken:'This list is now on the map.',setMeta:(n,km)=>n+' places · ± '+km+' km',ready:'Ready-made',ownH:'Build your own',ownP:'Choose the places you want to see. The app then puts them in a sensible walking order.',pickGo:'Choose places',pickMore:'Add or remove places',pickH:'Tap + on the places you want to see',pickN:(n,km)=>n?n+' chosen · ± '+km+' km':'Nothing chosen yet',pickDone:'Done, show the map',pickStop:'Stop',pickOwn:'Choose my own',mineTitle:'Your walk',mineTap:'Tap a point for its story; the dotted line is a handy order.',showAll:'Show all places',
+ take:'Use this list',taken:'This list is now on the map.',setMeta:(n,km)=>n+' places · ± '+km+' km',ready:'Ready-made',ownH:'Build your own',ownP:'Choose the places you want to see. The app then puts them in a sensible walking order.',pickGo:'Choose places',pickMore:'Add or remove places',pickH:'Tap + on the places you want to see',pickN:(n,km)=>n?n+' chosen · ± '+km+' km':'Nothing chosen yet',pickDone:'Done, show the map',pickStop:'Stop',pickOwn:'Choose my own',mineTitle:'Your walk',handyH:'Handy on the way',handyP:'Switch on what you want to see on the map. Benches appear when you zoom in.',hk:{wc:'Public toilet',koffie:'Coffee',kroeg:'Pubs and terraces',bank:'Benches'},hk1:{wc:'Public toilet',koffie:'Coffee',kroeg:'Pub',terras:'Terrace',bank:'Bench'},nearWc:'Nearest toilet',nearWcNo:'Turn on your location first (◎), then I can find the nearest toilet.',walkTo:'Walk there ↗',hFee:'Paid',hFree:'Free',hWheel:'Wheelchair accessible',hUrinal:'Urinal only',hOsm:'From OpenStreetMap. May be out of date.',hTerras:'with terrace',close:'Close',wNear:n=>'Quick fact: '+n,routeMaps:'Route in Google Maps',share:'Share this walk',shared:'Link copied. Send it on.',gotShared:n=>'Shared walk opened: '+n+' places.',offH:'Without internet',offP:'The app remembers what you look at. To be sure everything works with a poor signal, download all photos beforehand (± 12 MB, preferably on wifi). Then add the app to your home screen from your browser\'s share menu.',offGo:'Download everything',offBusy:(a,b)=>'Working… '+a+' of '+b,offDone:'Done. Everything is on your phone.',offNo:'This only works on the real website, not in this preview.',mineTap:'Tap a point for its story; the dotted line is a handy order.',showAll:'Show all places',
  spotH:'Spot along the way',spotP:'Ten things you see everywhere once you know what to look for. Tick what you find.',spotN:(a,b)=>a+' of '+b,
  aboutH:'About this walk',aboutP:'The stories have been checked, and legends are told as legends. Cafés, shops and museums change: check opening hours on their own sites. Courtyards and churches belong to the people who live there; be a good guest.',
  weetjes:'Quick facts',weetje:'Quick fact',nextW:'Next fact',areaH:'Area',areaP:'It is still a walk. By default you only see the city centre, inside the Singelgracht. Want to go further? Switch on the places beyond it as well: Museumplein, Vondelpark, De Pijp, the east and the north. A bike or tram helps.',areaIn:'City centre only',areaAll:'Beyond it too',areaSetAll:'Places beyond the canals are on.',areaSetIn:'City centre only.',photo:'Photo',illus:'Illustration, not a photo',credH:'Image credits',credP:'Photos from Wikimedia Commons, cropped. Tap the name for the source.',reset:'Erase my progress',reset2:'Sure? Tap again',resetDone:'All erased.',hours:h=>h<1?Math.round(h*60/5)*5+' minutes':(Math.round(h*2)/2)+' hours',
@@ -255,7 +264,7 @@ const CREDITS=[
 const ILLUS={chris:1,vleminckx:1,singel7:1,papegaai:1}, ART=1, SETART={raar:1,jordaan:1,borrel:1,bouw:1,shop:1,stil:1};
 Object.assign(IMG,ILLUS);
 const KEY='achterom.v1', PINKEY='achterom.pins';
-let S={lang:null,seen:{},mine:[],spot:{},intro:1,area:'in'}, view='map', pick=false, filter='all', sel=null, sortNear=false, test=false, moveId=null;
+let S={lang:null,seen:{},mine:[],spot:{},intro:1,area:'in',handy:{}}, view='map', pick=false, hpanel=false, filter='all', sel=null, sortNear=false, test=false, moveId=null;
 try{ const o=JSON.parse(localStorage.getItem(KEY)); if(o&&typeof o==='object') S=Object.assign(S,o); }catch(e){}
 try{ const p=JSON.parse(localStorage.getItem(PINKEY))||{}; PLACES.forEach(x=>{ if(p[x.id]){ x.lat=p[x.id][0]; x.lng=p[x.id][1]; } }); }catch(e){}
 if(S.lang!=='nl'&&S.lang!=='en') S.lang=(navigator.language||'nl').slice(0,2)==='nl'?'nl':'en';
@@ -282,6 +291,8 @@ const kmTxt=km=>{ const v=(Math.round(km*2)/2).toFixed(1); return S.lang==='nl'?
 const inArea=p=>S.area==='all'||INNER.includes(p.z), areaPlaces=()=>PLACES.filter(inArea);
 const visible=()=>filter==='mine'?PLACES.filter(p=>S.mine.includes(p.id)):filter==='weetje'?[]:PLACES.filter(p=>inArea(p)&&(filter==='all'||p.c===filter));
 const visW=()=>(filter==='all'||filter==='weetje')?WEETJES.filter(w=>S.area==='all'||!w.out):[], W_=id=>WEETJES.find(w=>'w:'+w.id===id);
+const HK=['wc','koffie','kroeg','bank'], HICON={wc:'🚻',koffie:'☕',kroeg:'🍺',bank:'🪑'}, HCOL={wc:'#2f6db5',koffie:'#7a4a22',kroeg:'#b0601a',bank:'#5f7a3a'};
+const hMin=k=>k==='bank'?.9:.3, H_=id=>{ if(!id||id.slice(0,2)!=='h:') return null; const a=id.split(':'), r=(HANDIG[a[1]]||[])[+a[2]]; return r?{k:a[1],i:+a[2],lat:r[0],lng:r[1],n:r[2]||'',f:r[3]||0}:null; };
 
 /* ---------- kaart ---------- */
 const cv=$('#cv'), cx=cv.getContext('2d'), box=$('#mapbox');
@@ -377,11 +388,14 @@ function draw(){ raf=0; if(!cw) size(); if(!cw) return; if(!fitted){ fit(PLACES.
   if(filter==='mine'&&S.mine.length>1){ const ids=ordered(S.mine); cx.beginPath(); ids.forEach((id,i)=>{ const p=P(id),X=sx(mX(p.lng)),Y=sy(mY(p.lat)); i?cx.lineTo(X,Y):cx.moveTo(X,Y); });
     cx.strokeStyle=COL.accent; cx.globalAlpha=.7; cx.lineWidth=2; cx.setLineDash([2,7]); cx.stroke(); cx.setLineDash([]); cx.globalAlpha=1; }
   const r=Math.max(9,Math.min(14,9+V.s*14));
+  HK.forEach(k=>{ if(!S.handy[k]||V.s<hMin(k)) return; const sz=V.s>1.2?22:18; cx.font=(sz-6)+'px '+FONT; cx.textAlign='center';
+    HANDIG[k].forEach((h,i)=>{ const X=sx(mX(h[1])),Y=sy(mY(h[0])); if(X<-15||Y<-15||X>cw+15||Y>ch+15) return; const on=sel==='h:'+k+':'+i;
+      cx.beginPath(); cx.roundRect?cx.roundRect(X-sz/2,Y-sz/2,sz,sz,5):cx.rect(X-sz/2,Y-sz/2,sz,sz); cx.fillStyle=on?HCOL[k]:COL.card; cx.fill(); cx.strokeStyle=HCOL[k]; cx.lineWidth=on?3:1.6; cx.stroke(); cx.fillStyle='#000'; cx.fillText(HICON[k],X,Y+(sz-6)*.36); }); });
   visW().forEach(w=>{ const X=sx(mX(w.lng)),Y=sy(mY(w.lat)); if(X<-20||Y<-20||X>cw+20||Y>ch+20) return; const on='w:'+w.id===sel, rr=on?10:7.5;
     cx.beginPath(); cx.arc(X,Y,rr,0,7); cx.fillStyle=on?COL.accent:COL.card; cx.fill(); cx.strokeStyle=COL.accent; cx.lineWidth=1.8; cx.stroke();
     cx.font='italic 700 '+(on?13:11)+'px Georgia,serif'; cx.textAlign='center'; cx.fillStyle=on?'#fff':COL.accent; cx.fillText('i',X,Y+(on?4.5:4)); });
   vis.filter(p=>p.id!==sel).sort((a,b)=>a.lat<b.lat?1:-1).forEach(p=>pin(p,r));
-  if(sel&&!W_(sel)){ const p=P(sel); pin(p,r+4,true); const X=sx(mX(p.lng)),Y=sy(mY(p.lat)); cx.font='600 13px '+FONT; cx.textAlign='center'; cx.fillStyle=COL.ink; const hw=cx.measureText(tx(p).n).width/2+6; halo(tx(p).n,Math.max(hw,Math.min(cw-hw,X)),Y+r+19); }
+  if(sel&&P(sel)){ const p=P(sel); pin(p,r+4,true); const X=sx(mX(p.lng)),Y=sy(mY(p.lat)); cx.font='600 13px '+FONT; cx.textAlign='center'; cx.fillStyle=COL.ink; const hw=cx.measureText(tx(p).n).width/2+6; halo(tx(p).n,Math.max(hw,Math.min(cw-hw,X)),Y+r+19); }
   if(pos){ const X=sx(mX(pos.lng)),Y=sy(mY(pos.lat)); if(pos.acc>12){ cx.beginPath(); cx.arc(X,Y,Math.min(160,pos.acc*V.s),0,7); cx.fillStyle='rgba(30,110,220,.14)'; cx.fill(); }
     cx.beginPath(); cx.arc(X,Y,7,0,7); cx.fillStyle='#1e6edc'; cx.fill(); cx.strokeStyle='#fff'; cx.lineWidth=2.5; cx.stroke(); }
   cx.font='10px '+FONT; cx.textAlign='right'; cx.fillStyle=COL.muted; cx.fillText(WORLD?MW.Tiles.attr:worldState==='loading'?L().loading:L().drawn,cw-8,ch-6); }
@@ -402,9 +416,10 @@ function tap(x,y){
     try{ const o=JSON.parse(localStorage.getItem(PINKEY))||{}; o[p.id]=[p.lat,p.lng]; localStorage.setItem(PINKEY,JSON.stringify(o)); }catch(e){} moveId=null; toast(L().moved); redraw(); return; }
   let best=null,bd=26; visible().forEach(p=>{ const d=Math.hypot(sx(mX(p.lng))-x,sy(mY(p.lat))-y); if(d<bd){bd=d;best=p.id;} });
   visW().forEach(w=>{ const d=Math.hypot(sx(mX(w.lng))-x,sy(mY(w.lat))-y)+4; if(d<bd){bd=d;best='w:'+w.id;} });
-  sel=best; if(S.intro){ S.intro=0; save(); } renderCard(); redraw(); }
+  if(!best) HK.forEach(k=>{ if(!S.handy[k]||V.s<hMin(k)) return; HANDIG[k].forEach((h,i)=>{ const d=Math.hypot(sx(mX(h[1]))-x,sy(mY(h[0]))-y)+6; if(d<bd){bd=d;best='h:'+k+':'+i;} }); });
+  sel=best; hpanel=false; if(S.intro){ S.intro=0; save(); } renderCard(); redraw(); }
 box.querySelector('.mapbtns').addEventListener('click',e=>{ const z=e.target.dataset.z; if(!z) return;
-  if(z==='in') zoomAt(1.4,cw/2,ch/2); else if(z==='out') zoomAt(1/1.4,cw/2,ch/2); else if(z==='fit'){ const pts=visible().concat(visW()); fit(pts.length?pts:areaPlaces(),34); redraw(); } else gps(); });
+  if(z==='in') zoomAt(1.4,cw/2,ch/2); else if(z==='out') zoomAt(1/1.4,cw/2,ch/2); else if(z==='handy'){ hpanel=!hpanel; sel=null; renderCard(); redraw(); } else if(z==='fit'){ const pts=visible().concat(visW()); fit(pts.length?pts:areaPlaces(),34); redraw(); } else gps(); });
 new ResizeObserver(()=>{ size(); redraw(); }).observe(box);
 
 /* ---------- locatie ---------- */
@@ -417,7 +432,9 @@ function gps(){ const b=box.querySelector('[data-z=me]');
     err=>{ if(err.code===1||!pos){ gpsOn=false; b.classList.remove('act'); try{navigator.geolocation.clearWatch(gpsId);}catch(_){ } mapMsg(L().gpsOff); setTimeout(()=>mapMsg(''),5000); } },
     {enableHighAccuracy:true,maximumAge:5000,timeout:20000}); }catch(e){ gpsOn=false; b.classList.remove('act'); mapMsg(L().gpsOff); } }
 function arrive(){ if(!pos||pos.acc>80||$('#sheet').classList.contains('on')) return; let best=null,bd=40; areaPlaces().forEach(p=>{ const d=dist(pos,p); if(d<bd&&!said[p.id]&&!S.seen[p.id]){bd=d;best=p;} });
-  if(best){ said[best.id]=1; sel=best.id; try{ navigator.vibrate&&navigator.vibrate(120); }catch(e){} toast(L().youAt(tx(best).n)); renderCard(); } }
+  if(best){ said[best.id]=1; sel=best.id; try{ navigator.vibrate&&navigator.vibrate(120); }catch(e){} toast(L().youAt(tx(best).n)); renderCard(); return; }
+  let bw=null,bwd=35; WEETJES.filter(w=>S.area==='all'||!w.out).forEach(w=>{ const d=dist(pos,w); if(d<bwd&&!said['w:'+w.id]){bwd=d;bw=w;} });
+  if(bw&&!H_(sel)){ said['w:'+bw.id]=1; sel='w:'+bw.id; try{ navigator.vibrate&&navigator.vibrate([60,60,60]); }catch(e){} toast(L().wNear(bw[S.lang].n)); renderCard(); redraw(); } }
 
 /* ---------- schermen ---------- */
 function renderHead(){ document.documentElement.lang=S.lang; $('#sub').textContent=L().sub; $('#lang').textContent=S.lang==='nl'?'English':'Nederlands';
@@ -429,8 +446,14 @@ function renderHead(){ document.documentElement.lang=S.lang; $('#sub').textConte
   $('#tabs').innerHTML=[['map',L().tabMap],['list',L().tabList],['tips',L().tabTips]].map(t=>'<button role="tab" data-v="'+t[0]+'" aria-selected="'+(view===t[0])+'">'+t[1]+'</button>').join('');
   [['in','Zoom in'],['out','Zoom out'],['fit',S.lang==='nl'?'Alles tonen':'Show all'],['me',S.lang==='nl'?'Mijn locatie':'My location']].forEach(a=>box.querySelector('[data-z='+a[0]+']').setAttribute('aria-label',a[1])); }
 function dTxt(p){ return inTown()?L().away(dist(pos,p)):''; }
-function renderCard(){ const c=$('#card');
-  if(!sel&&filter==='mine'&&S.mine.length){ const m=ordered(S.mine), km=walkKm(m); c.innerHTML='<h2>'+L().mineTitle+'</h2><p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+' '+L().mineTap+'</p><div class="row"><button class="btn" data-a="pick">'+L().pickMore+'</button><button class="btn quiet" data-a="showall">'+L().showAll+'</button></div>'; return; }
+function renderCard(){ const c=$('#card'); box.querySelector('[data-z=handy]').classList.toggle('act',hpanel||HK.some(k=>S.handy[k]));
+  if(hpanel){ c.innerHTML='<div class="kick">'+L().handyH+'<span class="dist"><button class="lnk" data-a="hclose">'+L().close+'</button></span></div><p class="small" style="margin:0">'+L().handyP+'</p><div class="hchips">'+HK.map(k=>'<button class="chip" data-h="'+k+'" aria-pressed="'+!!S.handy[k]+'">'+HICON[k]+' '+L().hk[k]+'</button>').join('')+'</div><div class="row"><button class="btn" data-a="nearwc">🚻 '+L().nearWc+'</button></div><p class="small" style="margin:0">'+L().hOsm+'</p>'; return; }
+  const hh=H_(sel); if(hh){ const kind=hh.k==='kroeg'&&hh.f===2?'terras':hh.k, bits=[];
+    if(hh.k==='wc'){ if(hh.f&1) bits.push(L().hFee); if(hh.f&2) bits.push(L().hFree); if(hh.f&4) bits.push(L().hWheel); if(hh.f&8) bits.push(L().hUrinal); }
+    if(hh.k==='kroeg'&&hh.f===1) bits.push(L().hTerras);
+    c.innerHTML='<div class="kick"><span style="font-size:16px">'+HICON[hh.k]+'</span>'+L().hk1[kind]+'<span class="dist">'+dTxt(hh)+'</span></div><h2>'+esc(hh.n||L().hk1[kind])+'</h2>'+(bits.length?'<p class="small">'+esc(bits.join(' · '))+'</p>':'')+
+      '<div class="row"><a class="btn pri" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&destination='+hh.lat+','+hh.lng+'">'+L().walkTo+'</a><button class="btn quiet" data-a="handy">'+L().handyH+'</button></div>'; return; }
+  if(!sel&&filter==='mine'&&S.mine.length){ const m=ordered(S.mine), km=walkKm(m); c.innerHTML='<h2>'+L().mineTitle+'</h2><p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+' '+L().mineTap+'</p><div class="row"><button class="btn" data-a="pick">'+L().pickMore+'</button><button class="btn quiet" data-a="showall">'+L().showAll+'</button></div><div class="row" style="gap:16px"><a class="lnk" target="_blank" rel="noopener" href="'+mapsRoute(m)+'">'+L().routeMaps+' ↗</a><button class="lnk" data-a="share">'+L().share+'</button></div>'; return; }
   if(!sel){ c.innerHTML=S.intro?(ART?'<img class="hero" src="img/hero.webp" alt="">':'')+'<h2>'+L().introH(areaPlaces().length)+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="pick">'+L().pickOwn+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
       :'<div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button><span class="dist">'+visible().length+' '+L().tabList.toLowerCase()+'</span></div>'; return; }
   const w=W_(sel); if(w){ const near=visW().filter(x=>x!==w).sort((a,b)=>dist(w,a)-dist(w,b))[0];
@@ -454,6 +477,7 @@ function renderTips(){ const m=ordered(S.mine); let h='<h3>'+L().areaH+'</h3><di
   h+='</div><h3>'+L().ready+'</h3>'+SETS.map(s=>{ const ids=ordered(s.ids); return '<div class="box">'+(ART&&SETART[s.id]?'<img class="set" src="img/set-'+s.id+'.webp" alt="" loading="lazy">':'')+'<h4>'+esc(s[S.lang].n)+'</h4><p>'+esc(s[S.lang].d)+'<br><span class="small">'+L().setMeta(ids.length,kmTxt(walkKm(ids)))+'</span></p><button class="btn" data-set="'+s.id+'">'+L().take+'</button></div>'; }).join('');
   const n=SPOT.filter(s=>S.spot[s.id]).length;
   h+='<h3>'+L().spotH+' · '+L().spotN(n,SPOT.length)+'</h3><div class="box"><p>'+L().spotP+'</p>'+SPOT.map(s=>'<div class="spot"><input type="checkbox" id="sp-'+s.id+'" data-spot="'+s.id+'"'+(S.spot[s.id]?' checked':'')+'>'+(ART?'<img src="img/spot-'+s.id+'.webp" alt="" loading="lazy">':'')+'<label for="sp-'+s.id+'"><b>'+esc(s[S.lang][0])+'</b><span>'+esc(s[S.lang][1])+'</span></label></div>').join('')+'</div>';
+  h+='<h3>'+L().offH+'</h3><div class="box"><p>'+L().offP+'</p><button class="btn" data-a="offline">'+L().offGo+'</button></div>';
   h+='<h3>'+L().aboutH+'</h3><div class="box"><p>'+L().aboutP+'</p><button class="btn quiet" data-a="reset">'+L().reset+'</button></div>';
   if(CREDITS.length) h+='<h3>'+L().credH+'</h3><div class="box"><p>'+L().credP+'</p>'+CREDITS.map(c=>'<p class="small" style="margin:0 0 6px">'+esc(tx(P(c.id)).n)+': <a href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.maker)+'</a>, '+esc(c.lic)+'</p>').join('')+'</div>';
   if(test){ let pp='{}'; try{ pp=localStorage.getItem(PINKEY)||'{}'; }catch(e){} h+='<h3>'+L().pins+'</h3><pre>'+esc(pp)+'</pre>'; }
@@ -472,7 +496,17 @@ function closeStory(){ $('#sheet').classList.remove('on'); renderAll(); }
 function setView(v){ view=v; ['Map','List','Tips'].forEach(n=>$('#v'+n).classList.toggle('on',n.toLowerCase()===v)); renderAll(); if(v==='map'){ size(); redraw(); } }
 function renderPick(){ const b=$('#pickbar'); const was=b.classList.contains('on'); b.classList.toggle('on',pick); if(was!==pick&&view==='map') size(); if(!pick) return; const m=ordered(S.mine); b.innerHTML='<span class="t"><b>'+L().pickN(m.length,kmTxt(walkKm(m)))+'</b><button class="pill" data-a="pickstop" style="margin-top:4px">'+L().pickStop+'</button></span><button class="btn pri" data-a="pickdone"'+(m.length?'':' disabled')+'>'+L().pickDone+' →</button>'; }
 function renderAll(){ renderHead(); renderPick(); renderCard(); if(view==='list') renderList(); if(view==='tips') renderTips(); redraw(); }
-function setArea(a){ if(S.area===a) return; S.area=a; save(); WORLD=null; worldState='idle'; loadWorld(); if(sel&&!W_(sel)&&!inArea(P(sel))) sel=null; fit(areaPlaces(),34); renderAll(); }
+function setArea(a){ if(S.area===a) return; S.area=a; save(); WORLD=null; worldState='idle'; loadWorld(); if(sel&&P(sel)&&!inArea(P(sel))) sel=null; fit(areaPlaces(),34); renderAll(); }
+function mapsRoute(ids){ const ll=id=>P(id).lat+','+P(id).lng, a=ids.slice(0,10), last=a.pop();
+  return 'https://www.google.com/maps/dir/?api=1&travelmode=walking'+(inTown()||!a.length?'':'&origin='+ll(a.shift()))+'&destination='+ll(last)+(a.length?'&waypoints='+encodeURIComponent(a.map(ll).join('|')):''); }
+function share(){ const u=location.href.split('#')[0]+'#w='+S.mine.join(',');
+  if(navigator.share){ navigator.share({title:'Amsterdam Achterom',text:L().mineTitle,url:u}).catch(()=>{}); return; }
+  try{ navigator.clipboard.writeText(u).then(()=>toast(L().shared),()=>prompt('',u)); }catch(e){ prompt('',u); } }
+function nearWc(){ if(!pos||!inTown()){ toast(L().nearWcNo); if(!gpsOn) gps(); return; }
+  let bi=-1,bd=1e9; HANDIG.wc.forEach((h,i)=>{ if(h[3]&8) return; const d=dist(pos,{lat:h[0],lng:h[1]}); if(d<bd){bd=d;bi=i;} }); if(bi<0) return;
+  S.handy.wc=1; save(); hpanel=false; sel='h:wc:'+bi; if(view!=='map') setView('map'); const h=H_(sel); fit([pos,h],60); redraw(); renderCard(); }
+function offline(btn){ const sw=navigator.serviceWorker; if(!sw||!sw.controller){ toast(L().offNo); return; }
+  btn.disabled=true; sw.addEventListener('message',e=>{ const d=e.data||{}; if(d.of){ btn.textContent=d.done<d.of?L().offBusy(d.done,d.of):L().offDone; } }); sw.controller.postMessage('all'); }
 function toggleMine(id){ const i=S.mine.indexOf(id); i<0?S.mine.push(id):S.mine.splice(i,1); save(); }
 function surprise(){ const pool=areaPlaces().filter(p=>!S.seen[p.id]&&p.id!==sel); if(!pool.length){ toast(L().noSurprise); return; }
   const near=inTown()?pool.slice().sort((a,b)=>dist(pos,a)-dist(pos,b)).slice(0,8):pool; const p=near[Math.floor(Math.random()*near.length)];
@@ -490,10 +524,16 @@ document.addEventListener('click',e=>{ const it=e.target.closest('.item[data-id]
   const ar=e.target.closest('[data-area]'); if(ar){ setArea(ar.dataset.area); renderTips(); toast(S.area==='all'?L().areaSetAll:L().areaSetIn); return; }
   const wb=e.target.closest('[data-w]'); if(wb){ sel='w:'+wb.dataset.w; S.intro=0; save(); if(view!=='map') setView('map'); else renderAll(); centerOn(W_(sel),.7); return; }
   const st=e.target.closest('[data-set]'); if(st){ if(SETS.find(s=>s.id===st.dataset.set).ids.some(i=>!INNER.includes(P(i).z))&&S.area!=='all') setArea('all'); pick=false; S.mine=SETS.find(s=>s.id===st.dataset.set).ids.slice(); S.intro=0; save(); filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); toast(L().taken); return; }
+  const hc=e.target.closest('[data-h]'); if(hc){ const k=hc.dataset.h; S.handy[k]=S.handy[k]?0:1; save(); if(S.handy[k]&&V.s<hMin(k)){ V.s=hMin(k)+.05; if(pos&&inTown()){ V.x=mX(pos.lng); V.y=mY(pos.lat); } } renderCard(); redraw(); return; }
   const op=e.target.closest('[data-open]'); if(op){ openStory(op.dataset.open); return; }
   const pk=e.target.closest('[data-pick]'); if(pk){ toggleMine(pk.dataset.pick); renderAll(); return; }
   const b=e.target.closest('[data-a]'); if(!b) return; const a=b.dataset.a;
   if(a==='pick'){ pick=true; S.intro=0; save(); if(filter==='mine'||filter==='weetje') filter='all'; sel=null; setView('list'); $('#list').scrollTop=0; }
+  else if(a==='handy'){ hpanel=true; sel=null; renderCard(); redraw(); }
+  else if(a==='hclose'){ hpanel=false; renderCard(); }
+  else if(a==='nearwc') nearWc();
+  else if(a==='share') share();
+  else if(a==='offline') offline(b);
   else if(a==='showall'){ filter='all'; sel=null; renderAll(); fit(areaPlaces(),34); redraw(); }
   else if(a==='pickstop'){ pick=false; renderAll(); }
   else if(a==='pickdone'){ pick=false; if(!S.mine.length) return renderAll(); filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); }
@@ -507,7 +547,11 @@ document.addEventListener('click',e=>{ const it=e.target.closest('.item[data-id]
   else if(a==='clear'){ S.mine=[]; save(); if(filter==='mine') filter='all'; renderAll(); }
   else if(a==='reset'){ if(b.dataset.sure){ S.seen={}; S.mine=[]; S.spot={}; S.intro=1; save(); filter='all'; sel=null; renderAll(); toast(L().resetDone); } else { b.dataset.sure=1; b.textContent=L().reset2; } } });
 document.addEventListener('change',e=>{ const s=e.target.dataset&&e.target.dataset.spot; if(s){ e.target.checked?S.spot[s]=1:delete S.spot[s]; save(); renderTips(); } });
+(function(){ const m=/[#&]w=([a-z0-9,_-]+)/i.exec(location.hash); if(!m) return; const ids=m[1].split(',').filter(id=>P(id)); if(!ids.length) return;
+  S.mine=ids; S.intro=0; if(ids.some(i=>!INNER.includes(P(i).z))) S.area='all'; save(); filter='mine'; setTimeout(()=>{ fit(visible(),40); redraw(); toast(L().gotShared(ids.length)); },300);
+  try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} })();
 colors(); renderAll(); loadWorld();
+try{ if('serviceWorker' in navigator&&location.protocol==='https:'&&/github\.io$/.test(location.hostname)) navigator.serviceWorker.register('sw.js'); }catch(e){}
 if(document.fonts&&document.fonts.ready) document.fonts.ready.then(redraw);
 </script>
 </body>
