@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Amsterdam Achterom</title>
+<style>
+/* Plan: kaart als hoofdscherm, alles daaronder in één duimbereik. Kleuren van De Gloeidraad (Eindhoven):
+   crème papier, witte kaarten, warme inkt, amber voor actie. Eén licht thema, geen zwart. */
+:root{
+  --paper:#f6f0e4; --card:#ffffff; --ink:#2b2620; --muted:#6e6658; --line:#e4d9c5; --accent:#a95b06; --accent2:#e8891c; --soft:#ffecc9; --on-accent:#ffffff;
+  --water:#b8d6e8; --land:#efe8da; --street:#ffffff; --park:#d3e5c4; --rail:#b7ad98; --label:#6e6658; --halo:#fbf6ec;
+  --c-verhaal:#6f4bb0; --c-bouw:#b1521c; --c-grap:#c2185b; --c-eten:#a87400; --c-shop:#0f6fb3; --c-rust:#23805a;
+  --display:Georgia,"Times New Roman",serif; --read:Georgia,"Times New Roman",serif; --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:radial-gradient(900px 520px at 50% -140px,rgba(255,196,110,.45) 0,transparent 70%),var(--paper);color:var(--ink);font:400 16px/1.45 var(--sans);-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+#app{height:100%;max-width:960px;margin:0 auto;display:flex;flex-direction:column}
+header{display:flex;align-items:center;gap:10px;padding:10px 16px 8px}
+#brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;text-align:left}
+.flag{width:24px;height:36px;border-radius:6px;background:linear-gradient(180deg,#ffc266,var(--accent2));display:grid;place-items:center;flex:none;box-shadow:0 2px 0 rgba(169,91,6,.25)}
+.flag svg{width:8px;height:26px;display:block}
+.wm{font:400 26px/1 var(--display);letter-spacing:.01em}
+.sub{font-size:12px;color:var(--muted);line-height:1.2;margin-top:2px}
+.hr{margin-left:auto;display:flex;align-items:center;gap:8px}
+#count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font-weight:600;font-size:13px;white-space:nowrap}
+#chips{display:flex;gap:6px;overflow-x:auto;padding:2px 16px 10px;scrollbar-width:none}
+#chips::-webkit-scrollbar{display:none}
+.chip{display:flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:5px 11px 5px 6px;font-size:13px;font-weight:600;white-space:nowrap;flex:none}
+.chip.txt{padding-left:11px}
+.chip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.dot{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;flex:none}
+.dot svg{width:13px;height:13px;fill:#fff}
+main{flex:1;min-height:0;position:relative}
+.view{position:absolute;inset:0;display:none}
+.view.on{display:flex;flex-direction:column}
+.scroll{overflow-y:auto;padding:4px 16px 24px;-webkit-overflow-scrolling:touch}
+#mapbox{flex:1;min-height:0;position:relative;margin:0 16px;border-radius:14px;overflow:hidden;border:1.5px solid var(--line);background:var(--land)}
+#mapbox canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
+.mapbtns{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:6px}
+.mapbtns button{width:40px;height:40px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);font-size:20px;font-weight:600;line-height:1;display:grid;place-items:center}
+.mapbtns button.act{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+#mapmsg{position:absolute;left:8px;top:8px;right:60px;font-size:12px;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:6px 10px;display:none}
+#card{margin:10px 16px 10px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 1px 3px rgba(80,60,20,.06);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.kick{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:600;border:1.5px solid var(--line);border-radius:999px;padding:1px 8px;text-transform:none;letter-spacing:0}
+h2{font:400 23px/1.18 var(--display);margin:0;text-wrap:balance}
+#card p{margin:0;font:400 16px/1.4 var(--read)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:1.5px solid var(--line);background:var(--card);border-radius:10px;padding:9px 14px;font-weight:600;font-size:14px;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.btn.pri{background:linear-gradient(180deg,#ffc266,var(--accent2));border-color:transparent;color:#2a1700;box-shadow:0 2px 0 rgba(169,91,6,.25)}
+.btn.on{background:var(--soft);border-color:var(--accent2);color:var(--accent)}
+.btn.quiet{border-color:var(--line)}
+.dist{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;margin-left:auto}
+#tabs{display:flex;border-top:1.5px solid var(--line);background:var(--card)}
+#tabs button{flex:1;border:0;background:none;padding:11px 4px 12px;font-weight:600;font-size:14px;color:var(--muted);border-top:3px solid transparent;margin-top:-1.5px}
+#tabs button[aria-selected="true"]{color:var(--accent);border-top-color:var(--accent2)}
+h3{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:18px 0 8px}
+.item{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.item .dot{width:28px;height:28px;margin-top:2px}.item .dot svg{width:17px;height:17px}
+.item b{display:block;font:400 18px/1.2 var(--display)}
+.item span.k{display:block;font:400 14.5px/1.35 var(--read);color:var(--muted);margin-top:2px}
+.item .meta{margin-left:auto;font-size:12px;color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.item.seen b::after{content:" ✓";color:var(--c-rust)}
+.box{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
+.box h4{margin:0 0 2px;font:400 21px/1.2 var(--display);color:var(--accent)}
+.box p{margin:0 0 10px;color:var(--muted);font-size:14.5px}
+.small{font-size:13px;color:var(--muted)}
+.spot{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1.5px solid var(--line)}
+.spot:first-of-type{border-top:0}
+.spot input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--accent);flex:none}
+.spot label b{display:block}.spot label span{font:400 15px/1.4 var(--read);color:var(--muted)}
+#sheet{position:fixed;inset:0;background:var(--paper);display:none;flex-direction:column;z-index:5}
+#sheet.on{display:flex}
+#sheetIn{flex:1;overflow-y:auto;padding:0 20px 28px;max-width:640px;width:100%;margin:0 auto}
+.sheettop{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;max-width:640px;width:100%;margin:0 auto}
+#sheetIn h2{font-size:32px;margin:8px 0 2px}
+.ph{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px;border:1.5px solid var(--line);margin:4px 0 6px;background:var(--land)}
+.cred{font-size:12px;color:var(--muted);margin:0 0 6px}
+.addr{color:var(--muted);font-size:14px;margin:0 0 14px}
+.pull{font:italic 400 21px/1.3 var(--read);border-left:4px solid var(--cc,var(--accent));padding:2px 0 2px 14px;margin:0 0 16px;text-wrap:balance}
+.story p{font:400 18px/1.55 var(--read);margin:0 0 14px;max-width:62ch}
+.tip{border:1.5px solid var(--line);background:var(--card);border-radius:12px;padding:10px 14px;margin:4px 0 16px;font-size:15px}
+.tip b{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);display:block}
+#toast{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);background:var(--accent);color:#fff;box-shadow:0 4px 16px rgba(80,60,20,.25);border-radius:10px;padding:9px 14px;font-size:14px;font-weight:600;display:none;z-index:9;max-width:88vw;text-align:center}
+pre{white-space:pre-wrap;word-break:break-all;font-size:12px;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:8px}
+@media (min-width:760px){ #card{position:absolute;left:28px;bottom:14px;width:360px;margin:0;box-shadow:0 6px 24px rgba(0,0,0,.18)} #vMap #mapbox{margin-bottom:12px} }
+@media (prefers-reduced-motion:no-preference){ .btn,.chip,.pill{transition:background .12s,color .12s} }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <button id="brand" aria-label="Amsterdam Achterom">
+      <span class="flag" aria-hidden="true"><svg viewBox="0 0 8 26"><g stroke="#fff" stroke-width="1.6" stroke-linecap="square"><path d="M1.5 2.5l5 5m0-5l-5 5M1.5 10.5l5 5m0-5l-5 5M1.5 18.5l5 5m0-5l-5 5"/></g></svg></span>
+      <span><span class="wm">Achterom</span><br><span class="sub" id="sub"></span></span>
+    </button>
+    <div class="hr"><span id="count"></span><button class="pill" id="lang"></button></div>
+  </header>
+  <nav id="chips" aria-label="Filter"></nav>
+  <main>
+    <section class="view on" id="vMap">
+      <div id="mapbox"><canvas id="cv"></canvas>
+        <div id="mapmsg"></div>
+        <div class="mapbtns"><button data-z="in">+</button><button data-z="out">−</button><button data-z="fit">⤢</button><button data-z="me">◎</button></div>
+      </div>
+      <div id="card"></div>
+    </section>
+    <section class="view" id="vList"><div class="scroll" id="list"></div></section>
+    <section class="view" id="vTips"><div class="scroll" id="tips"></div></section>
+  </main>
+  <nav id="tabs" role="tablist"></nav>
+</div>
+<div id="sheet" role="dialog" aria-modal="true"><div class="sheettop"><button class="btn quiet" id="sheetBack"></button><span class="small" id="sheetPos"></span></div><div id="sheetIn"></div></div>
+<div id="toast" role="status"></div>
+<script>/*TILES*/</script>
+<script>/*PLACES*/</script>
+<script>
+"use strict";
+/* ---------- teksten ---------- */
+const T={
+nl:{sub:'Amsterdam via de achterdeur',all:'Alles',mine:'Mijn lijstje',tabMap:'Kaart',tabList:'Plekken',tabTips:'Lijstjes',seenOf:(a,b)=>a+' van '+b+' gezien',
+ introH:'Geen route. Wel 47 redenen om af te slaan.',introP:'Tik op een punt op de kaart. Bij elke plek hoort een verhaal van een minuut. Loop wat je wilt, sla over wat je wilt.',surprise:'Verras me',pickList:'Kies een lijstje',
+ read:'Lees het verhaal',add:'Op mijn lijstje',added:'Op mijn lijstje ✓',been:'Hier geweest',beenOn:'Hier geweest ✓',maps:'Open in Maps',onMap:'Toon op kaart',back:'← Terug',busy:'Druk hier',tip:'Tip',near:'In de buurt',
+ away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1).replace('.',',')+' km',
+ sortNear:'Dichtstbij eerst',sortZone:'Per buurt',mineEmpty:'Je lijstje is nog leeg. Kies er hieronder een, of zet zelf plekken op je lijstje.',mineSum:(n,km,min)=>n+' plekken, ongeveer '+km+' km lopen en '+min+' aan tijd, hemelsbreed geschat.',showMine:'Toon op de kaart',clear:'Lijstje leegmaken',
+ take:'Neem dit lijstje',taken:'Dit lijstje staat op de kaart.',setMeta:(n,km)=>n+' plekken · ± '+km+' km',ready:'Kant-en-klaar',ownH:'Zelf samenstellen',ownP:'Open een plek en tik op ‘Op mijn lijstje’. De kaart zet ze in een handige volgorde.',
+ spotH:'Onderweg spotten',spotP:'Tien dingen die je overal tegenkomt als je weet waar je op moet letten. Vink af wat je ziet.',spotN:(a,b)=>a+' van '+b,
+ aboutH:'Over deze wandeling',aboutP:'De verhalen zijn nagezocht, de legendes staan erbij als legendes. Cafés, winkels en musea veranderen: kijk voor openingstijden even op hun eigen site. Hofjes en kerken zijn van de bewoners; wees een goede gast.',
+ photo:'Foto',credH:'Beeldverantwoording',credP:'Foto\'s van Wikimedia Commons, bijgesneden. Tik op de naam voor de bron.',reset:'Voortgang wissen',reset2:'Zeker weten? Tik nog eens',resetDone:'Alles gewist.',hours:h=>h<1?Math.round(h*60/5)*5+' minuten':(Math.round(h*2)/2).toString().replace('.',',')+' uur',
+ gpsOff:'Geen locatie beschikbaar. Alles werkt ook zonder.',gpsSeek:'Locatie zoeken…',gpsFar:km=>'Je bent ongeveer '+km+' km van de binnenstad. Je stip valt buiten de kaart.',youAt:n=>'Je staat bij: '+n,
+ drawn:'Getekende plattegrond',loading:'Kaart laden…',z:{west:'Haarlemmerbuurt',jordaan:'Jordaan',gordel:'Westelijke grachten',midden:'Rond Dam en Spui',oud:'Oude Zijde',zuid:'Amstel en zuidelijke grachten'},
+ cat:{verhaal:'Verhalen',bouw:'Gebouwd',grap:'Raar en grappig',eten:'Eten en drinken',shop:'Shoppen',rust:'Stil en verborgen'},
+ testOn:'Testhulp aan. Open een plek om de speld te verplaatsen.',testOff:'Testhulp uit.',move:'Test: speld verplaatsen',moveGo:'Tik nu op de goede plek op de kaart.',moved:'Speld verplaatst.',pins:'Verplaatste spelden (overnemen in PLACES)',noSurprise:'Je hebt alles al gezien. Petje af.'},
+en:{sub:'Amsterdam by the back door',all:'All',mine:'My list',tabMap:'Map',tabList:'Places',tabTips:'Lists',seenOf:(a,b)=>a+' of '+b+' seen',
+ introH:'No route. Just 47 reasons to turn off.',introP:'Tap a point on the map. Each place comes with a one-minute story. Walk what you like, skip what you like.',surprise:'Surprise me',pickList:'Pick a list',
+ read:'Read the story',add:'Add to my list',added:'On my list ✓',been:'Been here',beenOn:'Been here ✓',maps:'Open in Maps',onMap:'Show on map',back:'← Back',busy:'Busy spot',tip:'Tip',near:'Nearby',
+ away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1)+' km',
+ sortNear:'Nearest first',sortZone:'By area',mineEmpty:'Your list is empty. Pick one below, or add places yourself.',mineSum:(n,km,min)=>n+' places, about '+km+' km on foot and '+min+' in total, estimated as the crow flies.',showMine:'Show on the map',clear:'Empty my list',
+ take:'Use this list',taken:'This list is now on the map.',setMeta:(n,km)=>n+' places · ± '+km+' km',ready:'Ready-made',ownH:'Build your own',ownP:'Open a place and tap ‘Add to my list’. The map puts them in a sensible order.',
+ spotH:'Spot along the way',spotP:'Ten things you see everywhere once you know what to look for. Tick what you find.',spotN:(a,b)=>a+' of '+b,
+ aboutH:'About this walk',aboutP:'The stories have been checked, and legends are told as legends. Cafés, shops and museums change: check opening hours on their own sites. Courtyards and churches belong to the people who live there; be a good guest.',
+ photo:'Photo',credH:'Image credits',credP:'Photos from Wikimedia Commons, cropped. Tap the name for the source.',reset:'Erase my progress',reset2:'Sure? Tap again',resetDone:'All erased.',hours:h=>h<1?Math.round(h*60/5)*5+' minutes':(Math.round(h*2)/2)+' hours',
+ gpsOff:'No location available. Everything works without it.',gpsSeek:'Finding your location…',gpsFar:km=>'You are about '+km+' km from the city centre. Your dot is off the map.',youAt:n=>'You are at: '+n,
+ drawn:'Hand-drawn map',loading:'Loading map…',z:{west:'Haarlemmer quarter',jordaan:'Jordaan',gordel:'Western canals',midden:'Around Dam and Spui',oud:'Old Side',zuid:'Amstel and southern canals'},
+ cat:{verhaal:'Stories',bouw:'Buildings',grap:'Odd and funny',eten:'Food and drink',shop:'Shopping',rust:'Quiet and hidden'},
+ testOn:'Test mode on. Open a place to move its pin.',testOff:'Test mode off.',move:'Test: move pin',moveGo:'Now tap the right spot on the map.',moved:'Pin moved.',pins:'Moved pins (copy into PLACES)',noSurprise:'You have seen everything. Hats off.'}};
+const CATS=['verhaal','bouw','grap','eten','shop','rust'], ZONES=['west','jordaan','gordel','midden','oud','zuid'];
+const GLYPH={
+ verhaal:'M4.5 6h6.2c.5 0 1 .2 1.3.5.3-.3.8-.5 1.3-.5h6.2v12h-6.2c-.5 0-1 .2-1.3.5-.3-.3-.8-.5-1.3-.5H4.5z',
+ bouw:'M5.5 19.5v-8h2v-2h2v-2h1.6V5h1.8v2.5h1.6v2h2v2h2v8z',
+ grap:'M7 5.3 5.3 7l5 5-5 5L7 18.7l5-5 5 5 1.7-1.7-5-5 5-5L17 5.3l-5 5z',
+ eten:'M7.5 4.5h9l-.9 6.2a3.2 3.2 0 0 1-2.6 2.7v4.1h2.5v2h-7v-2H11v-4.1a3.2 3.2 0 0 1-2.6-2.7z',
+ shop:'M5.8 8.5h12.4l-1 11.5H6.8zM9 8.5V7.4a3 3 0 0 1 6 0v1.1h-1.7V7.4a1.3 1.3 0 0 0-2.6 0v1.1z',
+ rust:'M18.6 5.2C11.2 4.8 6 8.8 6 14.8c0 1 .2 1.9.5 2.7L4.9 19l1.3 1.3 1.6-1.6c.8.3 1.6.5 2.4.5 6 0 9.4-6 8.4-14z'};
+const $=s=>document.querySelector(s), esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dotHTML=c=>'<span class="dot" style="background:var(--c-'+c+')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+GLYPH[c]+'"/></svg></span>';
+
+/* ---------- toestand ---------- */
+/* Foto's: zet het id hier op 1 zodra img/<id>.webp in de repo staat. CREDITS: {id,maker,lic,url} voor de beeldverantwoording. */
+const IMG={}, CREDITS=[];
+const KEY='achterom.v1', PINKEY='achterom.pins';
+let S={lang:null,seen:{},mine:[],spot:{},intro:1}, view='map', filter='all', sel=null, sortNear=false, test=false, moveId=null;
+try{ const o=JSON.parse(localStorage.getItem(KEY)); if(o&&typeof o==='object') S=Object.assign(S,o); }catch(e){}
+try{ const p=JSON.parse(localStorage.getItem(PINKEY))||{}; PLACES.forEach(x=>{ if(p[x.id]){ x.lat=p[x.id][0]; x.lng=p[x.id][1]; } }); }catch(e){}
+if(S.lang!=='nl'&&S.lang!=='en') S.lang=(navigator.language||'nl').slice(0,2)==='nl'?'nl':'en';
+S.mine=S.mine.filter(id=>PLACES.some(p=>p.id===id));
+const save=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} };
+const L=()=>T[S.lang], P=id=>PLACES.find(p=>p.id===id), tx=p=>p[S.lang];
+function toast(t){ const e=$('#toast'); e.textContent=t; e.style.display='block'; clearTimeout(toast.t); toast.t=setTimeout(()=>e.style.display='none',3200); }
+
+/* ---------- afstanden en volgorde ---------- */
+const ORG={lat:52.3715,lon:4.8915}, KX=111320*Math.cos(ORG.lat*Math.PI/180), KY=110540;
+const mX=lng=>(lng-ORG.lon)*KX, mY=lat=>-(lat-ORG.lat)*KY;
+const dist=(a,b)=>Math.hypot(mX(a.lng)-mX(b.lng),mY(a.lat)-mY(b.lat));
+let pos=null, gpsOn=false, gpsId=null, said={};
+const inTown=()=>pos&&dist(pos,{lat:ORG.lat,lng:ORG.lon})<4000;
+function ordered(ids){ if(ids.length<2) return ids.slice();
+  const start=inTown()?pos:{lat:52.3791,lng:4.9003}; let left=ids.map(P), cur=start, out=[];
+  while(left.length){ let bi=0,bd=1e9; left.forEach((p,i)=>{ const d=dist(cur,p); if(d<bd){bd=d;bi=i;} }); cur=left.splice(bi,1)[0]; out.push(cur.id); }
+  return out; }
+function walkKm(ids){ let d=0; for(let i=1;i<ids.length;i++) d+=dist(P(ids[i-1]),P(ids[i])); return d*1.3/1000; }
+const kmTxt=km=>{ const v=(Math.round(km*2)/2).toFixed(1); return S.lang==='nl'?v.replace('.',','):v; };
+const visible=()=>PLACES.filter(p=>filter==='all'||(filter==='mine'?S.mine.includes(p.id):p.c===filter));
+
+/* ---------- kaart ---------- */
+const cv=$('#cv'), cx=cv.getContext('2d'), box=$('#mapbox');
+let cw=0,ch=0,dpr=1,V={s:.16,x:0,y:0},raf=0,COL={},fitted=false;
+const sx=x=>(x-V.x)*V.s+cw/2, sy=y=>(y-V.y)*V.s+ch/2;
+function colors(){ const cs=getComputedStyle(document.documentElement), g=n=>cs.getPropertyValue(n).trim();
+  COL={land:g('--land'),water:g('--water'),street:g('--street'),park:g('--park'),rail:g('--rail'),label:g('--label'),halo:g('--halo'),ink:g('--ink'),card:g('--card'),accent:g('--accent'),muted:g('--muted')};
+  CATS.forEach(c=>COL[c]=g('--c-'+c)); }
+/* getekende stad: [naam, breedte in meters, [lat,lng,...]] */
+const CANALS=[
+ ['Singel',26,[52.3800,4.8932,52.3783,4.8921,52.3765,4.8908,52.3746,4.8897,52.3728,4.8887,52.3708,4.8882,52.3690,4.8882,52.3676,4.8888,52.3669,4.8900,52.3667,4.8930]],
+ ['Herengracht',26,[52.3806,4.8893,52.3788,4.8890,52.3752,4.8877,52.3737,4.8870,52.3715,4.8862,52.3695,4.8862,52.3680,4.8865,52.3668,4.8880,52.3655,4.8905,52.3652,4.8930,52.3651,4.8962,52.3655,4.8985,52.3661,4.9005]],
+ ['Keizersgracht',28,[52.3809,4.8878,52.3780,4.8876,52.3750,4.8862,52.3738,4.8856,52.3715,4.8847,52.3698,4.8846,52.3678,4.8850,52.3660,4.8865,52.3646,4.8893,52.3642,4.8925,52.3639,4.8965,52.3642,4.8988,52.3650,4.9012]],
+ ['Prinsengracht',26,[52.3812,4.8862,52.3797,4.8858,52.3767,4.8845,52.3745,4.8835,52.3738,4.8832,52.3715,4.8825,52.3697,4.8822,52.3672,4.8828,52.3652,4.8845,52.3636,4.8870,52.3628,4.8920,52.3622,4.8972,52.3620,4.8995,52.3622,4.9037]],
+ ['Amstel',62,[52.3585,4.9078,52.3622,4.9037,52.3636,4.9024,52.3650,4.9012,52.3662,4.9006,52.3675,4.9003,52.3680,4.8985,52.3673,4.8960,52.3668,4.8935]],
+ ['Rokin',24,[52.3668,4.8933,52.3690,4.8927,52.3702,4.8926]],
+ ['Brouwersgracht',22,[52.3802,4.8930,52.3806,4.8893,52.3809,4.8878,52.3812,4.8862,52.3822,4.8835,52.3830,4.8815]],
+ ['Singelgracht',34,[52.3852,4.8808,52.3830,4.8790,52.3800,4.8772,52.3760,4.8762,52.3720,4.8765,52.3680,4.8775,52.3640,4.8800,52.3618,4.8835,52.3608,4.8860,52.3596,4.8915,52.3592,4.8975,52.3598,4.9060]],
+ ['Egelantiersgracht',16,[52.3767,4.8845,52.3757,4.8805]],['Bloemgracht',16,[52.3750,4.8837,52.3742,4.8800]],['Leliegracht',14,[52.3752,4.8877,52.3748,4.8838]],
+ ['Looiersgracht',14,[52.3685,4.8822,52.3680,4.8790]],['Leidsegracht',18,[52.3680,4.8865,52.3672,4.8828,52.3668,4.8795]],
+ ['Reguliersgracht',18,[52.3651,4.8962,52.3622,4.8972,52.3598,4.8978]],['Spiegelgracht',16,[52.3636,4.8870,52.3613,4.8858]],
+ ['Kloveniersburgwal',22,[52.3725,4.8998,52.3700,4.8975,52.3680,4.8964]],['Geldersekade',24,[52.3725,4.9000,52.3766,4.9016]],
+ ['O.Z. Voorburgwal',16,[52.3765,4.8998,52.3740,4.8975,52.3700,4.8950,52.3690,4.8945]],['O.Z. Achterburgwal',16,[52.3756,4.9001,52.3735,4.8986,52.3700,4.8962,52.3690,4.8956]],
+ ['Oudeschans',34,[52.3752,4.9068,52.3712,4.9042,52.3692,4.9040]],['',20,[52.3700,4.9016,52.3680,4.9001]],['Damrak',40,[52.3777,4.8978,52.3757,4.8962]],
+ ['',40,[52.3803,4.8925,52.3790,4.8975,52.3778,4.9020,52.3766,4.9062,52.3752,4.9068]],
+ ['',24,[52.3661,4.9005,52.3672,4.9062]],['',24,[52.3650,4.9012,52.3661,4.9068]],['',24,[52.3636,4.9024,52.3646,4.9078]],['Lijnbaansgracht',14,[52.3830,4.8815,52.3795,4.8795,52.3740,4.8787,52.3690,4.8792,52.3655,4.8815]]];
+const IJ=[52.3875,4.8790,52.3850,4.8870,52.3828,4.8940,52.3812,4.9000,52.3798,4.9060,52.3780,4.9140,52.3920,4.9140,52.3920,4.8790];
+const RAIL=[52.3862,4.8800,52.3838,4.8880,52.3812,4.8950,52.3795,4.9005,52.3780,4.9070,52.3765,4.9130];
+const STREETS=[
+ ['Damrak',2,[52.3775,4.8968,52.3735,4.8930]],['Rokin',2,[52.3728,4.8922,52.3702,4.8922]],['Kalverstraat',1,[52.3725,4.8917,52.3695,4.8915,52.3670,4.8925]],
+ ['N.Z. Voorburgwal',2,[52.3780,4.8935,52.3740,4.8905,52.3695,4.8898]],['Raadhuisstraat',2,[52.3733,4.8908,52.3738,4.8856,52.3738,4.8832]],['Rozengracht',2,[52.3738,4.8832,52.3732,4.8770]],
+ ['Leidsestraat',2,[52.3670,4.8892,52.3641,4.8828]],['Vijzelstraat',2,[52.3667,4.8930,52.3628,4.8920,52.3598,4.8912]],['Utrechtsestraat',2,[52.3660,4.8975,52.3605,4.9000]],
+ ['Haarlemmerstraat',2,[52.3795,4.8932,52.3812,4.8895]],['Haarlemmerdijk',2,[52.3812,4.8895,52.3845,4.8815]],['Elandsgracht',2,[52.3697,4.8822,52.3690,4.8780]],
+ ['Westerstraat',2,[52.3793,4.8855,52.3780,4.8798]],['Lindengracht',2,[52.3805,4.8858,52.3795,4.8806]],['Zeedijk',1,[52.3770,4.9000,52.3745,4.9004,52.3730,4.9000]],
+ ['Damstraat',1,[52.3728,4.8935,52.3718,4.8972,52.3712,4.9000]],['Jodenbreestraat',2,[52.3712,4.9000,52.3695,4.9030]],['Warmoesstraat',1,[52.3765,4.8985,52.3732,4.8950]],
+ ['Nieuwendijk',1,[52.3780,4.8950,52.3735,4.8922]],['Reguliersbreestraat',1,[52.3667,4.8933,52.3660,4.8963]],['',1,[52.3724,4.8830,52.3722,4.8885]],['',1,[52.3706,4.8825,52.3704,4.8882]],
+ ['',1,[52.3690,4.8824,52.3690,4.8882]],['Spuistraat',1,[52.3775,4.8925,52.3735,4.8895,52.3695,4.8890]],['Kerkstraat',1,[52.3655,4.8850,52.3638,4.8885,52.3633,4.8960,52.3636,4.9020]],
+ ['Stadhouderskade',2,[52.3632,4.8798,52.3610,4.8835,52.3600,4.8862,52.3588,4.8915,52.3585,4.8975]],['Prins Hendrikkade',2,[52.3797,4.8930,52.3784,4.8975,52.3772,4.9018,52.3745,4.9050]],
+ ['Marnixstraat',2,[52.3838,4.8805,52.3800,4.8782,52.3740,4.8776,52.3690,4.8782,52.3645,4.8808]]];
+const AREAS=[['Centraal Station',52.3791,4.9003],['Dam',52.3731,4.8926],['Jordaan',52.3772,4.8812],['Leidseplein',52.3641,4.8822],['Rembrandtplein',52.3660,4.8968],['Nieuwmarkt',52.3728,4.9005],['IJ',52.3850,4.9000],['Waterlooplein',52.3684,4.9022]];
+const flat=a=>{ const o=[]; for(let i=0;i<a.length;i+=2) o.push(mX(a[i+1]),mY(a[i])); return o; };
+function pathOf(lines,close){ const p=new Path2D(); lines.forEach(l=>{ for(let k=0;k<l.length;k+=2) k?p.lineTo(l[k],l[k+1]):p.moveTo(l[k],l[k+1]); if(close) p.closePath(); }); return p; }
+const DR={ canals:CANALS.map(c=>({n:c[0],w:c[1],p:flat(c[2])})), streets:STREETS.map(s=>({n:s[0],w:s[1],p:flat(s[2])})) };
+DR.cw=[...new Set(DR.canals.map(c=>c.w))].map(w=>({w,path:pathOf(DR.canals.filter(c=>c.w===w).map(c=>c.p))}));
+DR.sw=[1,2].map(w=>({w,path:pathOf(DR.streets.filter(s=>s.w===w).map(s=>s.p))}));
+DR.ij=pathOf([flat(IJ)],true); DR.rail=pathOf([flat(RAIL)]);
+DR.labels=DR.canals.concat(DR.streets).filter(r=>r.n);
+let WORLD=null, worldState='idle';
+function loadWorld(){ if(worldState!=='idle') return;
+  if(!window.MW||!MW.Tiles||!window.fetch){ worldState='fail'; return; } worldState='loading';
+  MW.Tiles.world({lat:ORG.lat,lon:ORG.lon,R:1500,ms:12000,max:16}).then(w=>{ if(!w||!w.ways||w.ways.length<50) throw new Error('leeg');
+    const water=w.ways.filter(x=>x.w==='water'), park=w.ways.filter(x=>x.w==='park'), roads=w.ways.filter(x=>typeof x.w==='number');
+    roads.forEach(r=>{ let l=0; for(let k=0;k+3<r.p.length;k+=2) l+=Math.hypot(r.p[k+2]-r.p[k],r.p[k+3]-r.p[k+1]); r.len=l; });
+    WORLD={water:pathOf(water.map(x=>x.p),true),park:pathOf(park.map(x=>x.p),true),rw:[1,2,3].map(k=>({w:k,path:pathOf(roads.filter(r=>r.w===k).map(r=>r.p))})),
+      labels:roads.filter(r=>r.n&&r.w>=2).sort((a,b)=>(b.w-a.w)||(b.len-a.len))};
+    worldState='ok'; draw(); }).catch(()=>{ worldState='fail'; draw(); }); }
+function size(){ dpr=window.devicePixelRatio||1; cw=box.clientWidth; ch=box.clientHeight; cv.width=Math.round(cw*dpr); cv.height=Math.round(ch*dpr); }
+function fit(pts,pad){ if(!pts.length||!cw) return; pad=pad||40; const xs=pts.map(p=>mX(p.lng)), ys=pts.map(p=>mY(p.lat));
+  const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+  V.s=Math.max(.06,Math.min(1.4,Math.min((cw-2*pad)/Math.max(120,x1-x0),(ch-2*pad)/Math.max(120,y1-y0)))); V.x=(x0+x1)/2; V.y=(y0+y1)/2; }
+function halo(t,x,y){ cx.lineJoin='round'; cx.lineWidth=3.5; cx.strokeStyle=COL.halo; cx.strokeText(t,x,y); cx.fillText(t,x,y); }
+function roadLabels(list,minPx){ const used=[], seen={}; cx.font='500 11px '+FONT; cx.textAlign='center';
+  list.forEach(r=>{ const n=r.p.length/2; if(n<2) return; const k=Math.max(0,Math.min(n-2,Math.floor(n/2)-1))*2;
+    const ax=sx(r.p[k]),ay=sy(r.p[k+1]),bx=sx(r.p[k+2]),by=sy(r.p[k+3]),mx=(ax+bx)/2,my=(ay+by)/2;
+    if(mx<20||my<14||mx>cw-20||my>ch-14) return; const tw=cx.measureText(r.n).width;
+    let len=r.len; if(len==null){ len=0; for(let i=0;i+3<r.p.length;i+=2) len+=Math.hypot(r.p[i+2]-r.p[i],r.p[i+3]-r.p[i+1]); r.len=len; }
+    if(len*V.s<tw*(minPx||.9)) return; const key=r.n+'|'+Math.round(mx/200)+'|'+Math.round(my/200); if(seen[key]) return;
+    for(const u of used) if(Math.abs(u[0]-mx)<(u[2]+tw)/2+6&&Math.abs(u[1]-my)<15) return; seen[key]=1; used.push([mx,my,tw]);
+    let a=Math.atan2(by-ay,bx-ax); if(a>Math.PI/2) a-=Math.PI; if(a<-Math.PI/2) a+=Math.PI;
+    cx.save(); cx.translate(mx,my); cx.rotate(a); cx.fillStyle=COL.label; halo(r.n,0,4); cx.restore(); }); }
+const FONT='system-ui,-apple-system,"Segoe UI",Roboto,sans-serif', GP={}; CATS.forEach(c=>GP[c]=new Path2D(GLYPH[c]));
+function pin(p,r,hot){ const X=sx(mX(p.lng)),Y=sy(mY(p.lat)); if(X<-30||Y<-30||X>cw+30||Y>ch+30) return;
+  const seen=S.seen[p.id], mine=S.mine.includes(p.id);
+  if(mine){ cx.beginPath(); cx.arc(X,Y,r+4.5,0,7); cx.strokeStyle=COL.accent; cx.lineWidth=2.2; cx.stroke(); }
+  cx.beginPath(); cx.arc(X,Y,r,0,7); cx.globalAlpha=seen&&!hot?.55:1; cx.fillStyle=COL[p.c]; cx.fill(); cx.globalAlpha=1; cx.strokeStyle=COL.card; cx.lineWidth=2; cx.stroke();
+  const k=r*1.25/24; cx.save(); cx.translate(X-12*k,Y-12*k); cx.scale(k,k); cx.fillStyle='#fff'; cx.fill(GP[p.c]); cx.restore();
+  if(seen){ cx.beginPath(); cx.arc(X+r*.75,Y-r*.75,6,0,7); cx.fillStyle=COL.card; cx.fill(); cx.strokeStyle=COL.rust||'#23805a'; cx.lineWidth=1.8; cx.beginPath(); cx.moveTo(X+r*.75-3,Y-r*.75); cx.lineTo(X+r*.75-.8,Y-r*.75+2.4); cx.lineTo(X+r*.75+3,Y-r*.75-2.4); cx.stroke(); } }
+function draw(){ raf=0; if(!cw) size(); if(!cw) return; if(!fitted){ fit(PLACES,34); fitted=true; }
+  const k=dpr*V.s; cx.setTransform(dpr,0,0,dpr,0,0); cx.fillStyle=COL.land; cx.fillRect(0,0,cw,ch); cx.lineCap='round'; cx.lineJoin='round';
+  cx.setTransform(k,0,0,k,dpr*(cw/2-V.x*V.s),dpr*(ch/2-V.y*V.s));
+  if(WORLD){ cx.fillStyle=COL.park; cx.fill(WORLD.park); cx.fillStyle=COL.water; cx.fill(WORLD.water,'evenodd');
+    WORLD.rw.forEach(g=>{ if(g.w===1&&V.s<.35) return; cx.strokeStyle=g.w===1?COL.rail:COL.street; cx.globalAlpha=g.w===1?.5:1; cx.lineWidth=Math.max((g.w===1?1:1.6)/V.s,[0,2.4,7,11][g.w]); cx.stroke(g.path); cx.globalAlpha=1; });
+  } else { cx.fillStyle=COL.water; cx.fill(DR.ij); DR.cw.forEach(g=>{ cx.strokeStyle=COL.water; cx.lineWidth=Math.max(2.5/V.s,g.w); cx.stroke(g.path); });
+    cx.strokeStyle=COL.rail; cx.lineWidth=Math.max(2/V.s,14); cx.stroke(DR.rail);
+    DR.sw.forEach(g=>{ if(g.w===1&&V.s<.2) return; cx.strokeStyle=COL.street; cx.lineWidth=Math.max(1.2/V.s,g.w===2?10:6); cx.stroke(g.path); }); }
+  cx.setTransform(dpr,0,0,dpr,0,0);
+  if(WORLD){ if(V.s>=.3) roadLabels(WORLD.labels.filter(r=>r.w>=(V.s>=.6?2:3))); }
+  else { if(V.s>=.14) roadLabels(DR.labels.filter(r=>V.s>=.3||r.w>2),.7);
+    cx.font='600 12px '+FONT; cx.textAlign='center'; cx.fillStyle=COL.muted; AREAS.forEach(a=>{ const X=sx(mX(a[2])),Y=sy(mY(a[1])); if(X>0&&Y>0&&X<cw&&Y<ch) halo(a[0].toUpperCase(),X,Y); }); }
+  const vis=visible();
+  if(filter==='mine'&&S.mine.length>1){ const ids=ordered(S.mine); cx.beginPath(); ids.forEach((id,i)=>{ const p=P(id),X=sx(mX(p.lng)),Y=sy(mY(p.lat)); i?cx.lineTo(X,Y):cx.moveTo(X,Y); });
+    cx.strokeStyle=COL.accent; cx.globalAlpha=.7; cx.lineWidth=2; cx.setLineDash([2,7]); cx.stroke(); cx.setLineDash([]); cx.globalAlpha=1; }
+  const r=Math.max(9,Math.min(14,9+V.s*14));
+  vis.filter(p=>p.id!==sel).sort((a,b)=>a.lat<b.lat?1:-1).forEach(p=>pin(p,r));
+  if(sel){ const p=P(sel); pin(p,r+4,true); const X=sx(mX(p.lng)),Y=sy(mY(p.lat)); cx.font='600 13px '+FONT; cx.textAlign='center'; cx.fillStyle=COL.ink; const hw=cx.measureText(tx(p).n).width/2+6; halo(tx(p).n,Math.max(hw,Math.min(cw-hw,X)),Y+r+19); }
+  if(pos){ const X=sx(mX(pos.lng)),Y=sy(mY(pos.lat)); if(pos.acc>12){ cx.beginPath(); cx.arc(X,Y,Math.min(160,pos.acc*V.s),0,7); cx.fillStyle='rgba(30,110,220,.14)'; cx.fill(); }
+    cx.beginPath(); cx.arc(X,Y,7,0,7); cx.fillStyle='#1e6edc'; cx.fill(); cx.strokeStyle='#fff'; cx.lineWidth=2.5; cx.stroke(); }
+  cx.font='10px '+FONT; cx.textAlign='right'; cx.fillStyle=COL.muted; cx.fillText(WORLD?MW.Tiles.attr:worldState==='loading'?L().loading:L().drawn,cw-8,ch-6); }
+const redraw=()=>{ if(!raf) raf=requestAnimationFrame(draw); };
+function zoomAt(f,px,py){ const wx=(px-cw/2)/V.s+V.x, wy=(py-ch/2)/V.s+V.y; V.s=Math.max(.06,Math.min(4,V.s*f)); V.x=wx-(px-cw/2)/V.s; V.y=wy-(py-ch/2)/V.s; redraw(); }
+function centerOn(p,minS){ V.x=mX(p.lng); V.y=mY(p.lat); if(minS&&V.s<minS) V.s=minS; redraw(); }
+(function(){ const pt=new Map(); let moved=0, pd=0;
+  const loc=e=>{ const r=cv.getBoundingClientRect(); return [e.clientX-r.left,e.clientY-r.top]; };
+  cv.addEventListener('pointerdown',e=>{ try{cv.setPointerCapture(e.pointerId);}catch(_){ } pt.set(e.pointerId,loc(e)); moved=0; if(pt.size===2){ const a=[...pt.values()]; pd=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]); } });
+  cv.addEventListener('pointermove',e=>{ if(!pt.has(e.pointerId)) return; const o=pt.get(e.pointerId), n=loc(e); pt.set(e.pointerId,n);
+    if(pt.size===1){ V.x-=(n[0]-o[0])/V.s; V.y-=(n[1]-o[1])/V.s; moved+=Math.abs(n[0]-o[0])+Math.abs(n[1]-o[1]); redraw(); }
+    else if(pt.size===2){ const a=[...pt.values()], d=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]); if(pd) zoomAt(d/pd,(a[0][0]+a[1][0])/2,(a[0][1]+a[1][1])/2); pd=d; moved=99; } });
+  const up=e=>{ if(!pt.has(e.pointerId)) return; const n=pt.get(e.pointerId); pt.delete(e.pointerId); pd=0; if(moved<8&&e.type==='pointerup') tap(n[0],n[1]); };
+  cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
+  cv.addEventListener('wheel',e=>{ e.preventDefault(); const n=loc(e); zoomAt(e.deltaY<0?1.2:1/1.2,n[0],n[1]); },{passive:false}); })();
+function tap(x,y){
+  if(moveId){ const p=P(moveId); p.lng=+(ORG.lon+((x-cw/2)/V.s+V.x)/KX).toFixed(5); p.lat=+(ORG.lat-((y-ch/2)/V.s+V.y)/KY).toFixed(5);
+    try{ const o=JSON.parse(localStorage.getItem(PINKEY))||{}; o[p.id]=[p.lat,p.lng]; localStorage.setItem(PINKEY,JSON.stringify(o)); }catch(e){} moveId=null; toast(L().moved); redraw(); return; }
+  let best=null,bd=26; visible().forEach(p=>{ const d=Math.hypot(sx(mX(p.lng))-x,sy(mY(p.lat))-y); if(d<bd){bd=d;best=p;} });
+  sel=best?best.id:null; if(S.intro){ S.intro=0; save(); } renderCard(); redraw(); }
+box.querySelector('.mapbtns').addEventListener('click',e=>{ const z=e.target.dataset.z; if(!z) return;
+  if(z==='in') zoomAt(1.4,cw/2,ch/2); else if(z==='out') zoomAt(1/1.4,cw/2,ch/2); else if(z==='fit'){ fit(visible().length?visible():PLACES,34); redraw(); } else gps(); });
+new ResizeObserver(()=>{ size(); redraw(); }).observe(box);
+
+/* ---------- locatie ---------- */
+function mapMsg(t){ const e=$('#mapmsg'); e.textContent=t||''; e.style.display=t?'block':'none'; }
+function gps(){ const b=box.querySelector('[data-z=me]');
+  if(gpsOn){ if(pos&&inTown()) centerOn(pos,.9); else if(pos) mapMsg(L().gpsFar(Math.round(dist(pos,{lat:ORG.lat,lng:ORG.lon})/1000))); return; }
+  if(!navigator.geolocation){ mapMsg(L().gpsOff); return; } gpsOn=true; b.classList.add('act'); mapMsg(L().gpsSeek); let first=true;
+  try{ gpsId=navigator.geolocation.watchPosition(g=>{ pos={lat:g.coords.latitude,lng:g.coords.longitude,acc:g.coords.accuracy||0};
+      if(inTown()){ mapMsg(''); if(first) centerOn(pos,.9); } else mapMsg(L().gpsFar(Math.round(dist(pos,{lat:ORG.lat,lng:ORG.lon})/1000))); first=false; arrive(); redraw(); if(view==='list') renderList(); else renderCard(); },
+    err=>{ if(err.code===1||!pos){ gpsOn=false; b.classList.remove('act'); try{navigator.geolocation.clearWatch(gpsId);}catch(_){ } mapMsg(L().gpsOff); setTimeout(()=>mapMsg(''),5000); } },
+    {enableHighAccuracy:true,maximumAge:5000,timeout:20000}); }catch(e){ gpsOn=false; b.classList.remove('act'); mapMsg(L().gpsOff); } }
+function arrive(){ if(!pos||pos.acc>80||$('#sheet').classList.contains('on')) return; let best=null,bd=40; PLACES.forEach(p=>{ const d=dist(pos,p); if(d<bd&&!said[p.id]&&!S.seen[p.id]){bd=d;best=p;} });
+  if(best){ said[best.id]=1; sel=best.id; try{ navigator.vibrate&&navigator.vibrate(120); }catch(e){} toast(L().youAt(tx(best).n)); renderCard(); } }
+
+/* ---------- schermen ---------- */
+function renderHead(){ document.documentElement.lang=S.lang; $('#sub').textContent=L().sub; $('#lang').textContent=S.lang==='nl'?'English':'Nederlands';
+  $('#count').textContent=L().seenOf(Object.keys(S.seen).length,PLACES.length); $('#sheetBack').textContent=L().back;
+  $('#chips').innerHTML='<button class="chip txt" data-f="all" aria-pressed="'+(filter==='all')+'">'+L().all+'</button>'+
+    '<button class="chip txt" data-f="mine" aria-pressed="'+(filter==='mine')+'">'+L().mine+' · '+S.mine.length+'</button>'+
+    CATS.map(c=>'<button class="chip" data-f="'+c+'" aria-pressed="'+(filter===c)+'">'+dotHTML(c)+L().cat[c]+'</button>').join('');
+  $('#tabs').innerHTML=[['map',L().tabMap],['list',L().tabList],['tips',L().tabTips]].map(t=>'<button role="tab" data-v="'+t[0]+'" aria-selected="'+(view===t[0])+'">'+t[1]+'</button>').join('');
+  [['in','Zoom in'],['out','Zoom out'],['fit',S.lang==='nl'?'Alles tonen':'Show all'],['me',S.lang==='nl'?'Mijn locatie':'My location']].forEach(a=>box.querySelector('[data-z='+a[0]+']').setAttribute('aria-label',a[1])); }
+function dTxt(p){ return inTown()?L().away(dist(pos,p)):''; }
+function renderCard(){ const c=$('#card');
+  if(!sel){ c.innerHTML=S.intro?'<h2>'+L().introH+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
+      :'<div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button><span class="dist">'+visible().length+' '+L().tabList.toLowerCase()+'</span></div>'; return; }
+  const p=P(sel), t=tx(p), mine=S.mine.includes(p.id);
+  c.innerHTML='<div class="kick">'+dotHTML(p.c)+L().cat[p.c]+(p.t?'<span class="tag">'+L().busy+'</span>':'')+'<span class="dist">'+dTxt(p)+'</span></div><h2>'+esc(t.n)+'</h2><p>'+esc(t.k)+'</p>'+
+    '<div class="row"><button class="btn pri" data-a="read">'+L().read+'</button><button class="btn'+(mine?' on':'')+'" data-a="mine">'+(mine?L().added:L().add)+'</button></div>'; }
+function renderList(){ const vis=visible(), row=p=>'<button class="item'+(S.seen[p.id]?' seen':'')+'" data-id="'+p.id+'">'+dotHTML(p.c)+'<span><b>'+esc(tx(p).n)+'</b><span class="k">'+esc(tx(p).k)+'</span></span><span class="meta">'+dTxt(p)+(p.t?'<br>'+L().busy:'')+'</span></button>';
+  let h=''; if(inTown()) h+='<div class="row" style="margin:6px 0 4px"><button class="pill" data-a="sort">'+(sortNear?L().sortZone:L().sortNear)+'</button></div>';
+  if(filter==='mine'&&!vis.length) h+='<p class="small" style="margin-top:14px">'+L().mineEmpty+'</p>';
+  if(sortNear&&inTown()) h+='<h3>'+L().sortNear+'</h3>'+vis.slice().sort((a,b)=>dist(pos,a)-dist(pos,b)).map(row).join('');
+  else if(filter==='mine') h+='<h3>'+L().mine+'</h3>'+ordered(S.mine).map(id=>row(P(id))).join('');
+  else ZONES.forEach(z=>{ const a=vis.filter(p=>p.z===z); if(a.length) h+='<h3>'+L().z[z]+'</h3>'+a.map(row).join(''); });
+  $('#list').innerHTML=h; }
+function renderTips(){ const m=ordered(S.mine); let h='<h3>'+L().mine+'</h3><div class="box">';
+  if(m.length){ const km=walkKm(m); h+='<p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+'</p><div class="row"><button class="btn pri" data-a="showmine">'+L().showMine+'</button><button class="btn quiet" data-a="clear">'+L().clear+'</button></div>'; }
+  else h+='<h4>'+L().ownH+'</h4><p style="margin:0">'+L().ownP+'</p>';
+  h+='</div><h3>'+L().ready+'</h3>'+SETS.map(s=>{ const ids=ordered(s.ids); return '<div class="box"><h4>'+esc(s[S.lang].n)+'</h4><p>'+esc(s[S.lang].d)+'<br><span class="small">'+L().setMeta(ids.length,kmTxt(walkKm(ids)))+'</span></p><button class="btn" data-set="'+s.id+'">'+L().take+'</button></div>'; }).join('');
+  const n=SPOT.filter(s=>S.spot[s.id]).length;
+  h+='<h3>'+L().spotH+' · '+L().spotN(n,SPOT.length)+'</h3><div class="box"><p>'+L().spotP+'</p>'+SPOT.map(s=>'<div class="spot"><input type="checkbox" id="sp-'+s.id+'" data-spot="'+s.id+'"'+(S.spot[s.id]?' checked':'')+'><label for="sp-'+s.id+'"><b>'+esc(s[S.lang][0])+'</b><span>'+esc(s[S.lang][1])+'</span></label></div>').join('')+'</div>';
+  h+='<h3>'+L().aboutH+'</h3><div class="box"><p>'+L().aboutP+'</p><button class="btn quiet" data-a="reset">'+L().reset+'</button></div>';
+  if(CREDITS.length) h+='<h3>'+L().credH+'</h3><div class="box"><p>'+L().credP+'</p>'+CREDITS.map(c=>'<p class="small" style="margin:0 0 6px">'+esc(tx(P(c.id)).n)+': <a href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.maker)+'</a>, '+esc(c.lic)+'</p>').join('')+'</div>';
+  if(test){ let pp='{}'; try{ pp=localStorage.getItem(PINKEY)||'{}'; }catch(e){} h+='<h3>'+L().pins+'</h3><pre>'+esc(pp)+'</pre>'; }
+  $('#tips').innerHTML=h; }
+function openStory(id){ const p=P(id), t=tx(p), mine=S.mine.includes(id), seen=S.seen[id]; sel=id;
+  const near=PLACES.filter(q=>q.id!==id).sort((a,b)=>dist(p,a)-dist(p,b)).slice(0,3);
+  $('#sheetPos').textContent=L().z[p.z];
+  const cr=CREDITS.find(c=>c.id===id);
+  $('#sheetIn').innerHTML=(IMG[id]?'<img class="ph" src="img/'+id+'.webp" alt="">'+(cr?'<p class="cred">'+L().photo+': '+esc(cr.maker)+', '+esc(cr.lic)+'</p>':''):'')+'<div class="kick" style="margin-top:6px">'+dotHTML(p.c)+L().cat[p.c]+(p.t?'<span class="tag">'+L().busy+'</span>':'')+'</div><h2>'+esc(t.n)+'</h2><p class="addr">'+esc(p.a)+(dTxt(p)?' · '+dTxt(p):'')+'</p>'+
+    '<p class="pull" style="--cc:var(--c-'+p.c+')">'+esc(t.k)+'</p><div class="story">'+t.s.map(x=>'<p>'+esc(x)+'</p>').join('')+'</div><div class="tip"><b>'+L().tip+'</b>'+esc(t.tip)+'</div>'+
+    '<div class="row"><button class="btn'+(seen?' on':' pri')+'" data-a="seen">'+(seen?L().beenOn:L().been)+'</button><button class="btn'+(mine?' on':'')+'" data-a="mine">'+(mine?L().added:L().add)+'</button></div>'+
+    '<div class="row" style="margin-top:8px"><button class="btn quiet" data-a="onmap">'+L().onMap+'</button><a class="btn quiet" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+p.lat+','+p.lng+'">'+L().maps+' ↗</a>'+(test?'<button class="btn quiet" data-a="move">'+L().move+'</button>':'')+'</div>'+
+    '<h3>'+L().near+'</h3>'+near.map(q=>'<button class="item" data-id="'+q.id+'">'+dotHTML(q.c)+'<span><b>'+esc(tx(q).n)+'</b><span class="k">'+esc(tx(q).k)+'</span></span><span class="meta">'+L().away(dist(p,q))+'</span></button>').join('');
+  $('#sheet').classList.add('on'); $('#sheetIn').scrollTop=0; $('#sheetBack').focus(); }
+function closeStory(){ $('#sheet').classList.remove('on'); renderAll(); }
+function setView(v){ view=v; ['Map','List','Tips'].forEach(n=>$('#v'+n).classList.toggle('on',n.toLowerCase()===v)); renderAll(); if(v==='map'){ size(); redraw(); } }
+function renderAll(){ renderHead(); renderCard(); if(view==='list') renderList(); if(view==='tips') renderTips(); redraw(); }
+function toggleMine(id){ const i=S.mine.indexOf(id); i<0?S.mine.push(id):S.mine.splice(i,1); save(); }
+function surprise(){ const pool=PLACES.filter(p=>!S.seen[p.id]&&p.id!==sel); if(!pool.length){ toast(L().noSurprise); return; }
+  const near=inTown()?pool.slice().sort((a,b)=>dist(pos,a)-dist(pos,b)).slice(0,8):pool; const p=near[Math.floor(Math.random()*near.length)];
+  filter='all'; sel=p.id; S.intro=0; save(); renderAll(); centerOn(p,.7); }
+
+/* ---------- bediening ---------- */
+let brandTaps=0, brandT=0;
+$('#brand').onclick=()=>{ clearTimeout(brandT); brandT=setTimeout(()=>brandTaps=0,1500); if(++brandTaps>=5){ brandTaps=0; test=!test; toast(test?L().testOn:L().testOff); renderAll(); } };
+$('#lang').onclick=()=>{ S.lang=S.lang==='nl'?'en':'nl'; save(); renderAll(); if($('#sheet').classList.contains('on')) openStory(sel); };
+$('#chips').onclick=e=>{ const b=e.target.closest('[data-f]'); if(!b) return; filter=b.dataset.f; if(sel&&!visible().some(p=>p.id===sel)) sel=null; renderAll(); if(view==='map'&&visible().length){ fit(visible(),40); redraw(); } };
+$('#tabs').onclick=e=>{ const b=e.target.closest('[data-v]'); if(b) setView(b.dataset.v); };
+$('#sheetBack').onclick=closeStory;
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('#sheet').classList.contains('on')) closeStory(); });
+document.addEventListener('click',e=>{ const it=e.target.closest('.item[data-id]'); if(it){ openStory(it.dataset.id); return; }
+  const st=e.target.closest('[data-set]'); if(st){ S.mine=SETS.find(s=>s.id===st.dataset.set).ids.slice(); S.intro=0; save(); filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); toast(L().taken); return; }
+  const b=e.target.closest('[data-a]'); if(!b) return; const a=b.dataset.a;
+  if(a==='surprise') surprise(); else if(a==='tips') setView('tips'); else if(a==='read') openStory(sel);
+  else if(a==='mine'){ toggleMine(sel); if($('#sheet').classList.contains('on')) openStory(sel); else renderAll(); }
+  else if(a==='seen'){ S.seen[sel]?delete S.seen[sel]:S.seen[sel]=1; save(); openStory(sel); renderHead(); }
+  else if(a==='onmap'){ $('#sheet').classList.remove('on'); if(!visible().some(p=>p.id===sel)) filter='all'; setView('map'); centerOn(P(sel),.9); }
+  else if(a==='move'){ moveId=sel; $('#sheet').classList.remove('on'); setView('map'); toast(L().moveGo); }
+  else if(a==='sort'){ sortNear=!sortNear; renderList(); }
+  else if(a==='showmine'){ filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); }
+  else if(a==='clear'){ S.mine=[]; save(); if(filter==='mine') filter='all'; renderAll(); }
+  else if(a==='reset'){ if(b.dataset.sure){ S.seen={}; S.mine=[]; S.spot={}; S.intro=1; save(); filter='all'; sel=null; renderAll(); toast(L().resetDone); } else { b.dataset.sure=1; b.textContent=L().reset2; } } });
+document.addEventListener('change',e=>{ const s=e.target.dataset&&e.target.dataset.spot; if(s){ e.target.checked?S.spot[s]=1:delete S.spot[s]; save(); renderTips(); } });
+colors(); renderAll(); loadWorld();
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(redraw);
+</script>
+</body>
+</html>
