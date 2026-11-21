@@ -26,50 +26,50 @@ Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders 
 
 | Bestand | Plek | Wat er op moet | Bron |
 |---|---|---|---|
-| `fiets.webp` | De fietsenstalling onder water | De plek zelf, herkenbaar | Commons, gevonden |
-| `singel7.webp` | De gevel van één meter | Smalle gevel met iemand ervoor voor de schaal | Commons proberen, anders zelf |
-| `poes.webp` | De Poezenboot | De plek zelf, herkenbaar | Commons, gevonden |
-| `westindisch.webp` | Het West-Indisch Huis | De plek zelf, herkenbaar | Commons |
-| `haarlemmer.webp` | Haarlemmerstraat en -dijk | De plek zelf, herkenbaar | Commons |
-| `brouwers.webp` | Brouwersgracht | De plek zelf, herkenbaar | Commons, gevonden |
-| `papeneiland.webp` | Café Papeneiland | De plek zelf, herkenbaar | Commons |
-| `noordermarkt.webp` | Noordermarkt | De plek zelf, herkenbaar | Commons |
-| `linden.webp` | Het Palingoproer | Oude prent van het Palingoproer (publiek domein) of de straat nu | Commons proberen, anders zelf |
-| `karthuizer.webp` | Karthuizerhof | De plek zelf, herkenbaar | Commons |
-| `smalle.webp` | Café 't Smalle | Het steigertje op de gracht | Commons proberen, anders zelf |
-| `electric.webp` | Electric Ladyland | De plek zelf, herkenbaar | Commons, gevonden |
-| `chris.webp` | Café Chris | Interieur of gevel; de wc-trekker als het lukt | Commons proberen, anders zelf |
-| `wester.webp` | Westertoren | De plek zelf, herkenbaar | Commons |
-| `homo.webp` | Homomonument | De plek zelf, herkenbaar | Commons |
-| `hoofden.webp` | Het Huis met de Hoofden | De plek zelf, herkenbaar | Commons |
-| `torensluis.webp` | Torensluis | De plek zelf, herkenbaar | Commons, gevonden |
-| `negen.webp` | De Negen Straatjes | De plek zelf, herkenbaar | Commons |
-| `felix.webp` | Felix Meritis | De plek zelf, herkenbaar | Commons |
-| `johnny.webp` | Johnny Jordaanplein | De beelden op het plein | Commons proberen, anders zelf |
-| `paleis.webp` | Paleis op de Dam | De plek zelf, herkenbaar | Commons |
-| `papegaai.webp` | De Papegaai | De deur in de Kalverstraat met de papegaai erboven | Commons proberen, anders zelf |
-| `fockink.webp` | Wynand Fockink | De plek zelf, herkenbaar | Commons |
-| `begijnhof.webp` | Begijnhof | De plek zelf, herkenbaar | Commons |
-| `lieverdje.webp` | Het Lieverdje | Het beeldje op het Spui | Commons proberen, anders zelf |
-| `dokter.webp` | Café de Dokter | Het interieur (vraag even) | Commons proberen, anders zelf |
-| `vleminckx.webp` | Vleminckx | Het loket met de rij | Commons proberen, anders zelf |
-| `rasphuis.webp` | Het Rasphuispoortje | De poort met Castigatio | Commons proberen, anders zelf |
-| `rokin.webp` | De vitrines van station Rokin | De plek zelf, herkenbaar | Commons, gevonden |
-| `oudemanhuis.webp` | Oudemanhuispoort | De plek zelf, herkenbaar | Commons |
-| `oostindisch.webp` | Het smalste huis en de VOC | De plek zelf, herkenbaar | Commons |
-| `trippen.webp` | Trippenhuis en het huisje van de koetsier | De plek zelf, herkenbaar | Commons |
-| `aepjen.webp` | In 't Aepjen | De plek zelf, herkenbaar | Commons |
-| `scheepvaart.webp` | Het Scheepvaarthuis | De plek zelf, herkenbaar | Commons |
-| `borst.webp` | De borst in de stoep | De borst tussen de keien, van dichtbij | Commons proberen, anders zelf |
-| `condomerie.webp` | De Condomerie | De plek zelf, herkenbaar | Commons, gevonden |
-| `staalmeesters.webp` | Staalmeestersbrug | De plek zelf, herkenbaar | Commons |
-| `violist.webp` | De violist in de vloer | De violist in de vloer | Commons proberen, anders zelf |
-| `bloed.webp` | Het huis met de bloedvlekken | De tekens op de gevel, van dichtbij | Commons proberen, anders zelf |
-| `tuschinski.webp` | Tuschinski | De plek zelf, herkenbaar | Commons |
-| `bloemenmarkt.webp` | De drijvende Bloemenmarkt | De plek zelf, herkenbaar | Commons |
-| `kattenkabinet.webp` | Het Kattenkabinet | De plek zelf, herkenbaar | Commons |
-| `bazel.webp` | De Bazel | De plek zelf, herkenbaar | Commons |
-| `zevenbruggen.webp` | De zeven bruggen | Door de bogen, bij schemer met lichtjes | Commons proberen, anders zelf |
-| `amstelveld.webp` | Amstelveld en de noodkerk | De plek zelf, herkenbaar | Commons |
-| `concerto.webp` | Concerto | Gevel of bakken met platen | Commons proberen, anders zelf |
-| `zagertje.webp` | Het Boomzagertje | De plek zelf, herkenbaar | Commons, gevonden |
+| `fiets.webp` | De fietsenstalling onder water | De plek zelf, herkenbaar | staat erin (Commons) |
+| `singel7.webp` | De gevel van één meter | Smalle gevel met iemand ervoor voor de schaal | **zelf fotograferen** |
+| `poes.webp` | De Poezenboot | De plek zelf, herkenbaar | staat erin (Commons) |
+| `westindisch.webp` | Het West-Indisch Huis | De plek zelf, herkenbaar | staat erin (Commons) |
+| `haarlemmer.webp` | Haarlemmerstraat en -dijk | De plek zelf, herkenbaar | staat erin (Commons), zwak: vervangen |
+| `brouwers.webp` | Brouwersgracht | De plek zelf, herkenbaar | staat erin (Commons) |
+| `papeneiland.webp` | Café Papeneiland | De plek zelf, herkenbaar | staat erin (Commons) |
+| `noordermarkt.webp` | Noordermarkt | De plek zelf, herkenbaar | staat erin (Commons) |
+| `linden.webp` | Het Palingoproer | Oude prent van het Palingoproer (publiek domein) of de straat nu | staat erin (Commons) |
+| `karthuizer.webp` | Karthuizerhof | De plek zelf, herkenbaar | staat erin (Commons) |
+| `smalle.webp` | Café 't Smalle | Het steigertje op de gracht | staat erin (Commons) |
+| `electric.webp` | Electric Ladyland | De plek zelf, herkenbaar | staat erin (Commons) |
+| `chris.webp` | Café Chris | Interieur of gevel; de wc-trekker als het lukt | **zelf fotograferen** |
+| `wester.webp` | Westertoren | De plek zelf, herkenbaar | staat erin (Commons) |
+| `homo.webp` | Homomonument | De plek zelf, herkenbaar | staat erin (Commons) |
+| `hoofden.webp` | Het Huis met de Hoofden | De plek zelf, herkenbaar | staat erin (Commons) |
+| `torensluis.webp` | Torensluis | De plek zelf, herkenbaar | staat erin (Commons) |
+| `negen.webp` | De Negen Straatjes | De plek zelf, herkenbaar | staat erin (Commons), zwak: vervangen |
+| `felix.webp` | Felix Meritis | De plek zelf, herkenbaar | staat erin (Commons) |
+| `johnny.webp` | Johnny Jordaanplein | De beelden op het plein | staat erin (Commons) |
+| `paleis.webp` | Paleis op de Dam | De plek zelf, herkenbaar | staat erin (Commons) |
+| `papegaai.webp` | De Papegaai | De deur in de Kalverstraat met de papegaai erboven | staat erin (Commons), zwak: vervangen |
+| `fockink.webp` | Wynand Fockink | De plek zelf, herkenbaar | staat erin (Commons) |
+| `begijnhof.webp` | Begijnhof | De plek zelf, herkenbaar | staat erin (Commons) |
+| `lieverdje.webp` | Het Lieverdje | Het beeldje op het Spui | staat erin (Commons), zwak: vervangen |
+| `dokter.webp` | Café de Dokter | Het interieur (vraag even) | staat erin (Commons) |
+| `vleminckx.webp` | Vleminckx | Het loket met de rij | **zelf fotograferen** |
+| `rasphuis.webp` | Het Rasphuispoortje | De poort met Castigatio | staat erin (Commons) |
+| `rokin.webp` | De vitrines van station Rokin | De plek zelf, herkenbaar | staat erin (Commons) |
+| `oudemanhuis.webp` | Oudemanhuispoort | De plek zelf, herkenbaar | staat erin (Commons) |
+| `oostindisch.webp` | Het smalste huis en de VOC | De plek zelf, herkenbaar | staat erin (Commons), zwak: vervangen |
+| `trippen.webp` | Trippenhuis en het huisje van de koetsier | De plek zelf, herkenbaar | staat erin (Commons) |
+| `aepjen.webp` | In 't Aepjen | De plek zelf, herkenbaar | staat erin (Commons) |
+| `scheepvaart.webp` | Het Scheepvaarthuis | De plek zelf, herkenbaar | staat erin (Commons) |
+| `borst.webp` | De borst in de stoep | De borst tussen de keien, van dichtbij | staat erin (Commons) |
+| `condomerie.webp` | De Condomerie | De plek zelf, herkenbaar | staat erin (Commons), zwak: vervangen |
+| `staalmeesters.webp` | Staalmeestersbrug | De plek zelf, herkenbaar | staat erin (Commons) |
+| `violist.webp` | De violist in de vloer | De violist in de vloer | staat erin (Commons) |
+| `bloed.webp` | Het huis met de bloedvlekken | De tekens op de gevel, van dichtbij | staat erin (Commons) |
+| `tuschinski.webp` | Tuschinski | De plek zelf, herkenbaar | staat erin (Commons) |
+| `bloemenmarkt.webp` | De drijvende Bloemenmarkt | De plek zelf, herkenbaar | staat erin (Commons) |
+| `kattenkabinet.webp` | Het Kattenkabinet | De plek zelf, herkenbaar | staat erin (Commons) |
+| `bazel.webp` | De Bazel | De plek zelf, herkenbaar | staat erin (Commons) |
+| `zevenbruggen.webp` | De zeven bruggen | Door de bogen, bij schemer met lichtjes | staat erin (Commons) |
+| `amstelveld.webp` | Amstelveld en de noodkerk | De plek zelf, herkenbaar | staat erin (Commons) |
+| `concerto.webp` | Concerto | Gevel of bakken met platen | staat erin (Commons) |
+| `zagertje.webp` | Het Boomzagertje | De plek zelf, herkenbaar | staat erin (Commons) |

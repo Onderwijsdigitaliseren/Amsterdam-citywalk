@@ -693,7 +693,53 @@ const dotHTML=c=>'<span class="dot" style="background:var(--c-'+c+')"><svg viewB
 
 /* ---------- toestand ---------- */
 /* Foto's: zet het id hier op 1 zodra img/<id>.webp in de repo staat. CREDITS: {id,maker,lic,url} voor de beeldverantwoording. */
-const IMG={}, CREDITS=[];
+const IMG={johnny:1,bazel:1,fockink:1,poes:1,oudemanhuis:1,scheepvaart:1,negen:1,violist:1,dokter:1,bloemenmarkt:1,rokin:1,electric:1,tuschinski:1,amstelveld:1,wester:1,homo:1,rasphuis:1,aepjen:1,kattenkabinet:1,torensluis:1,trippen:1,concerto:1,hoofden:1,staalmeesters:1,lieverdje:1,fiets:1,papeneiland:1,condomerie:1,haarlemmer:1,felix:1,zagertje:1,papegaai:1,paleis:1,brouwers:1,linden:1,bloed:1,borst:1,smalle:1,oostindisch:1,westindisch:1,noordermarkt:1,karthuizer:1,zevenbruggen:1,begijnhof:1};
+const CREDITS=[
+ {"id": "johnny", "maker": "HJ Mitchell", "lic": "CC BY 4.0", "url": "https://commons.wikimedia.org/wiki/File:Statues_in_Johnny_Jordaanplein_01.jpg"},
+ {"id": "bazel", "maker": "Jane023", "lic": "CC BY 3.0", "url": "https://commons.wikimedia.org/wiki/File:De_Bazel_Vijzelstraat_32.jpg"},
+ {"id": "fockink", "maker": "Gryffindor", "lic": "CC0", "url": "https://commons.wikimedia.org/wiki/File:Wynand_Focking_Amsterdam_2014_(4).jpg"},
+ {"id": "poes", "maker": "Ceescamel", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:2023_Poezenboot,_Asd_(2).jpg"},
+ {"id": "oudemanhuis", "maker": "Marcel mulder", "lic": "CC BY-SA 3.0 nl", "url": "https://commons.wikimedia.org/wiki/File:Oudemanhuispoort_winkelkasten.JPG"},
+ {"id": "scheepvaart", "maker": "Txllxt TxllxT", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Prins_Hendrikkade_-_Scheepvaarthuis_1913-16_by_Jo_van_der_Mey_(enlarged_1926-28)-_View_West_on_designed_Fence.jpg"},
+ {"id": "negen", "maker": "Jorge Franganillo", "lic": "CC BY 4.0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_Negen_Straatjes_(55028715990).jpg"},
+ {"id": "violist", "maker": "Ceescamel", "lic": "CC0", "url": "https://commons.wikimedia.org/wiki/File:2026_De_violist,_Asd.jpg"},
+ {"id": "dokter", "maker": "Marion Golsteijn", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Rozenboomsteeg_4.JPG"},
+ {"id": "bloemenmarkt", "maker": "Txllxt TxllxT", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Singel_-_Bloemenmarkt.jpg"},
+ {"id": "rokin", "maker": "Marion Golsteijn", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Archeologische_Vondsten_Metro.jpg"},
+ {"id": "electric", "maker": "Robin Sheat", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Fluorescent_items_in_the_Electric_Ladyland_museum.jpg"},
+ {"id": "tuschinski", "maker": "C messier", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Tuschinski_Theater_2894.jpg"},
+ {"id": "amstelveld", "maker": "Fons Heijnsbroek", "lic": "CC0", "url": "https://commons.wikimedia.org/wiki/File:Street_view_of_the_old_city_square_Amstelveld_in_Amsterdam_downtown,_with_the_historical_wooden_church_Amstelkerk,_free_photo_Fons_Heijnsbroek_2022-01.jpg"},
+ {"id": "wester", "maker": "Zairon", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_Prinsengracht_%26_Westerkerk_4.jpg"},
+ {"id": "homo", "maker": "Hnapel", "lic": "CC0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_Homomonument_01.jpg"},
+ {"id": "rasphuis", "maker": "GeraJansen", "lic": "CC BY-SA 3.0 nl", "url": "https://commons.wikimedia.org/wiki/File:WikiLovesMonuments2012-1_033.jpg"},
+ {"id": "aepjen", "maker": "Paul2", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Aepjen-amsterdam.jpg"},
+ {"id": "kattenkabinet", "maker": "Andy Li", "lic": "CC0", "url": "https://commons.wikimedia.org/wiki/File:One_of_the_KattenKabinet_display_room_2024-11-27.jpg"},
+ {"id": "torensluis", "maker": "Paul van Galen", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Brug_9-_Torensluis_over_het_Singel_-_Standbeeld_van_Multatuli_(buste_van_Hans_Bayens,_1987),_met_toeristen_op_de_achtergrond_-_Amsterdam_-_20536120_-_RCE.jpg"},
+ {"id": "trippen", "maker": "C messier", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Trippenhuis_2945.jpg"},
+ {"id": "concerto", "maker": "Jwslubbock", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Concerto_music_store,_Utrechtsestraat_60,_Amsterdam_1.jpg"},
+ {"id": "hoofden", "maker": "Yair Haklai", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Huis_met_de_Hoofden-Keizersgracht_123.jpg"},
+ {"id": "staalmeesters", "maker": "C messier", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Staalmeestersbrug_2905.jpg"},
+ {"id": "lieverdje", "maker": "Txllxt TxllxT", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Nieuwerzijds_Voorburgwal_-_View_on_Spui_%26_Statue_%27Het_Lieverdje%27_1960_Carel_Kneulman.jpg"},
+ {"id": "fiets", "maker": "Hay Kranen", "lic": "CC BY 4.0", "url": "https://commons.wikimedia.org/wiki/File:Fietsenstalling_Stationsplein_Amsterdam_-_Overzicht_-_(Q111657629).jpg"},
+ {"id": "papeneiland", "maker": "Paul2", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Papeneiland-amsterdam.jpg"},
+ {"id": "condomerie", "maker": "Kleon3", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Interieur_Condomerie_Amsterdam_(10).jpg"},
+ {"id": "haarlemmer", "maker": "Alf van Beem", "lic": "publiek domein", "url": "https://commons.wikimedia.org/wiki/File:Haarlemmerdijk_98-100.jpg"},
+ {"id": "felix", "maker": "C messier", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Felix_Meritis_7421.jpg"},
+ {"id": "zagertje", "maker": "Ceescamel", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:2020_Boomzagertje_(1).jpg"},
+ {"id": "papegaai", "maker": "Milliped", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:StilleOmgang2018-12-Papegaai1.jpg"},
+ {"id": "paleis", "maker": "Diego Delso", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Palacio_Real,_%C3%81msterdam,_Pa%C3%ADses_Bajos,_2016-05-30,_DD_07-09_HDR.jpg"},
+ {"id": "brouwers", "maker": "Jvhertum", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Brouwersgracht_pakhuizen.jpg"},
+ {"id": "linden", "maker": "onbekend (Stadsarchief Amsterdam)", "lic": "publiek domein", "url": "https://commons.wikimedia.org/wiki/File:Palingoproer_in_Amsterdam_26_juli_1886,_Stadsarchief,_Afb_OSIM00001002760.jpg"},
+ {"id": "bloed", "maker": "Marion Golsteijn", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Amstel_216_Het_Huis_met_de_bloedvlekken.JPG"},
+ {"id": "borst", "maker": "Ceescamel", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:2021_De_gestreelde_borst_(2).jpg"},
+ {"id": "smalle", "maker": "A. Bakker", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Egelantiersgracht_12.jpg"},
+ {"id": "oostindisch", "maker": "Smallesthouse", "lic": "CC BY-SA 3.0 nl", "url": "https://commons.wikimedia.org/wiki/File:Voorzijde_kleinste_huis_van_Amsterdam.jpg"},
+ {"id": "westindisch", "maker": "S Sepp", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:West-Indisch_Huis.jpg"},
+ {"id": "noordermarkt", "maker": "Marcelmulder68", "lic": "CC BY-SA 3.0 nl", "url": "https://commons.wikimedia.org/wiki/File:Noorderkerk,_Noordermarkt_44.JPG"},
+ {"id": "karthuizer", "maker": "Eibert Draisma", "lic": "CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Karthuizerhof.jpg"},
+ {"id": "zevenbruggen", "maker": "Marco Ober", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Reguliersgracht,_Amsterdam.jpg"},
+ {"id": "begijnhof", "maker": "Sergé Technau", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Aanzicht_houten_puntgevel_-_Amsterdam_-_20408851_-_RCE.jpg"}
+];
 const KEY='achterom.v1', PINKEY='achterom.pins';
 let S={lang:null,seen:{},mine:[],spot:{},intro:1}, view='map', filter='all', sel=null, sortNear=false, test=false, moveId=null;
 try{ const o=JSON.parse(localStorage.getItem(KEY)); if(o&&typeof o==='object') S=Object.assign(S,o); }catch(e){}
