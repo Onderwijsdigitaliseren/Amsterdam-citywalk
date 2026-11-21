@@ -30,7 +30,7 @@ Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders 
 | `singel7.webp` | De gevel van één meter | Smalle gevel met iemand ervoor voor de schaal | **zelf fotograferen** |
 | `poes.webp` | De Poezenboot | De plek zelf, herkenbaar | staat erin (Commons) |
 | `westindisch.webp` | Het West-Indisch Huis | De plek zelf, herkenbaar | staat erin (Commons) |
-| `haarlemmer.webp` | Haarlemmerstraat en -dijk | De plek zelf, herkenbaar | staat erin (Commons), zwak: vervangen |
+| `haarlemmer.webp` | Haarlemmerstraat en -dijk | De plek zelf, herkenbaar | staat erin (Commons) |
 | `brouwers.webp` | Brouwersgracht | De plek zelf, herkenbaar | staat erin (Commons) |
 | `papeneiland.webp` | Café Papeneiland | De plek zelf, herkenbaar | staat erin (Commons) |
 | `noordermarkt.webp` | Noordermarkt | De plek zelf, herkenbaar | staat erin (Commons) |
@@ -43,25 +43,25 @@ Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders 
 | `homo.webp` | Homomonument | De plek zelf, herkenbaar | staat erin (Commons) |
 | `hoofden.webp` | Het Huis met de Hoofden | De plek zelf, herkenbaar | staat erin (Commons) |
 | `torensluis.webp` | Torensluis | De plek zelf, herkenbaar | staat erin (Commons) |
-| `negen.webp` | De Negen Straatjes | De plek zelf, herkenbaar | staat erin (Commons), zwak: vervangen |
+| `negen.webp` | De Negen Straatjes | De plek zelf, herkenbaar | staat erin (Commons) |
 | `felix.webp` | Felix Meritis | De plek zelf, herkenbaar | staat erin (Commons) |
 | `johnny.webp` | Johnny Jordaanplein | De beelden op het plein | staat erin (Commons) |
 | `paleis.webp` | Paleis op de Dam | De plek zelf, herkenbaar | staat erin (Commons) |
 | `papegaai.webp` | De Papegaai | De deur in de Kalverstraat met de papegaai erboven | staat erin (Commons), zwak: vervangen |
 | `fockink.webp` | Wynand Fockink | De plek zelf, herkenbaar | staat erin (Commons) |
 | `begijnhof.webp` | Begijnhof | De plek zelf, herkenbaar | staat erin (Commons) |
-| `lieverdje.webp` | Het Lieverdje | Het beeldje op het Spui | staat erin (Commons), zwak: vervangen |
+| `lieverdje.webp` | Het Lieverdje | Het beeldje op het Spui | staat erin (Commons) |
 | `dokter.webp` | Café de Dokter | Het interieur (vraag even) | staat erin (Commons) |
 | `vleminckx.webp` | Vleminckx | Het loket met de rij | **zelf fotograferen** |
 | `rasphuis.webp` | Het Rasphuispoortje | De poort met Castigatio | staat erin (Commons) |
 | `rokin.webp` | De vitrines van station Rokin | De plek zelf, herkenbaar | staat erin (Commons) |
 | `oudemanhuis.webp` | Oudemanhuispoort | De plek zelf, herkenbaar | staat erin (Commons) |
-| `oostindisch.webp` | Het smalste huis en de VOC | De plek zelf, herkenbaar | staat erin (Commons), zwak: vervangen |
+| `oostindisch.webp` | Het smalste huis en de VOC | De plek zelf, herkenbaar | staat erin (Commons) |
 | `trippen.webp` | Trippenhuis en het huisje van de koetsier | De plek zelf, herkenbaar | staat erin (Commons) |
 | `aepjen.webp` | In 't Aepjen | De plek zelf, herkenbaar | staat erin (Commons) |
 | `scheepvaart.webp` | Het Scheepvaarthuis | De plek zelf, herkenbaar | staat erin (Commons) |
 | `borst.webp` | De borst in de stoep | De borst tussen de keien, van dichtbij | staat erin (Commons) |
-| `condomerie.webp` | De Condomerie | De plek zelf, herkenbaar | staat erin (Commons), zwak: vervangen |
+| `condomerie.webp` | De Condomerie | De plek zelf, herkenbaar | staat erin (Commons) |
 | `staalmeesters.webp` | Staalmeestersbrug | De plek zelf, herkenbaar | staat erin (Commons) |
 | `violist.webp` | De violist in de vloer | De violist in de vloer | staat erin (Commons) |
 | `bloed.webp` | Het huis met de bloedvlekken | De tekens op de gevel, van dichtbij | staat erin (Commons) |
