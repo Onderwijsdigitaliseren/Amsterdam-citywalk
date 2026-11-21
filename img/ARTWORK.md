@@ -20,7 +20,7 @@ Alles is optioneel: zonder plaatjes werkt de wandeling ook. Een foto verschijnt 
 
 Alles aangeleverd op 21 november. `hero` staat op het startkaartje, de lijstjeskoppen boven elk lijstje, de spot-tekeningen naast Onderweg spotten, `og.jpg` als deelplaatje. `cover` is voor de site en Ko-fi en wordt in de wandeling zelf niet getoond.
 
-## Foto per plek (59)
+## Foto per plek (70)
 
 Maat: 1200 × 800 (liggend, 3:2), webp, liefst onder 150 kB. Bestandsnaam = id van de plek.
 Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders zelf" betekent: er is vast iets, maar een eigen foto is hier waarschijnlijk leuker of duidelijker.
@@ -86,3 +86,15 @@ Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders 
 | `picasso.webp` | De vis van Picasso | De plek zelf, herkenbaar | staat erin (Commons) |
 | `stadion.webp` | Het Olympisch Stadion | De plek zelf, herkenbaar | staat erin (Commons) |
 | `theehuis.webp` | Het Blauwe Theehuis | De plek zelf, herkenbaar | staat erin (Commons) |
+| `amstelhof.webp` | amstelhof | De plek zelf | staat erin (Commons) |
+| `artis.webp` | artis | De plek zelf | staat erin (Commons) |
+| `eye.webp` | eye | De plek zelf | staat erin (Commons) |
+| `nemo.webp` | nemo | De plek zelf | staat erin (Commons) |
+| `heineken.webp` | heineken | De plek zelf | staat erin (Commons) |
+| `carre.webp` | carre | De plek zelf | staat erin (Commons) |
+| `sarphati.webp` | sarphati | De plek zelf | staat erin (Commons) |
+| `zeemagazijn.webp` | zeemagazijn | De plek zelf | staat erin (Commons) |
+| `zandhoek.webp` | zandhoek | De plek zelf | staat erin (Commons) |
+| `slavernij.webp` | slavernij | De plek zelf | staat erin (Commons) |
+| `manege.webp` | Hollandsche Manege | Gevel met paardenhoofden of de rijhal | optioneel, nu zonder foto |
+| `set-oostloop.webp`, `set-zuidloop.webp`, `set-westloop.webp` | 1200 × 500 | Koppen voor de drie nieuwe looplijstjes | optioneel; aanzetten in `SETART` |

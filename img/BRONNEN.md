@@ -79,6 +79,17 @@ Let op:
 | `picasso` | De vis van Picasso | [Figure découpée (DSCF3006).jpg](https://commons.wikimedia.org/wiki/File:Figure_d%C3%A9coup%C3%A9e_(DSCF3006).jpg) | Trougnouf (Benoit Brummer) | CC BY 4.0 | staat erin (buiten de grachten, 21 nov) |
 | `stadion` | Het Olympisch Stadion | [Olympisch stadion Amsterdam achterzijde.jpg](https://commons.wikimedia.org/wiki/File:Olympisch_stadion_Amsterdam_achterzijde.jpg) | Vincent Steenberg | CC BY-SA 2.5 | staat erin (buiten de grachten, 21 nov) |
 | `theehuis` | Het Blauwe Theehuis | [Amsterdam, Vondelpark, the blue teahouse.jpg](https://commons.wikimedia.org/wiki/File:Amsterdam,_Vondelpark,_the_blue_teahouse.jpg) | Dguendel | CC BY 4.0 | staat erin (buiten de grachten, 21 nov) |
+| `amstelhof` | | [Hermitage Amsterdam, Amstel.jpg](https://commons.wikimedia.org/wiki/File:Hermitage_Amsterdam,_Amstel.jpg) | Paulbe | CC BY-SA 3.0 nl | staat erin (buiten de grachten, 21 nov) |
+| `artis` | | [ArtisIngang.jpg](https://commons.wikimedia.org/wiki/File:ArtisIngang.jpg) | Mtcv | CC BY-SA 3.0 | staat erin (buiten de grachten, 21 nov) |
+| `eye` | | [EYE Filmmuseum.jpg](https://commons.wikimedia.org/wiki/File:EYE_Filmmuseum.jpg) | Jvhertum | CC BY-SA 3.0 | staat erin (buiten de grachten, 21 nov) |
+| `nemo` | | [2018 - NEMO Science Museum, Amsterdam, Netherlands ( Ank Kumar ) 03.jpg](https://commons.wikimedia.org/wiki/File:2018_-_NEMO_Science_Museum,_Amsterdam,_Netherlands_(_Ank_Kumar_)_03.jpg) | Ank Kumar | CC BY-SA 4.0 | staat erin (buiten de grachten, 21 nov) |
+| `heineken` | | [Former Heineken Brewery in Amsterdam.jpg](https://commons.wikimedia.org/wiki/File:Former_Heineken_Brewery_in_Amsterdam.jpg) | Mtcv | CC BY-SA 3.0 | staat erin (buiten de grachten, 21 nov) |
+| `carre` | | [Carre Theatre 2038.jpg](https://commons.wikimedia.org/wiki/File:Carre_Theatre_2038.jpg) | C messier | CC BY-SA 4.0 | staat erin (buiten de grachten, 21 nov) |
+| `sarphati` | | [Sarphatipark (Amsterdam).jpg](https://commons.wikimedia.org/wiki/File:Sarphatipark_(Amsterdam).jpg) | Zhou Guanhuai | CC0 | staat erin (buiten de grachten, 21 nov) |
+| `zeemagazijn` | | [Replica of an historical Dutch sailing ship of 17th century; it is part of the Maritime Ship Museum; free photo Amsterdam by Fons Heijnsbroek, 01-2022.jpg](https://commons.wikimedia.org/wiki/File:Replica_of_an_historical_Dutch_sailing_ship_of_17th_century;_it_is_part_of_the_Maritime_Ship_Museum;_free_photo_Amsterdam_by_Fons_Heijnsbroek,_01-2022.jpg) | Fons Heijnsbroek | CC0 | staat erin (buiten de grachten, 21 nov) |
+| `zandhoek` | | [Zandhoek pic30.JPG](https://commons.wikimedia.org/wiki/File:Zandhoek_pic30.JPG) | Alf van Beem | publiek domein | staat erin (buiten de grachten, 21 nov) |
+| `slavernij` | | [2025 Nationaal Monument Slavernijverleden, Asd (B).jpg](https://commons.wikimedia.org/wiki/File:2025_Nationaal_Monument_Slavernijverleden,_Asd_(B).jpg) | Ceescamel | CC0 | staat erin (buiten de grachten, 21 nov) |
+| `manege` | Hollandsche Manege | niets goeds gevonden | | | zonder foto (mag) |
 
 Extra voor Onderweg spotten: op Commons bestaat de categorie [Plaskrul](https://commons.wikimedia.org/wiki/Category:Plaskrul) voor de krul.
 

@@ -1,6 +1,6 @@
 # Amsterdam Achterom
 
-Vrije stadswandeling door de binnenstad van Amsterdam, van Enigma Mystery. Geen route: 59 punten op de kaart, ook buiten de grachten (Museumplein, Vondelpark, De Pijp, Oost, Westerpark en Noord), elk met een kort verhaal. Nederlands en Engels in één bestand (knop rechtsboven). Statische site voor GitHub Pages.
+Vrije stadswandeling door de binnenstad van Amsterdam, van Enigma Mystery. Geen route: 70 plekken en 38 losse weetjes op de kaart, ook buiten de grachten (Museumplein, Vondelpark, De Pijp, Oost, Westerpark en Noord), elk met een kort verhaal. Nederlands en Engels in één bestand (knop rechtsboven). Statische site voor GitHub Pages.
 
 ```
 /index.html        de hele wandeling; NIET met de hand aanpassen, wordt gemaakt door _tools/build.py

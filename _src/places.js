@@ -471,7 +471,95 @@ const PLACES=[
   tip:`Het Westerpark ligt er direct naast. Op zondag is er geregeld een markt.`},
  en:{n:`The Westergasfabriek`,k:`This is where gas was made for the city's street lamps. Now you sit here on a terrace.`,
   s:[`In the late nineteenth century this factory baked coal into town gas, which ran through pipes to street lamps and homes. When natural gas came, it was over. What remained was a site with badly polluted soil.`,`After a big clean-up it became a park with events. The old gasholder, boiler houses and purification hall now hold small cinemas, restaurants and venues. The buildings themselves stayed, in red brick with little towers.`],
-  tip:`Westerpark is right next door. There is often a market on Sundays.`}}
+  tip:`Westerpark is right next door. There is often a market on Sundays.`}},
+
+{id:'zandhoek',lat:52.3878,lng:4.8880,c:'rust',z:'noord',a:'Zandhoek, Realeneiland',
+ nl:{n:`De Westelijke Eilanden`,k:`Vijf minuten van het Centraal Station ligt een dorp van ophaalbruggen, werfjes en pakhuizen. Bijna niemand loopt er.`,
+  s:[`Rond 1610–1615 werden hier drie eilanden opgespoten als uitbreiding van de haven: Bickerseiland, Prinseneiland en Realeneiland. Er kwamen scheepswerven, teerkokerijen en pakhuizen. Toen de schepen te groot werden, verhuisde de haven naar het oosten en raakte de buurt in verval.`,`Langs de Zandhoek werd zand opgeslagen. Dat ging als ballast in de schepen en werd ook gebruikt om de straten in de stad op te hogen. De rij huizen aan het water is nu een van de mooiste plekjes van de stad, en filmploegen weten dat ook.`],
+  tip:`Loop het rondje over de witte ophaalbruggen. Het Prinseneiland is het stilst.`},
+ en:{n:`The Western Islands`,k:`Five minutes from Central Station lies a village of drawbridges, boatyards and warehouses. Hardly anyone walks here.`,
+  s:[`Around 1610–1615 three islands were built up here to extend the harbour: Bickerseiland, Prinseneiland and Realeneiland. Shipyards, tar works and warehouses followed. When ships grew too big, the harbour moved east and the area fell into decay.`,`Sand was stored along the Zandhoek. It went into ships as ballast and was also used to raise the streets of the city. The row of houses by the water is now one of the prettiest corners of town, as film crews know.`],
+  tip:`Walk the loop over the white drawbridges. Prinseneiland is the quietest.`}},
+
+{id:'eye',lat:52.3843,lng:4.9007,c:'bouw',z:'noord',a:'IJpromenade 1',
+ nl:{n:`Eye, aan de overkant`,k:`Een wit filmmuseum dat eruitziet alsof het elk moment kan opstijgen. De boot ernaartoe is gratis.`,
+  s:[`Eye Filmmuseum opende in 2012 aan de overkant van het IJ, op het oude Shell-terrein. Het gebouw heeft schuine witte vlakken en ziet er vanaf elke kant anders uit. Binnen zijn zalen, een tentoonstelling en een groot terras op het water.`,`De oversteek zelf hoort erbij: de pont achter het Centraal Station vaart de hele dag en kost niets. Je staat tussen fietsers, scooters en toeristen, en na vijf minuten sta je in Noord.`],
+  tip:`Neem een drankje op het terras en kijk terug naar het station. Dat is het mooiste uitzicht op het centrum.`},
+ en:{n:`Eye, across the water`,k:`A white film museum that looks ready to take off. The boat there is free.`,
+  s:[`Eye Filmmuseum opened in 2012 across the IJ, on the old Shell site. The building is all slanting white planes and looks different from every side. Inside are cinemas, an exhibition and a big terrace on the water.`,`The crossing is part of the fun: the ferry behind Central Station runs all day and costs nothing. You stand among bikes, scooters and tourists, and five minutes later you are in Noord.`],
+  tip:`Have a drink on the terrace and look back at the station. It is the best view of the centre.`}},
+
+{id:'zeemagazijn',lat:52.3717,lng:4.9150,c:'verhaal',z:'oost',a:'Kattenburgerplein 1',
+ nl:{n:`Het Scheepvaartmuseum en het VOC-schip`,k:`Aan de kade ligt de Amsterdam, een nagebouwd VOC-schip. Het origineel liep op zijn eerste reis vast bij Engeland.`,
+  s:[`Het museum zit in 's Lands Zeemagazijn uit 1656, het pakhuis van de marine. Hier lagen zeilen, touw, kanonnen en voorraden voor de oorlogsvloot. De binnenplaats heeft nu een glazen dak met een patroon van windrozen en kompaslijnen.`,`Het echte schip Amsterdam liep in 1749 op zijn eerste reis vast bij Hastings. Het wrak ligt daar nog steeds in het zand. De kopie aan de kade is in de jaren tachtig nagebouwd, door vrijwilligers en jongeren in een werkproject.`],
+  tip:`Ook zonder kaartje is de kade de moeite: je ziet het schip van dichtbij.`},
+ en:{n:`The Maritime Museum and the VOC ship`,k:`Moored at the quay is the Amsterdam, a replica East India ship. The original ran aground off England on its first voyage.`,
+  s:[`The museum is housed in the Navy storehouse of 1656. Sails, rope, cannons and supplies for the war fleet were kept here. The courtyard now has a glass roof patterned with compass roses and lines.`,`The real Amsterdam ran aground near Hastings on its maiden voyage in 1749. The wreck still lies there in the sand. The replica at the quay was built in the 1980s by volunteers and young people on a job scheme.`],
+  tip:`Even without a ticket the quay is worth it: you see the ship up close.`}},
+
+{id:'nemo',lat:52.3741,lng:4.9123,c:'grap',z:'oost',a:'Oosterdok 2',
+ nl:{n:`Het dak van NEMO`,k:`Een groen gebouw als een scheepsboeg, met een gratis plein op het dak.`,
+  s:[`NEMO is van architect Renzo Piano en opende in 1997. Het staat boven op de ingang van de IJtunnel, dus onder je voeten rijden de auto's de stad uit. De vorm lijkt op een schip dat de haven uit vaart.`,`Binnen is het een wetenschapsmuseum voor kinderen. Het dak is van iedereen: een schuin plein met trappen, een terras en een van de mooiste uitzichten over het oude centrum.`],
+  tip:`De trap op de buitenkant is gratis. Ga bij zonsondergang.`},
+ en:{n:`The roof of NEMO`,k:`A green building shaped like a ship's bow, with a free square on the roof.`,
+  s:[`NEMO is by architect Renzo Piano and opened in 1997. It sits right on top of the entrance to the IJ tunnel, so cars drive out of town beneath your feet. The shape suggests a ship sailing out of the harbour.`,`Inside it is a science museum for children. The roof belongs to everyone: a sloping square with steps, a terrace and one of the best views over the old centre.`],
+  tip:`The outside stairs are free. Go at sunset.`}},
+
+{id:'artis',lat:52.3661,lng:4.9165,c:'verhaal',z:'oost',a:'Plantage Kerklaan 38–40',
+ nl:{n:`Artis`,k:`De oudste dierentuin van Nederland heet naar een spreuk: de natuur is de leermeesteres van de kunst.`,
+  s:[`Artis werd in 1838 opgericht als Natura Artis Magistra. Het was eerst een genootschap voor de gegoede burgerij, met dieren, maar ook met een bibliotheek, concerten en verzamelingen. Gewone Amsterdammers mochten er lange tijd alleen in september in, tegen een kleine prijs.`,`Daarom loopt er ook nu nog veel meer door Artis dan dieren: oude gebouwen, een aquarium uit 1882 en een planetarium. De poort aan de Plantage Kerklaan, met de gouden adelaars, is al een bezienswaardigheid.`],
+  tip:`Rond Artis ligt de Plantage, een rustige buurt met brede lanen. Loop er gewoon doorheen.`},
+ en:{n:`Artis Zoo`,k:`The oldest zoo in the Netherlands is named after a motto: nature is the teacher of art.`,
+  s:[`Artis was founded in 1838 as Natura Artis Magistra. At first it was a society for the well-to-do, with animals but also a library, concerts and collections. For a long time ordinary Amsterdammers were only let in during September, for a small fee.`,`That is why there is still much more than animals: old buildings, an aquarium from 1882 and a planetarium. The gate on Plantage Kerklaan, with its golden eagles, is a sight in itself.`],
+  tip:`Around Artis lies the Plantage, a quiet area of wide avenues. Just stroll through.`}},
+
+{id:'amstelhof',lat:52.3653,lng:4.9026,c:'bouw',z:'oost',a:'Amstel 51',
+ nl:{n:`Het Amstelhof`,k:`Een van de grootste gebouwen aan de Amstel was ruim driehonderd jaar een bejaardenhuis.`,
+  s:[`Het Amstelhof werd eind zeventiende eeuw gebouwd door de diaconie, voor oude vrouwen en later ook oude mannen. Achter de strenge gevel liggen een binnenhof, een kerkzaal en een regentenkamer. Pas in 2007 vertrokken de laatste bewoners.`,`Daarna werd het de Hermitage Amsterdam, met kunst uit Sint-Petersburg. Na de Russische inval in Oekraïne in 2022 werd die band verbroken. Nu heet het museum H'ART.`],
+  tip:`Loop langs de Amstel aan de overkant voor het overzicht van de hele gevel.`},
+ en:{n:`The Amstelhof`,k:`One of the largest buildings on the Amstel was a home for the elderly for over three hundred years.`,
+  s:[`The Amstelhof was built in the late seventeenth century by the church's charity, for old women and later old men too. Behind the austere front lie a courtyard, a chapel hall and a regents' room. The last residents only left in 2007.`,`It then became the Hermitage Amsterdam, showing art from St Petersburg. After Russia's invasion of Ukraine in 2022 that link was cut. Today the museum is called H'ART.`],
+  tip:`Walk along the Amstel on the opposite bank to see the whole front.`}},
+
+{id:'carre',lat:52.3623,lng:4.9040,c:'grap',z:'oost',a:'Amstel 115',
+ nl:{n:`Carré, een circus van steen`,k:`Dit grote theater aan de Amstel werd gebouwd voor paarden en acrobaten.`,
+  s:[`De Duitse circusdirecteur Oscar Carré trok met zijn circus rond en speelde eerst in tenten op het Amstelveld. In december 1887 opende hij hier een vast gebouw, alleen voor de wintermaanden. De rest van het jaar was het circus op tournee en stond het leeg.`,`Pas later werd het een theater voor alles: cabaret, musicals, concerten. Maar elk jaar rond kerst komt het circus nog terug, in een piste waar Oscar Carré zich thuis zou voelen.`],
+  tip:`Mooi vanaf de Magere Brug, vooral als het donker is en de gevel verlicht.`},
+ en:{n:`Carré, a circus in stone`,k:`This big theatre on the Amstel was built for horses and acrobats.`,
+  s:[`German circus director Oscar Carré toured with his circus and first played in tents on the Amstelveld. In December 1887 he opened a permanent building here, only for the winter months. The rest of the year the circus was on tour and the building stood empty.`,`Only later did it become a theatre for everything: cabaret, musicals, concerts. But every year around Christmas the circus still comes back, to a ring where Oscar Carré would feel at home.`],
+  tip:`Lovely from the Magere Brug, especially after dark with the front lit up.`}},
+
+{id:'slavernij',lat:52.3605,lng:4.9205,c:'verhaal',z:'oost',a:'Oosterpark',
+ nl:{n:`Nationaal Monument Slavernijverleden`,k:`In het Oosterpark staat een monument dat laat zien hoe mensen zich losbreken.`,
+  s:[`Het monument van de Surinaamse kunstenaar Erwin de Vries werd in 2002 onthuld. Het bestaat uit drie delen, van mensen in ketenen tot een figuur die zich bevrijdt. Het herinnert aan de slavernij in de voormalige koloniën, waar Amsterdamse kooplieden rijk van werden.`,`Elk jaar op 1 juli is hier de herdenking en viering van Keti Koti, de dag van de afschaffing. Dan is het park vol muziek, eten en mensen in feestelijke kleding.`],
+  tip:`Het Oosterpark zelf is een fijn, rustig park. Aan de rand zit de Dappermarkt.`},
+ en:{n:`National Slavery Monument`,k:`In the Oosterpark stands a monument showing people breaking free.`,
+  s:[`The monument by Surinamese artist Erwin de Vries was unveiled in 2002. It has three parts, from people in chains to a figure breaking loose. It recalls slavery in the former colonies, from which Amsterdam merchants grew rich.`,`Every year on 1 July this is where Keti Koti, the day of abolition, is remembered and celebrated. The park then fills with music, food and people in festive dress.`],
+  tip:`The Oosterpark itself is a pleasant, quiet park. The Dappermarkt is at its edge.`}},
+
+{id:'sarphati',lat:52.3540,lng:4.8965,c:'rust',z:'pijp',a:'Sarphatipark',
+ nl:{n:`Sarphati, de dokter die de stad verbouwde`,k:`Een huisarts die een broodfabriek, een glazen paleis en een luxe hotel liet bouwen.`,
+  s:[`Samuel Sarphati zag in zijn praktijk elke dag wat armoede en vuil deden. Hij begon daarom van alles: een handelsschool, een broodfabriek voor goedkoop brood en plannen voor een schonere stad. Hij wilde Amsterdam ook weer trots maken.`,`Daarvoor liet hij het Paleis voor Volksvlijt bouwen, een glazen tentoonstellingspaleis naar Londens voorbeeld. Het brandde in 1929 af. Ook het Amstel Hotel was zijn idee. In dit park staat zijn monument, met een fontein.`],
+  tip:`Een rustig rondje na de drukte van de Albert Cuyp, één straat verderop.`},
+ en:{n:`Sarphati, the doctor who rebuilt the city`,k:`A family doctor who got a bread factory, a glass palace and a luxury hotel built.`,
+  s:[`Samuel Sarphati saw every day in his practice what poverty and dirt did to people. So he started all sorts of things: a trade school, a bread factory for cheap bread and plans for a cleaner city. He also wanted Amsterdam to be proud again.`,`To that end he had the Paleis voor Volksvlijt built, a glass exhibition palace after London's example. It burned down in 1929. The Amstel Hotel was his idea too. His monument, with a fountain, stands in this park.`],
+  tip:`A quiet loop after the bustle of the Albert Cuyp, one street away.`}},
+
+{id:'heineken',lat:52.3578,lng:4.8918,c:'eten',z:'pijp',a:'Stadhouderskade 78',
+ nl:{n:`De oude Heineken-brouwerij`,k:`Hier werd tot 1988 echt bier gebrouwen, midden in de stad.`,
+  s:[`Gerard Adriaan Heineken kocht in 1864 een brouwerij en bouwde later aan de rand van De Pijp een grote nieuwe. Paardenwagens met vaten reden van hier de stad in. In 1988 verhuisde het brouwen naar Zoeterwoude.`,`Het oude gebouw werd een bezoekerscentrum, de Heineken Experience. Ook als je niet naar binnen gaat, zie je aan de rode baksteen en de grote poort dat dit een fabriek was.`],
+  tip:`Vlak erbij ligt de Albert Cuyp. Voor een biertje met minder reclame: de bruine cafés in De Pijp.`},
+ en:{n:`The old Heineken brewery`,k:`Real beer was brewed here, in the middle of town, until 1988.`,
+  s:[`Gerard Adriaan Heineken bought a brewery in 1864 and later built a big new one on the edge of De Pijp. Horse-drawn carts loaded with barrels drove into town from here. In 1988 brewing moved to Zoeterwoude.`,`The old building became a visitor centre, the Heineken Experience. Even without going in, the red brick and the big gate show you this was a factory.`],
+  tip:`The Albert Cuyp is close by. For a beer with less branding: the brown cafés of De Pijp.`}},
+
+{id:'manege',lat:52.3601,lng:4.8711,c:'rust',z:'museum',a:'Vondelstraat 140',
+ nl:{n:`De Hollandsche Manege`,k:`Achter een gewone gevel aan de Vondelstraat ligt een paleisje voor paarden.`,
+  s:[`De Hollandsche Manege bestaat sinds 1744 en is de oudste rijschool van Nederland. Het huidige gebouw is uit 1882 en is geïnspireerd op de Spaanse Rijschool in Wenen: een hoge hal met stucwerk, spiegels en een balkon.`,`Hier leerden rijke Amsterdammers en leden van het koningshuis paardrijden. Er wordt nog steeds elke dag gereden, en de paarden mogen geregeld naar buiten op een weitje in het Vondelpark.`],
+  tip:`Vanuit het café boven kijk je de rijhal in. Zoek de paardenhoofden op de gevel.`},
+ en:{n:`The Hollandsche Manege`,k:`Behind an ordinary front on Vondelstraat lies a little palace for horses.`,
+  s:[`The Hollandsche Manege dates from 1744 and is the oldest riding school in the Netherlands. The present building is from 1882 and was inspired by the Spanish Riding School in Vienna: a tall hall with stucco, mirrors and a balcony.`,`Wealthy Amsterdammers and members of the royal family learned to ride here. Riding still goes on every day, and the horses regularly get out to a meadow in the Vondelpark.`],
+  tip:`From the café upstairs you look into the riding hall. Look for the horse heads on the front.`}}
 ];
 
 /* Kant-en-klare lijstjes */
@@ -489,7 +577,13 @@ const SETS=[
  {id:'stil',nl:{n:`Even stil`,d:`Plekken waar de stad zijn mond houdt.`},en:{n:`A quiet moment`,d:`Places where the city holds its tongue.`},
   ids:['karthuizer','papegaai','begijnhof','oudemanhuis','staalmeesters','bazel','zevenbruggen','amstelveld']},
  {id:'buiten',nl:{n:`Buiten de grachten`,d:`Museumplein, Vondelpark, De Pijp, Oost en over het IJ. Neem de fiets.`},en:{n:`Beyond the canals`,d:`Museumplein, Vondelpark, De Pijp, the east and across the IJ. Take a bike.`},
-  ids:['rijks','badkuip','picasso','theehuis','albertcuyp','magere','hortus','gooyer','schip','adam']}
+  ids:['rijks','badkuip','picasso','theehuis','albertcuyp','magere','hortus','gooyer','schip','adam']},
+ {id:'oostloop',nl:{n:`Oostwaarts lopen`,d:`Van de Magere Brug langs Carré en de Plantage naar het water bij NEMO. Goed te lopen.`},en:{n:`Walking east`,d:`From the Magere Brug past Carré and the Plantage to the water at NEMO. An easy walk.`},
+  ids:['magere','carre','amstelhof','hortus','artis','zeemagazijn','nemo']},
+ {id:'zuidloop',nl:{n:`Zuidwaarts lopen`,d:`Door het Rijksmuseum, het Vondelpark in en via De Pijp terug.`},en:{n:`Walking south`,d:`Through the Rijksmuseum, into the Vondelpark and back via De Pijp.`},
+  ids:['rijks','badkuip','manege','theehuis','picasso','heineken','albertcuyp','sarphati']},
+ {id:'westloop',nl:{n:`Westwaarts lopen`,d:`Over de Haarlemmerdijk naar de eilanden, de Westergasfabriek en Het Schip.`},en:{n:`Walking west`,d:`Along Haarlemmerdijk to the islands, the Westergasfabriek and Het Schip.`},
+  ids:['haarlemmer','brouwers','zandhoek','westergas','schip']}
 ];
 
 /* Onderweg spotten: geen vaste plek */
