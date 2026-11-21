@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<meta property="og:title" content="Amsterdam Achterom">
+<meta property="og:description" content="Amsterdam via de achterdeur: 47 plekken, geen route, bij elke plek een verhaal.">
+<meta property="og:image" content="https://onderwijsdigitaliseren.github.io/Amsterdam-citywalk/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <title>Amsterdam Achterom</title>
 <style>
 /* Plan: kaart als hoofdscherm, alles daaronder in één duimbereik. Kleuren van De Gloeidraad (Eindhoven):
@@ -83,6 +87,9 @@ h3{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercas
 #sheetIn h2{font-size:32px;margin:8px 0 2px}
 .ph{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:14px;border:1.5px solid var(--line);margin:4px 0 6px;background:var(--land)}
 .cred{font-size:12px;color:var(--muted);margin:0 0 6px}
+.hero{display:block;width:100%;height:112px;object-fit:cover;object-position:50% 60%;border-radius:10px}
+.box img.set{display:block;width:calc(100% + 28px);margin:-14px -14px 12px;aspect-ratio:12/5;object-fit:cover;border-radius:12px 12px 0 0}
+.spot img{width:64px;height:64px;border-radius:10px;flex:none;object-fit:cover}
 .addr{color:var(--muted);font-size:14px;margin:0 0 14px}
 .pull{font:italic 400 21px/1.3 var(--read);border-left:4px solid var(--cc,var(--accent));padding:2px 0 2px 14px;margin:0 0 16px;text-wrap:balance}
 .story p{font:400 18px/1.55 var(--read);margin:0 0 14px;max-width:62ch}
@@ -662,7 +669,7 @@ nl:{sub:'Amsterdam via de achterdeur',all:'Alles',mine:'Mijn lijstje',tabMap:'Ka
  take:'Neem dit lijstje',taken:'Dit lijstje staat op de kaart.',setMeta:(n,km)=>n+' plekken · ± '+km+' km',ready:'Kant-en-klaar',ownH:'Zelf samenstellen',ownP:'Open een plek en tik op ‘Op mijn lijstje’. De kaart zet ze in een handige volgorde.',
  spotH:'Onderweg spotten',spotP:'Tien dingen die je overal tegenkomt als je weet waar je op moet letten. Vink af wat je ziet.',spotN:(a,b)=>a+' van '+b,
  aboutH:'Over deze wandeling',aboutP:'De verhalen zijn nagezocht, de legendes staan erbij als legendes. Cafés, winkels en musea veranderen: kijk voor openingstijden even op hun eigen site. Hofjes en kerken zijn van de bewoners; wees een goede gast.',
- photo:'Foto',credH:'Beeldverantwoording',credP:'Foto\'s van Wikimedia Commons, bijgesneden. Tik op de naam voor de bron.',reset:'Voortgang wissen',reset2:'Zeker weten? Tik nog eens',resetDone:'Alles gewist.',hours:h=>h<1?Math.round(h*60/5)*5+' minuten':(Math.round(h*2)/2).toString().replace('.',',')+' uur',
+ photo:'Foto',illus:'Illustratie, geen foto',credH:'Beeldverantwoording',credP:'Foto\'s van Wikimedia Commons, bijgesneden. Tik op de naam voor de bron.',reset:'Voortgang wissen',reset2:'Zeker weten? Tik nog eens',resetDone:'Alles gewist.',hours:h=>h<1?Math.round(h*60/5)*5+' minuten':(Math.round(h*2)/2).toString().replace('.',',')+' uur',
  gpsOff:'Geen locatie beschikbaar. Alles werkt ook zonder.',gpsSeek:'Locatie zoeken…',gpsFar:km=>'Je bent ongeveer '+km+' km van de binnenstad. Je stip valt buiten de kaart.',youAt:n=>'Je staat bij: '+n,
  drawn:'Getekende plattegrond',loading:'Kaart laden…',z:{west:'Haarlemmerbuurt',jordaan:'Jordaan',gordel:'Westelijke grachten',midden:'Rond Dam en Spui',oud:'Oude Zijde',zuid:'Amstel en zuidelijke grachten'},
  cat:{verhaal:'Verhalen',bouw:'Gebouwd',grap:'Raar en grappig',eten:'Eten en drinken',shop:'Shoppen',rust:'Stil en verborgen'},
@@ -675,7 +682,7 @@ en:{sub:'Amsterdam by the back door',all:'All',mine:'My list',tabMap:'Map',tabLi
  take:'Use this list',taken:'This list is now on the map.',setMeta:(n,km)=>n+' places · ± '+km+' km',ready:'Ready-made',ownH:'Build your own',ownP:'Open a place and tap ‘Add to my list’. The map puts them in a sensible order.',
  spotH:'Spot along the way',spotP:'Ten things you see everywhere once you know what to look for. Tick what you find.',spotN:(a,b)=>a+' of '+b,
  aboutH:'About this walk',aboutP:'The stories have been checked, and legends are told as legends. Cafés, shops and museums change: check opening hours on their own sites. Courtyards and churches belong to the people who live there; be a good guest.',
- photo:'Photo',credH:'Image credits',credP:'Photos from Wikimedia Commons, cropped. Tap the name for the source.',reset:'Erase my progress',reset2:'Sure? Tap again',resetDone:'All erased.',hours:h=>h<1?Math.round(h*60/5)*5+' minutes':(Math.round(h*2)/2)+' hours',
+ photo:'Photo',illus:'Illustration, not a photo',credH:'Image credits',credP:'Photos from Wikimedia Commons, cropped. Tap the name for the source.',reset:'Erase my progress',reset2:'Sure? Tap again',resetDone:'All erased.',hours:h=>h<1?Math.round(h*60/5)*5+' minutes':(Math.round(h*2)/2)+' hours',
  gpsOff:'No location available. Everything works without it.',gpsSeek:'Finding your location…',gpsFar:km=>'You are about '+km+' km from the city centre. Your dot is off the map.',youAt:n=>'You are at: '+n,
  drawn:'Hand-drawn map',loading:'Loading map…',z:{west:'Haarlemmer quarter',jordaan:'Jordaan',gordel:'Western canals',midden:'Around Dam and Spui',oud:'Old Side',zuid:'Amstel and southern canals'},
  cat:{verhaal:'Stories',bouw:'Buildings',grap:'Odd and funny',eten:'Food and drink',shop:'Shopping',rust:'Quiet and hidden'},
@@ -740,6 +747,9 @@ const CREDITS=[
  {"id": "zevenbruggen", "maker": "Marco Ober", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Reguliersgracht,_Amsterdam.jpg"},
  {"id": "begijnhof", "maker": "Sergé Technau", "lic": "CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Aanzicht_houten_puntgevel_-_Amsterdam_-_20408851_-_RCE.jpg"}
 ];
+/* Illustraties van Kellie (geen foto): krijgen het bijschrift 'Illustratie'. ART=1: hero, lijstjeskoppen en spot-tekeningen staan in img/. */
+const ILLUS={chris:1,vleminckx:1,singel7:1,papegaai:1}, ART=1;
+Object.assign(IMG,ILLUS);
 const KEY='achterom.v1', PINKEY='achterom.pins';
 let S={lang:null,seen:{},mine:[],spot:{},intro:1}, view='map', filter='all', sel=null, sortNear=false, test=false, moveId=null;
 try{ const o=JSON.parse(localStorage.getItem(KEY)); if(o&&typeof o==='object') S=Object.assign(S,o); }catch(e){}
@@ -904,7 +914,7 @@ function renderHead(){ document.documentElement.lang=S.lang; $('#sub').textConte
   [['in','Zoom in'],['out','Zoom out'],['fit',S.lang==='nl'?'Alles tonen':'Show all'],['me',S.lang==='nl'?'Mijn locatie':'My location']].forEach(a=>box.querySelector('[data-z='+a[0]+']').setAttribute('aria-label',a[1])); }
 function dTxt(p){ return inTown()?L().away(dist(pos,p)):''; }
 function renderCard(){ const c=$('#card');
-  if(!sel){ c.innerHTML=S.intro?'<h2>'+L().introH+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
+  if(!sel){ c.innerHTML=S.intro?(ART?'<img class="hero" src="img/hero.webp" alt="">':'')+'<h2>'+L().introH+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
       :'<div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button><span class="dist">'+visible().length+' '+L().tabList.toLowerCase()+'</span></div>'; return; }
   const p=P(sel), t=tx(p), mine=S.mine.includes(p.id);
   c.innerHTML='<div class="kick">'+dotHTML(p.c)+L().cat[p.c]+(p.t?'<span class="tag">'+L().busy+'</span>':'')+'<span class="dist">'+dTxt(p)+'</span></div><h2>'+esc(t.n)+'</h2><p>'+esc(t.k)+'</p>'+
@@ -919,9 +929,9 @@ function renderList(){ const vis=visible(), row=p=>'<button class="item'+(S.seen
 function renderTips(){ const m=ordered(S.mine); let h='<h3>'+L().mine+'</h3><div class="box">';
   if(m.length){ const km=walkKm(m); h+='<p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+'</p><div class="row"><button class="btn pri" data-a="showmine">'+L().showMine+'</button><button class="btn quiet" data-a="clear">'+L().clear+'</button></div>'; }
   else h+='<h4>'+L().ownH+'</h4><p style="margin:0">'+L().ownP+'</p>';
-  h+='</div><h3>'+L().ready+'</h3>'+SETS.map(s=>{ const ids=ordered(s.ids); return '<div class="box"><h4>'+esc(s[S.lang].n)+'</h4><p>'+esc(s[S.lang].d)+'<br><span class="small">'+L().setMeta(ids.length,kmTxt(walkKm(ids)))+'</span></p><button class="btn" data-set="'+s.id+'">'+L().take+'</button></div>'; }).join('');
+  h+='</div><h3>'+L().ready+'</h3>'+SETS.map(s=>{ const ids=ordered(s.ids); return '<div class="box">'+(ART?'<img class="set" src="img/set-'+s.id+'.webp" alt="" loading="lazy">':'')+'<h4>'+esc(s[S.lang].n)+'</h4><p>'+esc(s[S.lang].d)+'<br><span class="small">'+L().setMeta(ids.length,kmTxt(walkKm(ids)))+'</span></p><button class="btn" data-set="'+s.id+'">'+L().take+'</button></div>'; }).join('');
   const n=SPOT.filter(s=>S.spot[s.id]).length;
-  h+='<h3>'+L().spotH+' · '+L().spotN(n,SPOT.length)+'</h3><div class="box"><p>'+L().spotP+'</p>'+SPOT.map(s=>'<div class="spot"><input type="checkbox" id="sp-'+s.id+'" data-spot="'+s.id+'"'+(S.spot[s.id]?' checked':'')+'><label for="sp-'+s.id+'"><b>'+esc(s[S.lang][0])+'</b><span>'+esc(s[S.lang][1])+'</span></label></div>').join('')+'</div>';
+  h+='<h3>'+L().spotH+' · '+L().spotN(n,SPOT.length)+'</h3><div class="box"><p>'+L().spotP+'</p>'+SPOT.map(s=>'<div class="spot"><input type="checkbox" id="sp-'+s.id+'" data-spot="'+s.id+'"'+(S.spot[s.id]?' checked':'')+'>'+(ART?'<img src="img/spot-'+s.id+'.webp" alt="" loading="lazy">':'')+'<label for="sp-'+s.id+'"><b>'+esc(s[S.lang][0])+'</b><span>'+esc(s[S.lang][1])+'</span></label></div>').join('')+'</div>';
   h+='<h3>'+L().aboutH+'</h3><div class="box"><p>'+L().aboutP+'</p><button class="btn quiet" data-a="reset">'+L().reset+'</button></div>';
   if(CREDITS.length) h+='<h3>'+L().credH+'</h3><div class="box"><p>'+L().credP+'</p>'+CREDITS.map(c=>'<p class="small" style="margin:0 0 6px">'+esc(tx(P(c.id)).n)+': <a href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.maker)+'</a>, '+esc(c.lic)+'</p>').join('')+'</div>';
   if(test){ let pp='{}'; try{ pp=localStorage.getItem(PINKEY)||'{}'; }catch(e){} h+='<h3>'+L().pins+'</h3><pre>'+esc(pp)+'</pre>'; }
@@ -930,7 +940,7 @@ function openStory(id){ const p=P(id), t=tx(p), mine=S.mine.includes(id), seen=S
   const near=PLACES.filter(q=>q.id!==id).sort((a,b)=>dist(p,a)-dist(p,b)).slice(0,3);
   $('#sheetPos').textContent=L().z[p.z];
   const cr=CREDITS.find(c=>c.id===id);
-  $('#sheetIn').innerHTML=(IMG[id]?'<img class="ph" src="img/'+id+'.webp" alt="">'+(cr?'<p class="cred">'+L().photo+': '+esc(cr.maker)+', '+esc(cr.lic)+'</p>':''):'')+'<div class="kick" style="margin-top:6px">'+dotHTML(p.c)+L().cat[p.c]+(p.t?'<span class="tag">'+L().busy+'</span>':'')+'</div><h2>'+esc(t.n)+'</h2><p class="addr">'+esc(p.a)+(dTxt(p)?' · '+dTxt(p):'')+'</p>'+
+  $('#sheetIn').innerHTML=(IMG[id]?'<img class="ph" src="img/'+id+'.webp" alt="">'+(ILLUS[id]?'<p class="cred">'+L().illus+'</p>':cr?'<p class="cred">'+L().photo+': '+esc(cr.maker)+', '+esc(cr.lic)+'</p>':''):'')+'<div class="kick" style="margin-top:6px">'+dotHTML(p.c)+L().cat[p.c]+(p.t?'<span class="tag">'+L().busy+'</span>':'')+'</div><h2>'+esc(t.n)+'</h2><p class="addr">'+esc(p.a)+(dTxt(p)?' · '+dTxt(p):'')+'</p>'+
     '<p class="pull" style="--cc:var(--c-'+p.c+')">'+esc(t.k)+'</p><div class="story">'+t.s.map(x=>'<p>'+esc(x)+'</p>').join('')+'</div><div class="tip"><b>'+L().tip+'</b>'+esc(t.tip)+'</div>'+
     '<div class="row"><button class="btn'+(seen?' on':' pri')+'" data-a="seen">'+(seen?L().beenOn:L().been)+'</button><button class="btn'+(mine?' on':'')+'" data-a="mine">'+(mine?L().added:L().add)+'</button></div>'+
     '<div class="row" style="margin-top:8px"><button class="btn quiet" data-a="onmap">'+L().onMap+'</button><a class="btn quiet" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+p.lat+','+p.lng+'">'+L().maps+' ↗</a>'+(test?'<button class="btn quiet" data-a="move">'+L().move+'</button>':'')+'</div>'+

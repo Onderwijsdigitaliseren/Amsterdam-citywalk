@@ -6,18 +6,18 @@ Alles is optioneel: zonder plaatjes werkt de wandeling ook. Een foto verschijnt 
 
 | Bestand | Maat | Wat | Stand |
 |---|---|---|---|
-| `hero.webp` | 1600 × 900 | Startbeeld: gracht van achteren gezien, steeg of achterdeur, warm licht. Geen bekende ansicht. | nog maken |
-| `cover.webp` | 1200 × 1200 | Vierkant voor de site en Ko-fi, met ruimte voor de titel | nog maken |
-| `og.jpg` | 1200 × 630 | Deelplaatje (WhatsApp, socials), titel erin | nog maken |
-| `set-raar.webp` | 1200 × 500 | Kop bij het lijstje Rare verhalen (bijv. het huis met de hoofden) | optioneel |
-| `set-jordaan.webp` | 1200 × 500 | De Jordaan achterom | optioneel |
-| `set-borrel.webp` | 1200 × 500 | Hapje en borrel (tulpglaasje tot de rand) | optioneel |
-| `set-bouw.webp` | 1200 × 500 | Mooi gebouwd | optioneel |
-| `set-shop.webp` | 1200 × 500 | Shoppen zonder ketens | optioneel |
-| `set-stil.webp` | 1200 × 500 | Even stil (hofje) | optioneel |
-| `spot-hijs.webp` … `spot-stolper.webp` | 400 × 400 | Tien kleine tekeningen bij Onderweg spotten: hijsbalk, drie kruisen, Amsterdammertje, krul, gevelsteen, drie gevels, scheef huis, woonboot, reiger, Stolperstein | optioneel |
+| `hero.webp` | 1600 × 900 | Startbeeld: gracht van achteren gezien, steeg of achterdeur, warm licht. Geen bekende ansicht. | staat erin |
+| `cover.webp` | 1200 × 1200 | Vierkant voor de site en Ko-fi, met ruimte voor de titel | staat erin |
+| `og.jpg` | 1200 × 630 | Deelplaatje (WhatsApp, socials), titel erin | staat erin |
+| `set-raar.webp` | 1200 × 500 | Kop bij het lijstje Rare verhalen (bijv. het huis met de hoofden) | staat erin |
+| `set-jordaan.webp` | 1200 × 500 | De Jordaan achterom | staat erin |
+| `set-borrel.webp` | 1200 × 500 | Hapje en borrel (tulpglaasje tot de rand) | staat erin |
+| `set-bouw.webp` | 1200 × 500 | Mooi gebouwd | staat erin |
+| `set-shop.webp` | 1200 × 500 | Shoppen zonder ketens | staat erin |
+| `set-stil.webp` | 1200 × 500 | Even stil (hofje) | staat erin |
+| `spot-hijs.webp` … `spot-stolper.webp` | 400 × 400 | Tien kleine tekeningen bij Onderweg spotten: hijsbalk, drie kruisen, Amsterdammertje, krul, gevelsteen, drie gevels, scheef huis, woonboot, reiger, Stolperstein | staat erin |
 
-`hero`, `cover`, `og`, de lijstjeskoppen en de spot-tekeningen worden nu nog nergens getoond; die bouw ik in zodra ze er zijn.
+Alles aangeleverd op 21 november. `hero` staat op het startkaartje, de lijstjeskoppen boven elk lijstje, de spot-tekeningen naast Onderweg spotten, `og.jpg` als deelplaatje. `cover` is voor de site en Ko-fi en wordt in de wandeling zelf niet getoond.
 
 ## Foto per plek (47)
 
@@ -27,7 +27,7 @@ Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders 
 | Bestand | Plek | Wat er op moet | Bron |
 |---|---|---|---|
 | `fiets.webp` | De fietsenstalling onder water | De plek zelf, herkenbaar | staat erin (Commons) |
-| `singel7.webp` | De gevel van één meter | Smalle gevel met iemand ervoor voor de schaal | **zelf fotograferen** |
+| `singel7.webp` | De gevel van één meter | Smalle gevel met iemand ervoor voor de schaal | staat erin (illustratie van Kellie) |
 | `poes.webp` | De Poezenboot | De plek zelf, herkenbaar | staat erin (Commons) |
 | `westindisch.webp` | Het West-Indisch Huis | De plek zelf, herkenbaar | staat erin (Commons) |
 | `haarlemmer.webp` | Haarlemmerstraat en -dijk | De plek zelf, herkenbaar | staat erin (Commons) |
@@ -38,7 +38,7 @@ Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders 
 | `karthuizer.webp` | Karthuizerhof | De plek zelf, herkenbaar | staat erin (Commons) |
 | `smalle.webp` | Café 't Smalle | Het steigertje op de gracht | staat erin (Commons) |
 | `electric.webp` | Electric Ladyland | De plek zelf, herkenbaar | staat erin (Commons) |
-| `chris.webp` | Café Chris | Interieur of gevel; de wc-trekker als het lukt | **zelf fotograferen** |
+| `chris.webp` | Café Chris | Interieur of gevel; de wc-trekker als het lukt | staat erin (illustratie van Kellie), minder planten gewenst |
 | `wester.webp` | Westertoren | De plek zelf, herkenbaar | staat erin (Commons) |
 | `homo.webp` | Homomonument | De plek zelf, herkenbaar | staat erin (Commons) |
 | `hoofden.webp` | Het Huis met de Hoofden | De plek zelf, herkenbaar | staat erin (Commons) |
@@ -47,12 +47,12 @@ Waar de foto vandaan kan komen staat in `BRONNEN.md`. "Commons proberen, anders 
 | `felix.webp` | Felix Meritis | De plek zelf, herkenbaar | staat erin (Commons) |
 | `johnny.webp` | Johnny Jordaanplein | De beelden op het plein | staat erin (Commons) |
 | `paleis.webp` | Paleis op de Dam | De plek zelf, herkenbaar | staat erin (Commons) |
-| `papegaai.webp` | De Papegaai | De deur in de Kalverstraat met de papegaai erboven | staat erin (Commons), zwak: vervangen |
+| `papegaai.webp` | De Papegaai | De deur in de Kalverstraat met de papegaai erboven | staat erin (illustratie van Kellie) |
 | `fockink.webp` | Wynand Fockink | De plek zelf, herkenbaar | staat erin (Commons) |
 | `begijnhof.webp` | Begijnhof | De plek zelf, herkenbaar | staat erin (Commons) |
 | `lieverdje.webp` | Het Lieverdje | Het beeldje op het Spui | staat erin (Commons) |
 | `dokter.webp` | Café de Dokter | Het interieur (vraag even) | staat erin (Commons) |
-| `vleminckx.webp` | Vleminckx | Het loket met de rij | **zelf fotograferen** |
+| `vleminckx.webp` | Vleminckx | Het loket met de rij | staat erin (illustratie van Kellie) |
 | `rasphuis.webp` | Het Rasphuispoortje | De poort met Castigatio | staat erin (Commons) |
 | `rokin.webp` | De vitrines van station Rokin | De plek zelf, herkenbaar | staat erin (Commons) |
 | `oudemanhuis.webp` | Oudemanhuispoort | De plek zelf, herkenbaar | staat erin (Commons) |
