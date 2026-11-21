@@ -24,7 +24,7 @@ html,body{height:100%;margin:0}
 body{background:radial-gradient(900px 520px at 50% -140px,rgba(255,196,110,.45) 0,transparent 70%),var(--paper);color:var(--ink);font:400 16px/1.45 var(--sans);-webkit-text-size-adjust:100%}
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-#app{height:100%;max-width:960px;margin:0 auto;display:flex;flex-direction:column}
+#app{height:100%;height:100dvh;max-width:960px;margin:0 auto;display:flex;flex-direction:column}
 header{display:flex;align-items:center;gap:10px;padding:10px 16px 8px}
 #brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;text-align:left}
 .flag{width:24px;height:36px;border-radius:6px;background:linear-gradient(180deg,#ffc266,var(--accent2));display:grid;place-items:center;flex:none;box-shadow:0 2px 0 rgba(169,91,6,.25)}
@@ -62,7 +62,16 @@ h2{font:400 23px/1.18 var(--display);margin:0;text-wrap:balance}
 .btn.on{background:var(--soft);border-color:var(--accent2);color:var(--accent)}
 .btn.quiet{border-color:var(--line)}
 .dist{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;margin-left:auto}
-#tabs{display:flex;border-top:1.5px solid var(--line);background:var(--card)}
+#tabs{display:flex;border-top:1.5px solid var(--line);background:var(--card);padding-bottom:env(safe-area-inset-bottom)}
+#pickbar{display:none;align-items:center;gap:10px;padding:10px 16px;background:var(--soft);border-top:1.5px solid var(--accent2)}
+#pickbar.on{display:flex}
+#pickbar .t{font-size:14px;line-height:1.3}
+#pickbar .t b{display:block;font-size:15px}
+#pickbar .btn{margin-left:auto;flex:none}
+.item.pick{padding:0;align-items:stretch}.item.pick .open{display:flex;gap:12px;align-items:flex-start;flex:1;min-width:0;text-align:left;background:none;border:0;padding:10px 0 10px 12px;font:inherit;color:inherit}
+.pk{flex:none;width:54px;border:0;border-left:1.5px solid var(--line);background:none;border-radius:0 12px 12px 0;font-size:24px;font-weight:600;color:var(--accent)}
+.pk.on{background:var(--accent2);color:#fff}
+.item.pick.chosen{border-color:var(--accent2)}
 #tabs button{flex:1;border:0;background:none;padding:11px 4px 12px;font-weight:600;font-size:14px;color:var(--muted);border-top:3px solid transparent;margin-top:-1.5px}
 #tabs button[aria-selected="true"]{color:var(--accent);border-top-color:var(--accent2)}
 h3{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:18px 0 8px}
@@ -122,6 +131,7 @@ pre{white-space:pre-wrap;word-break:break-all;font-size:12px;background:var(--ca
     <section class="view" id="vList"><div class="scroll" id="list"></div></section>
     <section class="view" id="vTips"><div class="scroll" id="tips"></div></section>
   </main>
+  <div id="pickbar"></div>
   <nav id="tabs" role="tablist"></nav>
 </div>
 <div id="sheet" role="dialog" aria-modal="true"><div class="sheettop"><button class="btn quiet" id="sheetBack"></button><span class="small" id="sheetPos"></span></div><div id="sheetIn"></div></div>
@@ -138,7 +148,7 @@ nl:{sub:'Amsterdam via de achterdeur',all:'Alles',mine:'Mijn lijstje',tabMap:'Ka
  read:'Lees het verhaal',add:'Op mijn lijstje',added:'Op mijn lijstje ✓',been:'Hier geweest',beenOn:'Hier geweest ✓',maps:'Open in Maps',onMap:'Toon op kaart',back:'← Terug',busy:'Druk hier',tip:'Tip',near:'In de buurt',
  away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1).replace('.',',')+' km',
  sortNear:'Dichtstbij eerst',sortZone:'Per buurt',mineEmpty:'Je lijstje is nog leeg. Kies er hieronder een, of zet zelf plekken op je lijstje.',mineSum:(n,km,min)=>n+' plekken, ongeveer '+km+' km lopen en '+min+' aan tijd, hemelsbreed geschat.',showMine:'Toon op de kaart',clear:'Lijstje leegmaken',
- take:'Neem dit lijstje',taken:'Dit lijstje staat op de kaart.',setMeta:(n,km)=>n+' plekken · ± '+km+' km',ready:'Kant-en-klaar',ownH:'Zelf samenstellen',ownP:'Open een plek en tik op ‘Op mijn lijstje’. De kaart zet ze in een handige volgorde.',
+ take:'Neem dit lijstje',taken:'Dit lijstje staat op de kaart.',setMeta:(n,km)=>n+' plekken · ± '+km+' km',ready:'Kant-en-klaar',ownH:'Zelf samenstellen',ownP:'Kies zelf welke plekken je wilt zien. De app zet ze daarna in een handige loopvolgorde.',pickGo:'Kies zelf plekken',pickMore:'Plekken toevoegen of weghalen',pickH:'Tik op + bij de plekken die je wilt zien',pickN:(n,km)=>n?n+' gekozen · ± '+km+' km':'Nog niets gekozen',pickDone:'Klaar, naar de kaart',pickStop:'Stoppen',pickOwn:'Zelf kiezen',mineTitle:'Jouw wandeling',mineTap:'Tik op een punt voor het verhaal; de stippellijn is een handige volgorde.',showAll:'Alle plekken tonen',
  spotH:'Onderweg spotten',spotP:'Tien dingen die je overal tegenkomt als je weet waar je op moet letten. Vink af wat je ziet.',spotN:(a,b)=>a+' van '+b,
  aboutH:'Over deze wandeling',aboutP:'De verhalen zijn nagezocht, de legendes staan erbij als legendes. Cafés, winkels en musea veranderen: kijk voor openingstijden even op hun eigen site. Hofjes en kerken zijn van de bewoners; wees een goede gast.',
  weetjes:'Weetjes',weetje:'Weetje',nextW:'Volgend weetje',areaH:'Gebied',areaP:'Het blijft een wandeling. Standaard zie je alleen de binnenstad, binnen de Singelgracht. Wil je verder, zet dan ook de plekken daarbuiten aan: Museumplein, Vondelpark, De Pijp, Oost en Noord. Pak daarvoor gerust de fiets of de tram.',areaIn:'Alleen binnenstad',areaAll:'Ook daarbuiten',areaSetAll:'Plekken buiten de grachten staan aan.',areaSetIn:'Alleen de binnenstad.',photo:'Foto',illus:'Illustratie, geen foto',credH:'Beeldverantwoording',credP:'Foto\'s van Wikimedia Commons, bijgesneden. Tik op de naam voor de bron.',reset:'Voortgang wissen',reset2:'Zeker weten? Tik nog eens',resetDone:'Alles gewist.',hours:h=>h<1?Math.round(h*60/5)*5+' minuten':(Math.round(h*2)/2).toString().replace('.',',')+' uur',
@@ -151,7 +161,7 @@ en:{sub:'Amsterdam by the back door',all:'All',mine:'My list',tabMap:'Map',tabLi
  read:'Read the story',add:'Add to my list',added:'On my list ✓',been:'Been here',beenOn:'Been here ✓',maps:'Open in Maps',onMap:'Show on map',back:'← Back',busy:'Busy spot',tip:'Tip',near:'Nearby',
  away:m=>m<1000?'± '+Math.round(m/10)*10+' m':'± '+(m/1000).toFixed(1)+' km',
  sortNear:'Nearest first',sortZone:'By area',mineEmpty:'Your list is empty. Pick one below, or add places yourself.',mineSum:(n,km,min)=>n+' places, about '+km+' km on foot and '+min+' in total, estimated as the crow flies.',showMine:'Show on the map',clear:'Empty my list',
- take:'Use this list',taken:'This list is now on the map.',setMeta:(n,km)=>n+' places · ± '+km+' km',ready:'Ready-made',ownH:'Build your own',ownP:'Open a place and tap ‘Add to my list’. The map puts them in a sensible order.',
+ take:'Use this list',taken:'This list is now on the map.',setMeta:(n,km)=>n+' places · ± '+km+' km',ready:'Ready-made',ownH:'Build your own',ownP:'Choose the places you want to see. The app then puts them in a sensible walking order.',pickGo:'Choose places',pickMore:'Add or remove places',pickH:'Tap + on the places you want to see',pickN:(n,km)=>n?n+' chosen · ± '+km+' km':'Nothing chosen yet',pickDone:'Done, show the map',pickStop:'Stop',pickOwn:'Choose my own',mineTitle:'Your walk',mineTap:'Tap a point for its story; the dotted line is a handy order.',showAll:'Show all places',
  spotH:'Spot along the way',spotP:'Ten things you see everywhere once you know what to look for. Tick what you find.',spotN:(a,b)=>a+' of '+b,
  aboutH:'About this walk',aboutP:'The stories have been checked, and legends are told as legends. Cafés, shops and museums change: check opening hours on their own sites. Courtyards and churches belong to the people who live there; be a good guest.',
  weetjes:'Quick facts',weetje:'Quick fact',nextW:'Next fact',areaH:'Area',areaP:'It is still a walk. By default you only see the city centre, inside the Singelgracht. Want to go further? Switch on the places beyond it as well: Museumplein, Vondelpark, De Pijp, the east and the north. A bike or tram helps.',areaIn:'City centre only',areaAll:'Beyond it too',areaSetAll:'Places beyond the canals are on.',areaSetIn:'City centre only.',photo:'Photo',illus:'Illustration, not a photo',credH:'Image credits',credP:'Photos from Wikimedia Commons, cropped. Tap the name for the source.',reset:'Erase my progress',reset2:'Sure? Tap again',resetDone:'All erased.',hours:h=>h<1?Math.round(h*60/5)*5+' minutes':(Math.round(h*2)/2)+' hours',
@@ -245,7 +255,7 @@ const CREDITS=[
 const ILLUS={chris:1,vleminckx:1,singel7:1,papegaai:1}, ART=1, SETART={raar:1,jordaan:1,borrel:1,bouw:1,shop:1,stil:1};
 Object.assign(IMG,ILLUS);
 const KEY='achterom.v1', PINKEY='achterom.pins';
-let S={lang:null,seen:{},mine:[],spot:{},intro:1,area:'in'}, view='map', filter='all', sel=null, sortNear=false, test=false, moveId=null;
+let S={lang:null,seen:{},mine:[],spot:{},intro:1,area:'in'}, view='map', pick=false, filter='all', sel=null, sortNear=false, test=false, moveId=null;
 try{ const o=JSON.parse(localStorage.getItem(KEY)); if(o&&typeof o==='object') S=Object.assign(S,o); }catch(e){}
 try{ const p=JSON.parse(localStorage.getItem(PINKEY))||{}; PLACES.forEach(x=>{ if(p[x.id]){ x.lat=p[x.id][0]; x.lng=p[x.id][1]; } }); }catch(e){}
 if(S.lang!=='nl'&&S.lang!=='en') S.lang=(navigator.language||'nl').slice(0,2)==='nl'?'nl':'en';
@@ -420,7 +430,8 @@ function renderHead(){ document.documentElement.lang=S.lang; $('#sub').textConte
   [['in','Zoom in'],['out','Zoom out'],['fit',S.lang==='nl'?'Alles tonen':'Show all'],['me',S.lang==='nl'?'Mijn locatie':'My location']].forEach(a=>box.querySelector('[data-z='+a[0]+']').setAttribute('aria-label',a[1])); }
 function dTxt(p){ return inTown()?L().away(dist(pos,p)):''; }
 function renderCard(){ const c=$('#card');
-  if(!sel){ c.innerHTML=S.intro?(ART?'<img class="hero" src="img/hero.webp" alt="">':'')+'<h2>'+L().introH(areaPlaces().length)+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
+  if(!sel&&filter==='mine'&&S.mine.length){ const m=ordered(S.mine), km=walkKm(m); c.innerHTML='<h2>'+L().mineTitle+'</h2><p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+' '+L().mineTap+'</p><div class="row"><button class="btn" data-a="pick">'+L().pickMore+'</button><button class="btn quiet" data-a="showall">'+L().showAll+'</button></div>'; return; }
+  if(!sel){ c.innerHTML=S.intro?(ART?'<img class="hero" src="img/hero.webp" alt="">':'')+'<h2>'+L().introH(areaPlaces().length)+'</h2><p>'+L().introP+'</p><div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="pick">'+L().pickOwn+'</button><button class="btn" data-a="tips">'+L().pickList+'</button></div>'
       :'<div class="row"><button class="btn pri" data-a="surprise">'+L().surprise+'</button><button class="btn" data-a="tips">'+L().pickList+'</button><span class="dist">'+visible().length+' '+L().tabList.toLowerCase()+'</span></div>'; return; }
   const w=W_(sel); if(w){ const near=visW().filter(x=>x!==w).sort((a,b)=>dist(w,a)-dist(w,b))[0];
     c.innerHTML='<div class="kick"><span class="dot" style="background:var(--accent);color:#fff;font:italic 700 12px Georgia,serif">i</span>'+L().weetje+'<span class="dist">'+dTxt(w)+'</span></div><h2>'+esc(w[S.lang].n)+'</h2><p>'+esc(w[S.lang].t)+'</p>'+
@@ -428,8 +439,8 @@ function renderCard(){ const c=$('#card');
   const p=P(sel), t=tx(p), mine=S.mine.includes(p.id);
   c.innerHTML='<div class="kick">'+dotHTML(p.c)+L().cat[p.c]+(p.t?'<span class="tag">'+L().busy+'</span>':'')+'<span class="dist">'+dTxt(p)+'</span></div><h2>'+esc(t.n)+'</h2><p>'+esc(t.k)+'</p>'+
     '<div class="row"><button class="btn pri" data-a="read">'+L().read+'</button><button class="btn'+(mine?' on':'')+'" data-a="mine">'+(mine?L().added:L().add)+'</button></div>'; }
-function renderList(){ const vis=visible(), row=p=>'<button class="item'+(S.seen[p.id]?' seen':'')+'" data-id="'+p.id+'">'+dotHTML(p.c)+'<span><b>'+esc(tx(p).n)+'</b><span class="k">'+esc(tx(p).k)+'</span></span><span class="meta">'+dTxt(p)+(p.t?'<br>'+L().busy:'')+'</span></button>';
-  let h=''; if(inTown()) h+='<div class="row" style="margin:6px 0 4px"><button class="pill" data-a="sort">'+(sortNear?L().sortZone:L().sortNear)+'</button></div>';
+function renderList(){ const vis=visible(), row=p=>pick?'<div class="item pick'+(S.mine.includes(p.id)?' chosen':'')+'"><button class="open" data-open="'+p.id+'">'+dotHTML(p.c)+'<span><b>'+esc(tx(p).n)+'</b><span class="k">'+esc(tx(p).k)+'</span></span><span class="meta">'+dTxt(p)+'</span></button><button class="pk'+(S.mine.includes(p.id)?' on':'')+'" data-pick="'+p.id+'" aria-pressed="'+S.mine.includes(p.id)+'" aria-label="'+esc(tx(p).n)+'">'+(S.mine.includes(p.id)?'✓':'+')+'</button></div>':'<button class="item'+(S.seen[p.id]?' seen':'')+'" data-id="'+p.id+'">'+dotHTML(p.c)+'<span><b>'+esc(tx(p).n)+'</b><span class="k">'+esc(tx(p).k)+'</span></span><span class="meta">'+dTxt(p)+(p.t?'<br>'+L().busy:'')+'</span></button>';
+  let h=pick?'<p class="small" style="margin:10px 0 0">'+L().pickH+'</p>':''; if(inTown()) h+='<div class="row" style="margin:6px 0 4px"><button class="pill" data-a="sort">'+(sortNear?L().sortZone:L().sortNear)+'</button></div>';
   if(filter==='weetje'){ $('#list').innerHTML='<h3>'+L().weetjes+'</h3>'+visW().slice().sort((a,b)=>inTown()?dist(pos,a)-dist(pos,b):0).map(w=>'<button class="item" data-w="'+w.id+'"><span class="dot" style="background:var(--card);border:1.8px solid var(--accent);color:var(--accent);font:italic 700 14px Georgia,serif">i</span><span><b>'+esc(w[S.lang].n)+'</b><span class="k">'+esc(w[S.lang].t)+'</span></span><span class="meta">'+dTxt(w)+'</span></button>').join(''); return; }
   if(filter==='mine'&&!vis.length) h+='<p class="small" style="margin-top:14px">'+L().mineEmpty+'</p>';
   if(sortNear&&inTown()) h+='<h3>'+L().sortNear+'</h3>'+vis.slice().sort((a,b)=>dist(pos,a)-dist(pos,b)).map(row).join('');
@@ -438,8 +449,8 @@ function renderList(){ const vis=visible(), row=p=>'<button class="item'+(S.seen
   $('#list').innerHTML=h; }
 function renderTips(){ const m=ordered(S.mine); let h='<h3>'+L().areaH+'</h3><div class="box"><p>'+L().areaP+'</p><div class="row"><button class="btn'+(S.area!=='all'?' on':'')+'" data-area="in">'+L().areaIn+'</button><button class="btn'+(S.area==='all'?' on':'')+'" data-area="all">'+L().areaAll+'</button></div></div>';
   h+='<h3>'+L().mine+'</h3><div class="box">';
-  if(m.length){ const km=walkKm(m); h+='<p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+'</p><div class="row"><button class="btn pri" data-a="showmine">'+L().showMine+'</button><button class="btn quiet" data-a="clear">'+L().clear+'</button></div>'; }
-  else h+='<h4>'+L().ownH+'</h4><p style="margin:0">'+L().ownP+'</p>';
+  if(m.length){ const km=walkKm(m); h+='<p>'+L().mineSum(m.length,kmTxt(km),L().hours(km/4.5+m.length*6/60))+'</p><div class="row"><button class="btn pri" data-a="showmine">'+L().showMine+'</button><button class="btn" data-a="pick">'+L().pickMore+'</button><button class="btn quiet" data-a="clear">'+L().clear+'</button></div>'; }
+  else h+='<h4>'+L().ownH+'</h4><p>'+L().ownP+'</p><button class="btn pri" data-a="pick">'+L().pickGo+'</button>';
   h+='</div><h3>'+L().ready+'</h3>'+SETS.map(s=>{ const ids=ordered(s.ids); return '<div class="box">'+(ART&&SETART[s.id]?'<img class="set" src="img/set-'+s.id+'.webp" alt="" loading="lazy">':'')+'<h4>'+esc(s[S.lang].n)+'</h4><p>'+esc(s[S.lang].d)+'<br><span class="small">'+L().setMeta(ids.length,kmTxt(walkKm(ids)))+'</span></p><button class="btn" data-set="'+s.id+'">'+L().take+'</button></div>'; }).join('');
   const n=SPOT.filter(s=>S.spot[s.id]).length;
   h+='<h3>'+L().spotH+' · '+L().spotN(n,SPOT.length)+'</h3><div class="box"><p>'+L().spotP+'</p>'+SPOT.map(s=>'<div class="spot"><input type="checkbox" id="sp-'+s.id+'" data-spot="'+s.id+'"'+(S.spot[s.id]?' checked':'')+'>'+(ART?'<img src="img/spot-'+s.id+'.webp" alt="" loading="lazy">':'')+'<label for="sp-'+s.id+'"><b>'+esc(s[S.lang][0])+'</b><span>'+esc(s[S.lang][1])+'</span></label></div>').join('')+'</div>';
@@ -459,7 +470,8 @@ function openStory(id){ const p=P(id), t=tx(p), mine=S.mine.includes(id), seen=S
   $('#sheet').classList.add('on'); $('#sheetIn').scrollTop=0; $('#sheetBack').focus(); }
 function closeStory(){ $('#sheet').classList.remove('on'); renderAll(); }
 function setView(v){ view=v; ['Map','List','Tips'].forEach(n=>$('#v'+n).classList.toggle('on',n.toLowerCase()===v)); renderAll(); if(v==='map'){ size(); redraw(); } }
-function renderAll(){ renderHead(); renderCard(); if(view==='list') renderList(); if(view==='tips') renderTips(); redraw(); }
+function renderPick(){ const b=$('#pickbar'); const was=b.classList.contains('on'); b.classList.toggle('on',pick); if(was!==pick&&view==='map') size(); if(!pick) return; const m=ordered(S.mine); b.innerHTML='<span class="t"><b>'+L().pickN(m.length,kmTxt(walkKm(m)))+'</b><button class="pill" data-a="pickstop" style="margin-top:4px">'+L().pickStop+'</button></span><button class="btn pri" data-a="pickdone"'+(m.length?'':' disabled')+'>'+L().pickDone+' →</button>'; }
+function renderAll(){ renderHead(); renderPick(); renderCard(); if(view==='list') renderList(); if(view==='tips') renderTips(); redraw(); }
 function setArea(a){ if(S.area===a) return; S.area=a; save(); WORLD=null; worldState='idle'; loadWorld(); if(sel&&!W_(sel)&&!inArea(P(sel))) sel=null; fit(areaPlaces(),34); renderAll(); }
 function toggleMine(id){ const i=S.mine.indexOf(id); i<0?S.mine.push(id):S.mine.splice(i,1); save(); }
 function surprise(){ const pool=areaPlaces().filter(p=>!S.seen[p.id]&&p.id!==sel); if(!pool.length){ toast(L().noSurprise); return; }
@@ -477,9 +489,15 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('#sheet').classL
 document.addEventListener('click',e=>{ const it=e.target.closest('.item[data-id]'); if(it){ openStory(it.dataset.id); return; }
   const ar=e.target.closest('[data-area]'); if(ar){ setArea(ar.dataset.area); renderTips(); toast(S.area==='all'?L().areaSetAll:L().areaSetIn); return; }
   const wb=e.target.closest('[data-w]'); if(wb){ sel='w:'+wb.dataset.w; S.intro=0; save(); if(view!=='map') setView('map'); else renderAll(); centerOn(W_(sel),.7); return; }
-  const st=e.target.closest('[data-set]'); if(st){ if(SETS.find(s=>s.id===st.dataset.set).ids.some(i=>!INNER.includes(P(i).z))&&S.area!=='all') setArea('all'); S.mine=SETS.find(s=>s.id===st.dataset.set).ids.slice(); S.intro=0; save(); filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); toast(L().taken); return; }
+  const st=e.target.closest('[data-set]'); if(st){ if(SETS.find(s=>s.id===st.dataset.set).ids.some(i=>!INNER.includes(P(i).z))&&S.area!=='all') setArea('all'); pick=false; S.mine=SETS.find(s=>s.id===st.dataset.set).ids.slice(); S.intro=0; save(); filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); toast(L().taken); return; }
+  const op=e.target.closest('[data-open]'); if(op){ openStory(op.dataset.open); return; }
+  const pk=e.target.closest('[data-pick]'); if(pk){ toggleMine(pk.dataset.pick); renderAll(); return; }
   const b=e.target.closest('[data-a]'); if(!b) return; const a=b.dataset.a;
-  if(a==='surprise') surprise(); else if(a==='tips') setView('tips'); else if(a==='read') openStory(sel);
+  if(a==='pick'){ pick=true; S.intro=0; save(); if(filter==='mine'||filter==='weetje') filter='all'; sel=null; setView('list'); $('#list').scrollTop=0; }
+  else if(a==='showall'){ filter='all'; sel=null; renderAll(); fit(areaPlaces(),34); redraw(); }
+  else if(a==='pickstop'){ pick=false; renderAll(); }
+  else if(a==='pickdone'){ pick=false; if(!S.mine.length) return renderAll(); filter='mine'; sel=null; setView('map'); fit(visible(),40); redraw(); }
+  else if(a==='surprise') surprise(); else if(a==='tips') setView('tips'); else if(a==='read') openStory(sel);
   else if(a==='mine'){ toggleMine(sel); if($('#sheet').classList.contains('on')) openStory(sel); else renderAll(); }
   else if(a==='seen'){ S.seen[sel]?delete S.seen[sel]:S.seen[sel]=1; save(); openStory(sel); renderHead(); }
   else if(a==='onmap'){ $('#sheet').classList.remove('on'); if(!visible().some(p=>p.id===sel)) filter='all'; setView('map'); centerOn(P(sel),.9); }
